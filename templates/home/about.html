@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}Men haqimda — Sun'iy Intellekt Asoslari{% endblock %}
+
+{% block content %}
+<!-- Header -->
+<section class="bg-gradient-to-br from-navy via-blue-900 to-navy py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Men haqimda</h1>
+        <p class="text-blue-200 text-lg">O'quv materiallar muallifi va platforma yaratuvchisi</p>
+    </div>
+</section>
+
+<section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <!-- Profile Card -->
+        <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12 -mt-20 relative z-10">
+            <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                <div class="w-40 h-40 bg-gradient-to-br from-electric to-blue-700 rounded-3xl flex items-center justify-center flex-shrink-0 shadow-xl shadow-electric/20">
+                    <i class="fas fa-user text-white text-6xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-navy mb-1">O'qituvchi ismi</h2>
+                    <p class="text-electric font-semibold mb-1">Sun'iy intellekt asoslari fani o'qituvchisi</p>
+                    <p class="text-gray-500 mb-4">Oliy ta'lim muassasasi nomi</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-electric/10 text-electric text-sm font-medium rounded-full">Sun'iy intellekt</span>
+                        <span class="px-3 py-1 bg-emerald/10 text-emerald text-sm font-medium rounded-full">Ma'lumotlar fani</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 text-sm font-medium rounded-full">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Career Timeline -->
+        <div class="mt-16">
+            <h3 class="text-2xl font-bold text-navy mb-8 text-center">Karera yo'li</h3>
+            <div class="relative pl-8">
+                <div class="absolute left-3 top-0 bottom-0 w-0.5 bg-electric/20"></div>
+
+                <div class="relative mb-10 group">
+                    <div class="absolute left-0 w-7 h-7 bg-electric rounded-full border-4 border-gray-50 shadow -translate-x-1/2 z-10"></div>
+                    <div class="ml-8 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 group-hover:shadow-lg transition">
+                        <span class="text-xs font-semibold text-electric">2015-2019</span>
+                        <h4 class="font-bold text-navy mt-1">Bakalavr darajasi</h4>
+                        <p class="text-gray-500 text-sm mt-1">Informatika va axborot texnologiyalari yo'nalishi bo'yicha bakalavr</p>
+                    </div>
+                </div>
+
+                <div class="relative mb-10 group">
+                    <div class="absolute left-0 w-7 h-7 bg-emerald rounded-full border-4 border-gray-50 shadow -translate-x-1/2 z-10"></div>
+                    <div class="ml-8 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 group-hover:shadow-lg transition">
+                        <span class="text-xs font-semibold text-emerald">2019-2021</span>
+                        <h4 class="font-bold text-navy mt-1">Magistratura</h4>
+                        <p class="text-gray-500 text-sm mt-1">Sun'iy intellekt va ma'lumotlar fani bo'yicha magistr darajasi</p>
+                    </div>
+                </div>
+
+                <div class="relative mb-10 group">
+                    <div class="absolute left-0 w-7 h-7 bg-electric rounded-full border-4 border-gray-50 shadow -translate-x-1/2 z-10"></div>
+                    <div class="ml-8 bg-white p-6 rounded-2xl shadow-sm border border-gray-100 group-hover:shadow-lg transition">
+                        <span class="text-xs font-semibold text-electric">2021-hozirgi</span>
+                        <h4 class="font-bold text-navy mt-1">O'qituvchi</h4>
+                        <p class="text-gray-500 text-sm mt-1">Oliy ta'lim muassasasida sun'iy intellekt asoslari fani o'qituvchisi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Publications -->
+        <div class="mt-16">
+            <h3 class="text-2xl font-bold text-navy mb-8 text-center">Ilmiy nashrlar</h3>
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h4 class="font-bold text-navy">"Sun'iy intellektni ta'limda qo'llash"</h4>
+                    <p class="text-gray-500 text-sm mt-1">Ilmiy jurnal nomi, 2023</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h4 class="font-bold text-navy">"Machine Learning algoritmlari tahlili"</h4>
+                    <p class="text-gray-500 text-sm mt-1">Ilmiy konferensiya materiallari, 2022</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="mt-16 bg-navy rounded-3xl p-8 text-center">
+            <h3 class="text-xl font-bold text-white mb-6">Aloqa ma'lumotlari</h3>
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="flex items-center gap-3 text-gray-300">
+                    <i class="fas fa-envelope text-electric"></i> info@si-asoslari.uz
+                </div>
+                <div class="flex items-center gap-3 text-gray-300">
+                    <i class="fas fa-phone text-electric"></i> +998 90 123 45 67
+                </div>
+                <div class="flex items-center gap-3 text-gray-300">
+                    <i class="fab fa-telegram text-electric"></i> @si_asoslari
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

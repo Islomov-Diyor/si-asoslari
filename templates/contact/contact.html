@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}Bog'lanish — SI Asoslari{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-br from-navy via-blue-900 to-navy py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Bog'lanish</h1>
+        <p class="text-blue-200 text-lg">Savollaringiz bormi? Biz bilan bog'laning</p>
+    </div>
+</section>
+
+<section class="py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="grid md:grid-cols-5 gap-8 -mt-16 relative z-10">
+            <!-- Contact Form -->
+            <div class="md:col-span-3">
+                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+                    <h2 class="text-xl font-bold text-navy mb-6">Xabar yuborish</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Ismingiz</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-electric focus:ring-2 focus:ring-electric/20 outline-none transition" placeholder="Ismingizni kiriting">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                                <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-electric focus:ring-2 focus:ring-electric/20 outline-none transition" placeholder="email@example.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Xabar</label>
+                                <textarea name="message" rows="5" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-electric focus:ring-2 focus:ring-electric/20 outline-none transition resize-none" placeholder="Xabaringizni yozing..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-electric to-blue-700 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-electric/25 hover:-translate-y-0.5 transition-all duration-300">
+                                <i class="fas fa-paper-plane mr-2"></i> Yuborish
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="md:col-span-2 space-y-4">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-phone text-electric text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Telefon</p>
+                            <p class="font-semibold text-navy">+998 90 123 45 67</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-envelope text-electric text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Email</p>
+                            <p class="font-semibold text-navy">info@si-asoslari.uz</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center">
+                            <i class="fab fa-telegram text-electric text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Telegram</p>
+                            <p class="font-semibold text-navy">@si_asoslari</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-electric text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Manzil</p>
+                            <p class="font-semibold text-navy">Toshkent, O'zbekiston</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

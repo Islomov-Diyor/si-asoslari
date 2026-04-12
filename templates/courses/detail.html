@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ material.title }} — SI Asoslari{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-br from-navy via-blue-900 to-navy py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <nav class="text-sm text-blue-300 mb-4">
+            <a href="{% url 'courses:list' %}" class="hover:text-white transition">Materiallar</a>
+            <i class="fas fa-chevron-right text-[10px] mx-2"></i>
+            <a href="{% url 'courses:category' material.category.slug %}" class="hover:text-white transition">{{ material.category.name }}</a>
+            <i class="fas fa-chevron-right text-[10px] mx-2"></i>
+            <span class="text-white">{{ material.title|truncatewords:5 }}</span>
+        </nav>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-white">{{ material.title }}</h1>
+    </div>
+</section>
+
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Main Content -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    {% if material.video_url %}
+                    <div class="aspect-video">
+                        <iframe src="{{ material.video_url }}" class="w-full h-full" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    </div>
+                    {% elif material.file %}
+                    <div class="aspect-[4/3]">
+                        <iframe src="{{ material.file.url }}" class="w-full h-full" frameborder="0"></iframe>
+                    </div>
+                    {% endif %}
+
+                    <div class="p-8">
+                        <div class="flex flex-wrap items-center gap-3 mb-6">
+                            <span class="px-4 py-1.5 bg-electric/10 text-electric text-sm font-semibold rounded-full">{{ material.category.name }}</span>
+                            <span class="text-sm text-gray-400"><i class="fas fa-calendar-alt mr-1"></i> {{ material.created_at|date:"d.m.Y" }}</span>
+                        </div>
+                        <div class="prose prose-gray max-w-none">
+                            <p>{{ material.description|linebreaksbr }}</p>
+                        </div>
+
+                        {% if material.file %}
+                        <div class="mt-8 p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-file-pdf text-red-500 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-navy">PDF faylni yuklab olish</p>
+                                        <p class="text-sm text-gray-400">{{ material.title }}</p>
+                                    </div>
+                                </div>
+                                <a href="{{ material.file.url }}" download class="px-6 py-3 bg-electric text-white font-semibold rounded-full hover:bg-electric-dark hover:shadow-lg transition-all duration-300">
+                                    <i class="fas fa-download mr-2"></i> Yuklab olish
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-24">
+                    <h3 class="text-lg font-bold text-navy mb-4">O'xshash materiallar</h3>
+                    <div class="space-y-4">
+                        {% for item in related %}
+                        <a href="{% url 'courses:detail' item.category.slug item.pk %}" class="flex items-start gap-3 group">
+                            <div class="w-10 h-10 bg-electric/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                {% if item.video_url %}
+                                <i class="fas fa-video text-electric text-sm"></i>
+                                {% else %}
+                                <i class="fas fa-file text-electric text-sm"></i>
+                                {% endif %}
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-navy group-hover:text-electric transition line-clamp-2">{{ item.title }}</p>
+                                <p class="text-xs text-gray-400 mt-1">{{ item.created_at|date:"d.m.Y" }}</p>
+                            </div>
+                        </a>
+                        {% empty %}
+                        <p class="text-sm text-gray-400">O'xshash materiallar topilmadi</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

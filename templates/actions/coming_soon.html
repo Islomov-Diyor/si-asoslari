@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Tez kunda — SI Asoslari{% endblock %}
+
+{% block content %}
+<section class="min-h-[70vh] flex items-center justify-center py-20">
+    <div class="text-center max-w-lg mx-auto px-4">
+        <div class="w-32 h-32 bg-electric/10 rounded-full flex items-center justify-center mx-auto mb-8">
+            <i class="fas fa-tools text-electric text-5xl"></i>
+        </div>
+        <h1 class="text-4xl font-extrabold text-navy mb-4">Tez kunda!</h1>
+        <p class="text-gray-500 text-lg mb-8">Interaktiv xizmatlar ustida ishlamoqdamiz. Tez orada yangi imkoniyatlar bilan qaytamiz!</p>
+        <div class="flex flex-wrap gap-4 justify-center">
+            <a href="{% url 'home:index' %}" class="px-8 py-3 bg-electric text-white font-semibold rounded-full hover:bg-electric-dark hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                <i class="fas fa-home mr-2"></i> Bosh sahifaga
+            </a>
+            <a href="{% url 'courses:list' %}" class="px-8 py-3 border-2 border-electric text-electric font-semibold rounded-full hover:bg-electric hover:text-white transition-all duration-300">
+                Materiallarga
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

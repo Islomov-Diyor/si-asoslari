@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Natija — {{ quiz.title }}{% endblock %}
+
+{% block content %}
+<section class="py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <!-- Score Card -->
+        <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12 text-center mb-10">
+            <div class="w-32 h-32 mx-auto mb-6 relative">
+                <svg class="w-32 h-32 -rotate-90" viewBox="0 0 120 120">
+                    <circle cx="60" cy="60" r="54" fill="none" stroke="#E5E7EB" stroke-width="8"/>
+                    <circle cx="60" cy="60" r="54" fill="none" stroke="{% if percentage >= 70 %}#10B981{% elif percentage >= 50 %}#F59E0B{% else %}#EF4444{% endif %}" stroke-width="8" stroke-linecap="round" stroke-dasharray="{{ percentage|floatformat:0 }}% 999" stroke-dashoffset="0" style="stroke-dasharray: calc(339.292 * {{ percentage }} / 100) 339.292"/>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-3xl font-extrabold text-navy">{{ percentage }}%</span>
+                </div>
+            </div>
+            <h1 class="text-2xl font-bold text-navy mb-2">{{ quiz.title }}</h1>
+            <p class="text-gray-500 mb-4">Natijangiz: <span class="font-bold text-navy">{{ score }}</span> / {{ total }} to'g'ri javob</p>
+            {% if percentage >= 70 %}
+            <span class="inline-block px-6 py-2 bg-emerald/10 text-emerald font-bold rounded-full">A'lo natija!</span>
+            {% elif percentage >= 50 %}
+            <span class="inline-block px-6 py-2 bg-yellow-100 text-yellow-700 font-bold rounded-full">Yaxshi natija</span>
+            {% else %}
+            <span class="inline-block px-6 py-2 bg-red-100 text-red-600 font-bold rounded-full">Yana urinib ko'ring</span>
+            {% endif %}
+        </div>
+
+        <!-- Detailed Results -->
+        <h2 class="text-xl font-bold text-navy mb-6">Batafsil natijalar</h2>
+        <div class="space-y-4">
+            {% for r in results %}
+            <div class="bg-white rounded-2xl border {% if r.is_correct %}border-emerald/30{% else %}border-red-200{% endif %} p-6">
+                <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 {% if r.is_correct %}bg-emerald/10 text-emerald{% else %}bg-red-100 text-red-500{% endif %}">
+                        <i class="fas {% if r.is_correct %}fa-check{% else %}fa-times{% endif %}"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-bold text-navy mb-2">{{ r.question.text }}</p>
+                        {% if not r.is_correct and r.correct_choice %}
+                        <p class="text-sm text-emerald"><i class="fas fa-check-circle mr-1"></i> To'g'ri javob: {{ r.correct_choice.text }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="flex flex-wrap gap-4 justify-center mt-10">
+            <a href="{% url 'quiz:take' quiz.pk %}" class="px-8 py-3 bg-electric text-white font-semibold rounded-full hover:bg-electric-dark hover:shadow-lg transition-all">
+                <i class="fas fa-redo mr-2"></i> Qayta topshirish
+            </a>
+            <a href="{% url 'quiz:list' %}" class="px-8 py-3 bg-gray-100 text-gray-700 font-semibold rounded-full hover:bg-gray-200 transition">
+                <i class="fas fa-list mr-2"></i> Barcha testlar
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
