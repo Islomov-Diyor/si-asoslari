@@ -1,0 +1,143 @@
+{% extends 'actions/_tool_base.html' %}
+{% block title %}Bayes Kalkulyatori{% endblock %}
+{% block crumb %}Bayes Kalkulyatori{% endblock %}
+{% block tool_title %}<span class="inline-flex items-center gap-3"><span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-700 shadow-md shadow-violet-300"><i class="fas fa-percent text-white text-base"></i></span>Bayes Teoremasi Kalkulyatori</span>{% endblock %}
+{% block badges %}
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M4 — Bilimlar bazasi</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A3 — Ekspert tizimlari</span>
+{% endblock %}
+{% block description %}Yangi dalil asosida ehtimollikni yangilang va Bayes teoremasining kutilmagan natijalarini o'zingiz ko'ring.{% endblock %}
+
+{% block info_text %}
+Bayes teoremasi yangi dalillar asosida ehtimollikni yangilashga imkon beradi. Tibbiy diagnostika, spam filtrlar va ko'plab sun'iy intellekt tizimlarining asosini tashkil etadi. Ko'pincha natija intuitiv kutilgandan farq qiladi — bu teoremaning kuchi shunda!
+{% endblock %}
+
+{% block formulas %}
+<p><b>P(A|B) = P(B|A) × P(A) / P(B)</b> — Bayes teoremasi</p>
+<p>P(A) — avvalgi ehtimollik (<i>prior</i>): dalildan oldingi bilim</p>
+<p>P(B|A) — ishonchlilik (<i>likelihood</i>): A to'g'ri bo'lganda B kuzatilish ehtimoli</p>
+<p>P(B) — marginal ehtimollik: B ning umumiy kuzatilish ehtimoli</p>
+<p>P(A|B) — keyingi ehtimollik (<i>posterior</i>): B kuzatilgandan keyin A ehtimoli</p>
+{% endblock %}
+
+{% block steps %}
+<h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – Bayes teoremasi asosida ehtimolliklarni yangilash jarayonini interaktiv tarzda o'rganish, prior va posterior ehtimolliklarning nisbatini vizualizatsiya qilish hamda real hayotiy misollarda kontrintuitiv natijalarni ilmiy asosda tushuntirish orqali ehtimollik nazariyasini amaliy o'zlashtirishga ko'maklashish.</p>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>Ehtimollik parametrlarini kiritish – P(A), P(B|A) va P(B) qiymatlarini tizimga kiritish va boshqarish imkoniyati.</li>
+        <li>Posterior ehtimollikni hisoblash – P(A|B) = P(B|A) × P(A) / P(B) formulasi asosida natijani avtomatik aniqlash.</li>
+        <li>Vizual taqqoslash – prior va posterior ehtimolliklarni ustunli grafik orqali solishtirish.</li>
+        <li>Tibbiy misol tahlili – kasallik tarqalishi va test aniqligi asosida real diagnostika stsenariysini modellashtirish.</li>
+        <li>Naive Bayes klassifikatori – so'zlar asosida spam aniqlash jarayonini ehtimollik hisoblari bilan namoyish etish.</li>
+    </ol>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <ul class="space-y-1 text-sm text-gray-700">
+        <li>✅ Uch parametrli kiritish – P(A), P(B|A) va P(B) qiymatlarini alohida maydonchalarda kiritish va avtomatik qayta ishlash.</li>
+        <li>✅ Formula tafsiloti – P(A|B) hisoblash jarayonini bosqichma-bosqich formula ko'rinishida aks ettirish.</li>
+        <li>✅ Tibbiy stsenariy modeli – kasallik tarqalishi, test aniqligi va noto'g'ri ijobiy natija parametrlarini tahrirlash imkoniyati.</li>
+        <li>✅ Spam klassifikator demosi – kiritilgan matn asosida Naive Bayes algoritmini bosqichma-bosqich namoyish etish.</li>
+        <li>✅ Tezkor va ishonchli hisob-kitoblar – Bayes teoremasi formulasi asosida posterior ehtimollikni aniq va tezkor hisoblash.</li>
+    </ul>
+</div>
+<div>
+    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>P(A) maydoniga gipoteza ehtimolligi kiritiladi (masalan: 0.01 — kasallik 1% tarqalgan).</li>
+        <li>P(B|A) maydoniga dalilning gipoteza ostidagi ehtimolligi kiritiladi (masalan: 0.99 — test 99% aniq).</li>
+        <li>P(B) maydoniga dalilning umumiy ehtimolligi kiritiladi va "Hisoblash" tugmasi bosiladi.</li>
+        <li>Natijada P(A|B) qiymati formula tafsiloti bilan birga ko'rsatiladi; prior va posterior ehtimolliklarni taqqoslaydigan grafik tahlil qilinadi.</li>
+        <li>"Tibbiy test" bo'limidagi tayyor stsenariy o'rganiladi; kontrintuitiv natija (test 99% aniq bo'lsa ham, musbat natija har doim kasallikni anglatmasligi) ilmiy asosda tushuniladi.</li>
+        <li>"Naive Bayes" bo'limiga qisqa matn kiritiladi va spam/spam emas klassifikatsiyasi ehtimollik hisoblari bilan birga tahlil qilinadi.</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block tool_ui %}
+<div x-data="bayesApp()">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div>
+            <label class="block text-sm font-semibold text-navy mb-2">P(A) — Prior</label>
+            <input type="number" step="0.001" min="0" max="1" x-model.number="pA" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:border-electric focus:outline-none">
+            <p class="text-xs text-gray-500 mt-1">0 dan 1 gacha (masalan 0.01)</p>
+        </div>
+        <div>
+            <label class="block text-sm font-semibold text-navy mb-2">P(B|A) — Likelihood</label>
+            <input type="number" step="0.001" min="0" max="1" x-model.number="pBA" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:border-electric focus:outline-none">
+            <p class="text-xs text-gray-500 mt-1">Masalan 0.99</p>
+        </div>
+        <div>
+            <label class="block text-sm font-semibold text-navy mb-2">P(B) — Marginal</label>
+            <input type="number" step="0.001" min="0.0001" max="1" x-model.number="pB" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:border-electric focus:outline-none">
+            <p class="text-xs text-gray-500 mt-1">Masalan 0.0594</p>
+        </div>
+    </div>
+
+    <div class="flex flex-wrap gap-3 mb-6">
+        <button @click="compute()" class="px-6 py-2.5 bg-electric text-white rounded-lg font-semibold hover:bg-blue-700 transition">Hisoblash</button>
+        <button @click="loadMedical()" class="px-6 py-2.5 bg-amber-100 text-amber-700 rounded-lg font-semibold hover:bg-amber-200 transition">Tibbiy test misolini yuklash</button>
+        <button @click="reset()" class="px-6 py-2.5 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition">Tozalash</button>
+    </div>
+
+    <div x-show="result !== null" class="space-y-4">
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6">
+            <p class="text-sm text-gray-600 mb-2">Natija (Posterior — P(A|B)):</p>
+            <p class="text-4xl font-extrabold text-electric" x-text="(result*100).toFixed(2) + '%'"></p>
+            <p class="font-mono text-xs text-gray-600 mt-3" x-text="`P(A|B) = (${pBA} × ${pA}) / ${pB} = ${result.toFixed(4)}`"></p>
+        </div>
+
+        <div>
+            <p class="text-sm font-semibold text-navy mb-2">Prior vs Posterior solishtirish</p>
+            <div class="space-y-3">
+                <div>
+                    <div class="flex justify-between text-xs mb-1"><span>Prior P(A)</span><span x-text="(pA*100).toFixed(2)+'%'"></span></div>
+                    <div class="w-full h-4 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-gray-400" :style="`width:${pA*100}%`"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-xs mb-1"><span>Posterior P(A|B)</span><span x-text="(result*100).toFixed(2)+'%'"></span></div>
+                    <div class="w-full h-4 bg-gray-200 rounded-full overflow-hidden"><div class="h-full bg-electric" :style="`width:${result*100}%`"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div x-show="error" class="bg-red-50 text-red-600 border border-red-200 rounded-lg p-3 mt-4 text-sm" x-text="error"></div>
+</div>
+
+<script>
+function bayesApp() {
+    return {
+        pA: 0.01, pBA: 0.99, pB: 0.0594,
+        result: null, error: '',
+        compute() {
+            this.error = '';
+            if (this.pB <= 0) { this.error = 'P(B) noldan katta bo\'lishi kerak'; this.result = null; return; }
+            if (this.pA < 0 || this.pA > 1 || this.pBA < 0 || this.pBA > 1) { this.error = 'Qiymatlar 0 dan 1 gacha bo\'lishi kerak'; this.result = null; return; }
+            this.result = (this.pBA * this.pA) / this.pB;
+        },
+        loadMedical() { this.pA = 0.01; this.pBA = 0.99; this.pB = 0.0594; this.compute(); },
+        reset() { this.pA = 0; this.pBA = 0; this.pB = 0.0001; this.result = null; }
+    }
+}
+</script>
+{% endblock %}
+
+{% block result_explanation %}
+<p>• Test 99% aniq bo'lsa ham, kasallik 1% tarqalgan bo'lsa — musbat test ko'pincha noto'g'ri bo'ladi (taxminan 16%)</p>
+<p>• Bu kontrintuitiv natija Bayes teoremasining muhimligini ko'rsatadi</p>
+<p>• Prior (avvalgi bilim) juda muhim — uni e'tiborsiz qoldirib bo'lmaydi</p>
+{% endblock %}
+
+{% block quiz %}{% endblock %}
+
+{% block further_reading %}
+<li>M4 — Bilimlar bazasi va ishonchsizlik sharoitida qaror qabul qilish</li>
+<li>A3 — Ekspert tizimlarida Bayes tarmoqlari</li>
+<li>Naive Bayes klassifikatori — spam filtrlar uchun</li>
+{% endblock %}

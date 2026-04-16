@@ -16,4 +16,11 @@ def home(request):
 
 
 def about(request):
-    return render(request, 'home/about.html')
+    skills = [
+        {'name': "Sun'iy intellekt", 'pct': 92},
+        {'name': 'Machine Learning',  'pct': 88},
+        {'name': 'Data Science',       'pct': 85},
+        {'name': 'Python dasturlash',  'pct': 80},
+        {'name': "O'qitish metodikasi", 'pct': 95},
+    ]
+    return render(request, 'home/about.html', {'skills': skills})

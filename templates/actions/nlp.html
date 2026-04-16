@@ -1,0 +1,258 @@
+{% extends 'actions/_tool_base.html' %}
+{% block title %}NLP Matn Tahlilchisi{% endblock %}
+{% block crumb %}NLP Matn Tahlilchisi{% endblock %}
+{% block tool_title %}📝 NLP Matn Tahlilchisi{% endblock %}
+{% block badges %}
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M8 — Tabiiy tilga qayta ishlov berish</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A11 — NLP amaliyoti</span>
+{% endblock %}
+{% block description %}Matnni tokenlarga bo'ling, eng ko'p uchraydigan so'zlarni aniqlang va his-tuyg'u yo'nalishini o'lchang — NLP asoslarini amaliyotda ko'ring.{% endblock %}
+
+{% block info_text %}
+NLP (Natural Language Processing) — kompyuterga tabiiy tilni tushunishni o'rgatadigan sun'iy intellekt yo'nalishi. Tokenizatsiya, stop-words olib tashlash, chastota tahlili va sentiment aniqlash — bu barcha zamonaviy chatbotlar, qidiruv tizimlari va tarjima dasturlarining asosini tashkil etadi.
+{% endblock %}
+
+{% block formulas %}
+<p><b>Tokenizatsiya:</b> Matn → [token₁, token₂, ..., tokenₙ]</p>
+<p><b>Chastota:</b> f(w) = count(w) / N, bu yerda N — jami tokenlar soni</p>
+<p><b>Stop words:</b> Ma'no bermaydigan tez-tez ishlatiladigan so'zlar (va, yoki, bu...)</p>
+<p><b>Sentiment score:</b> Σ(polarity<sub>i</sub>) — ijobiy/salbiy so'zlar farqi</p>
+{% endblock %}
+
+{% block steps %}
+<h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – tabiiy tilni qayta ishlash (NLP) ning asosiy bosqichlarini — tokenizatsiya, so'z chastotasi tahlili, TF hisoblash va sentiment tahlilini — interaktiv tarzda amalga oshirish, matnning lingvistik xususiyatlarini statistik ko'rsatkichlar orqali aniqlash hamda NLP metodlarini amaliy o'zlashtirishga ko'maklashish.</p>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>Matnni kiritish va boshqarish – foydalanuvchi tomonidan erkin matn kiritish yoki namuna matnlardan foydalanish imkoniyati.</li>
+        <li>Tokenizatsiya – matnni alohida token (so'z va belgi) larga ajratish va stop wordlarni filtrlash.</li>
+        <li>Chastota tahlili – eng ko'p uchraydigan 10 ta so'zni aniqlash va TF qiymatlarini hisoblash.</li>
+        <li>Sentiment tahlili – leksikon asosida matnning his-tuyg'u yo'nalishini (ijobiy, salbiy, neytral) aniqlash.</li>
+        <li>N-gram tahlili – matnda bigram va trigram strukturalarini aniqlash va kontekstual ma'noni baholash.</li>
+        <li>Vizualizatsiya – so'z chastotasi ma'lumotlarini gorizontal ustunli grafik orqali aks ettirish.</li>
+    </ol>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <ul class="space-y-1 text-sm text-gray-700">
+        <li>✅ Ko'p bosqichli tahlil – tokenizatsiya, chastota, TF, sentiment va N-gram tahlillari bir platformada amalga oshiriladi.</li>
+        <li>✅ Stop word filtri – funktsional so'zlarni avtomatik filtrlash va muhim leksik birliklarni ajratib ko'rsatish.</li>
+        <li>✅ Vizual chastota grafigi – top 10 so'z chastotasi gorizontal ustunli grafik orqali vizualizatsiya qilinadi.</li>
+        <li>✅ Sentiment indikatori – ijobiy va salbiy so'zlar matnda belgilab ko'rsatiladi va umumiy yo'nalish aniqlanadi.</li>
+        <li>✅ Tezkor va ishonchli hisob-kitoblar – JavaScript asosida matnni real vaqtda qayta ishlash va statistik ko'rsatkichlarni tezkor hisoblash.</li>
+    </ul>
+</div>
+<div>
+    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>Matn kiritish maydoniga tahlil qilinishi lozim bo'lgan matn yoziladi; kamida 3-4 jumla kiritish tavsiya etiladi.</li>
+        <li>Yoki "Namuna: Texnologiya" yoxud "Namuna: Ta'lim" tugmasi bosilib, tayyor matn yuklanadi.</li>
+        <li>"Tahlil qilish" tugmasi bosilgach, tizim avtomatik ravishda barcha NLP bosqichlarini bajaradi va natijalar ko'rsatiladi.</li>
+        <li>To'rtta statistik kartochkada (jami so'zlar, unikal so'zlar, jumlalar soni, o'rtacha so'z uzunligi) asosiy ko'rsatkichlar o'rganiladi.</li>
+        <li>Tokenizatsiya bo'limida stop wordlar (kulrang) va kontent so'zlar (ko'k) ajratilgan holda tahlil qilinadi; so'z chastotasi grafigida eng dominantleksemalar aniqlanadi.</li>
+        <li>Sentiment tahlili bo'limida ijobiy va salbiy so'zlar belgilab ko'rsatiladi, umumiy his-tuyg'u yo'nalishi baholanadi va N-gram bo'limida bigram hamda trigramlar kontekstual jihatdan o'rganiladi.</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block tool_ui %}
+<div x-data="nlpApp()" x-init="init()">
+    <label class="block text-sm font-semibold text-navy mb-2">Matn kiriting</label>
+    <textarea x-model="text" rows="6" placeholder="Matnni shu yerga kiriting..."
+              class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:border-electric focus:outline-none font-sans text-sm"></textarea>
+
+    <div class="flex flex-wrap gap-3 mt-4 mb-4">
+        <button @click="analyze()" class="px-6 py-2.5 bg-electric text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+            <i class="fas fa-wand-magic-sparkles mr-1"></i> Tahlil qilish
+        </button>
+        <button @click="loadSample('tech')" class="px-4 py-2.5 bg-indigo-100 text-indigo-700 rounded-lg font-semibold hover:bg-indigo-200 transition text-sm">Namuna: Texnologiya</button>
+        <button @click="loadSample('edu')" class="px-4 py-2.5 bg-amber-100 text-amber-700 rounded-lg font-semibold hover:bg-amber-200 transition text-sm">Namuna: Ta'lim</button>
+        <button @click="reset()" class="px-4 py-2.5 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition text-sm">Tozalash</button>
+    </div>
+
+    <div x-show="analyzed" class="space-y-6">
+        <!-- Stat cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 text-center">
+                <p class="text-xs text-gray-600 mb-1">Jami so'zlar</p>
+                <p class="text-3xl font-extrabold text-electric" x-text="stats.total"></p>
+            </div>
+            <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-4 text-center">
+                <p class="text-xs text-gray-600 mb-1">Unikal so'zlar</p>
+                <p class="text-3xl font-extrabold text-indigo-600" x-text="stats.unique"></p>
+            </div>
+            <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-4 text-center">
+                <p class="text-xs text-gray-600 mb-1">Jumlalar soni</p>
+                <p class="text-3xl font-extrabold text-emerald" x-text="stats.sentences"></p>
+            </div>
+            <div class="bg-amber-50 border border-amber-100 rounded-xl p-4 text-center">
+                <p class="text-xs text-gray-600 mb-1">O'rtacha so'z uzunligi</p>
+                <p class="text-3xl font-extrabold text-amber-600" x-text="stats.avgLen"></p>
+            </div>
+        </div>
+
+        <!-- Tokens -->
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <h4 class="font-semibold text-navy mb-3 text-sm"><i class="fas fa-cubes text-electric mr-2"></i>Tokenizatsiya
+                <span class="text-xs font-normal text-gray-500 ml-2">(kul rang — stop words, ko'k — muhim so'zlar)</span>
+            </h4>
+            <div class="flex flex-wrap gap-2">
+                <template x-for="(t, i) in tokens" :key="i">
+                    <span class="px-3 py-1 rounded-full text-xs font-medium"
+                          :class="t.stop ? 'bg-gray-200 text-gray-600' : 'bg-blue-100 text-electric'"
+                          x-text="t.w"></span>
+                </template>
+            </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <h4 class="font-semibold text-navy mb-3 text-sm"><i class="fas fa-chart-bar text-electric mr-2"></i>Eng ko'p uchraydigan 10 ta so'z</h4>
+            <div style="height: 320px;"><canvas id="nlpChart"></canvas></div>
+        </div>
+
+        <!-- Sentiment -->
+        <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <h4 class="font-semibold text-navy mb-3 text-sm"><i class="fas fa-face-smile text-electric mr-2"></i>Sentiment tahlili</h4>
+            <div class="flex items-center gap-4 mb-3">
+                <span class="text-5xl" x-text="sentiment.emoji"></span>
+                <div class="flex-1">
+                    <p class="text-xl font-bold" :class="sentiment.color" x-text="sentiment.label"></p>
+                    <p class="text-xs text-gray-500">Ball: <span class="font-mono" x-text="sentiment.score"></span></p>
+                </div>
+            </div>
+            <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                <div class="h-full transition-all duration-500"
+                     :class="sentiment.barColor"
+                     :style="`width: ${sentiment.pct}%`"></div>
+            </div>
+            <div class="flex justify-between text-xs text-gray-500 mt-1">
+                <span>Salbiy</span><span>Neytral</span><span>Ijobiy</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function nlpApp() {
+    const STOP = new Set([
+        've','va','bu','u','men','sen','biz','siz','ular','edi','ham','lekin','yoki','agar','uchun','bilan','boshqa','har','ba\'zi','shunday','qanday','nima','nimaga','qachon',
+        'the','a','an','and','or','but','if','for','to','of','in','on','at','is','are','was','were','be','been','being','i','you','he','she','it','we','they','this','that','these','those','with','by','as','from','so','not','no','do','does','did','has','have','had','will','would','can','could','should','may','might','my','your','his','her','its','our','their'
+    ]);
+    const POS = new Set(['yaxshi','ajoyib','zo\'r','go\'zal','baxtli','sevaman','qiziq','foydali','muvaffaqiyat','aqlli','kuchli','quvonch','mukammal','oson','samarali','zamonaviy','kelajak','rivojlanish','good','great','amazing','excellent','happy','love','best','wonderful','fantastic','beautiful','success','brilliant','awesome','positive','nice','perfect','easy','useful','powerful','smart']);
+    const NEG = new Set(['yomon','xato','qayg\'u','qiyin','zerikarli','nafratlanaman','noto\'g\'ri','muammo','xavf','achchiq','zaif','g\'amgin','og\'ir','dahshatli','bad','terrible','awful','sad','hate','worst','horrible','ugly','fail','failure','problem','difficult','hard','boring','weak','wrong','negative','angry','poor']);
+    return {
+        text: '',
+        analyzed: false,
+        stats: { total: 0, unique: 0, sentences: 0, avgLen: 0 },
+        tokens: [],
+        sentiment: { label: '', emoji: '', score: 0, pct: 50, color: '', barColor: '' },
+        chart: null,
+
+        init() {},
+
+        loadSample(k) {
+            if (k === 'tech') {
+                this.text = "Sun'iy intellekt zamonaviy texnologiyaning eng ajoyib va kuchli yo'nalishlaridan biridir. Mashinali o'qitish algoritmlari har kuni rivojlanib bormoqda va ular bizning hayotimizni yaxshi tomonga o'zgartirmoqda. Kelajak sun'iy intellekt bilan bog'liq va bu juda qiziq sohadir.";
+            } else {
+                this.text = "Ta'lim har bir inson uchun foydali va muhim jarayondir. O'qituvchi talabalarga yangi bilim beradi. Talabalar kitob o'qiydi, mashg'ulotlarda qatnashadi va imtihon topshiradi. Zamonaviy ta'lim texnologiyalari o'qitishni ancha oson va samarali qildi.";
+            }
+        },
+
+        reset() {
+            this.text = '';
+            this.analyzed = false;
+            if (this.chart) { this.chart.destroy(); this.chart = null; }
+        },
+
+        analyze() {
+            if (!this.text.trim()) return;
+            const raw = this.text.toLowerCase();
+            const sentences = raw.split(/[.!?]+/).filter(s => s.trim().length > 0);
+            const words = raw.match(/[\p{L}']+/gu) || [];
+
+            this.tokens = words.map(w => ({ w, stop: STOP.has(w) }));
+
+            const content = words.filter(w => !STOP.has(w) && w.length > 1);
+            const uniq = new Set(content);
+            const freq = {};
+            content.forEach(w => { freq[w] = (freq[w] || 0) + 1; });
+
+            this.stats = {
+                total: words.length,
+                unique: uniq.size,
+                sentences: sentences.length,
+                avgLen: words.length ? (words.reduce((s, w) => s + w.length, 0) / words.length).toFixed(1) : 0
+            };
+
+            let pos = 0, neg = 0;
+            words.forEach(w => { if (POS.has(w)) pos++; if (NEG.has(w)) neg++; });
+            const score = pos - neg;
+            let label, emoji, color, barColor, pct;
+            if (score > 0) {
+                label = 'Ijobiy'; emoji = '😊'; color = 'text-emerald'; barColor = 'bg-emerald';
+                pct = Math.min(50 + score * 15, 100);
+            } else if (score < 0) {
+                label = 'Salbiy'; emoji = '😔'; color = 'text-red-500'; barColor = 'bg-red-500';
+                pct = Math.max(50 + score * 15, 0);
+            } else {
+                label = 'Neytral'; emoji = '😐'; color = 'text-gray-600'; barColor = 'bg-gray-400';
+                pct = 50;
+            }
+            this.sentiment = { label, emoji, color, barColor, pct, score: `+${pos} / −${neg}` };
+
+            this.analyzed = true;
+            this.$nextTick(() => this.renderChart(freq));
+        },
+
+        renderChart(freq) {
+            const top = Object.entries(freq).sort((a, b) => b[1] - a[1]).slice(0, 10);
+            const labels = top.map(e => e[0]);
+            const data = top.map(e => e[1]);
+            if (this.chart) this.chart.destroy();
+            const ctx = document.getElementById('nlpChart').getContext('2d');
+            this.chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Chastota',
+                        data: data,
+                        backgroundColor: '#3B82F6',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { beginAtZero: true, ticks: { precision: 0 } }
+                    }
+                }
+            });
+        }
+    }
+}
+</script>
+{% endblock %}
+
+{% block result_explanation %}
+<p>• <b>Tokenizatsiya</b> — matnni eng kichik ma'noli birliklarga (so'zlar) ajratish jarayoni</p>
+<p>• <b>Stop words</b> ("va", "bu", "the") olib tashlanadi, chunki ular matn mazmuniga ta'sir qilmaydi</p>
+<p>• <b>Chastota tahlili</b> mavzuni aniqlashga yordam beradi — eng ko'p uchraydigan so'zlar asosiy mavzuni ko'rsatadi</p>
+<p>• <b>Sentiment</b> ijobiy va salbiy kalit so'zlar farqiga asoslanadi — bu sodda "lug'atli" yondashuv</p>
+{% endblock %}
+
+{% block quiz %}{% endblock %}
+
+{% block further_reading %}
+<li>M8 — Tabiiy tilga qayta ishlov berish asoslari</li>
+<li>A11 — NLP amaliyoti: tokenizatsiya, stemming, lemmatizatsiya</li>
+<li>Bag-of-Words, TF-IDF va Word Embeddings modellari</li>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-gray-500 mb-4 flex items-center gap-2 flex-wrap">
+        <a href="{% url 'home:index' %}" class="hover:text-electric">Bosh sahifa</a>
+        <span>›</span>
+        <a href="{% url 'actions:index' %}" class="hover:text-electric">Interaktiv xizmatlar</a>
+        <span>›</span>
+        <span class="text-navy font-medium">{% block crumb %}{% endblock %}</span>
+    </nav>
+
+    <!-- Back button top -->
+    <a href="{% url 'actions:index' %}" class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-electric mb-6">
+        <i class="fas fa-arrow-left"></i> Barcha xizmatlarga qaytish
+    </a>
+
+    <!-- A) Header -->
+    <h1 class="text-2xl md:text-4xl font-extrabold text-navy mb-3 leading-snug">{% block tool_title %}{% endblock %}</h1>
+    <p class="text-gray-600 text-lg mb-8">{% block description %}{% endblock %}</p>
+
+    <!-- C) Formulas collapsible -->
+    <div x-data="{ open: false }" class="bg-gray-50 border border-gray-200 rounded-xl mb-6 overflow-hidden">
+        <button @click="open = !open" class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-navy hover:bg-gray-100 transition">
+            <span><i class="fas fa-square-root-variable mr-2 text-electric"></i> Formulalar va tushunchalar</span>
+            <i class="fas fa-chevron-down transition-transform" :class="open && 'rotate-180'"></i>
+        </button>
+        <div x-show="open" x-transition class="px-5 pb-5 font-mono text-sm text-gray-700 space-y-2">
+            {% block formulas %}{% endblock %}
+        </div>
+    </div>
+
+    <!-- E) Tool UI -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8 mb-8">
+        {% block tool_ui %}{% endblock %}
+    </div>
+
+    <a href="{% url 'actions:index' %}" class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-electric">
+        <i class="fas fa-arrow-left"></i> Barcha xizmatlarga qaytish
+    </a>
+</section>
+
+<script>
+function quizApp() {
+    return {
+        answers: {},
+        checked: {},
+        done: false,
+        scoreText: '',
+        pick(q, i, correct) {
+            if (this.checked[q]) return;
+            this.answers[q] = { i: i, correct: correct };
+            this.checked[q] = true;
+        },
+        cls(q, i, correct) {
+            if (!this.checked[q]) return 'border-gray-200 hover:border-electric';
+            if (this.answers[q] && this.answers[q].i === i) {
+                return correct ? 'border-emerald bg-emerald/10' : 'border-red-400 bg-red-50';
+            }
+            if (correct && this.checked[q]) return 'border-emerald bg-emerald/10';
+            return 'border-gray-200 opacity-60';
+        },
+        finish() {
+            const keys = Object.keys(this.answers);
+            const correct = keys.filter(k => this.answers[k].correct).length;
+            const total = document.querySelectorAll('[data-quiz-q]').length;
+            this.scoreText = total + ' dan ' + correct + ' tasini to\'g\'ri javob berdingiz';
+            this.done = true;
+        }
+    }
+}
+</script>
+{% block extra_scripts %}{% endblock %}
+{% endblock %}

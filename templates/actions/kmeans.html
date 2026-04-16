@@ -1,0 +1,166 @@
+{% extends 'actions/_tool_base.html' %}
+{% block title %}K-Means Klasterlash Simulatori{% endblock %}
+{% block crumb %}K-Means{% endblock %}
+{% block tool_title %}🔵 K-Means Klasterlash Simulatori{% endblock %}
+{% block badges %}
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M5 — Mashinali o'qitish</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A7 — K-Means amaliyoti</span>
+{% endblock %}
+{% block description %}Nazoratsiz klasterlash algoritmining har bir iteratsiyasini animatsiya orqali kuzating va ichki mantiqini tushuning.{% endblock %}
+
+{% block info_text %}
+K-Means — nazoratsiz o'qitishning eng mashhur algoritmi. U ma'lumotlarni avtomatik ravishda k ta guruhga ajratadi. Har bir qadam algoritmning ichki mantiqini ko'rsatadi — bu esa tushunishni ancha osonlashtiradi.
+{% endblock %}
+
+{% block formulas %}
+<p>Evklid masofasi: d = √((x₂ − x₁)² + (y₂ − y₁)²)</p>
+<p>Sentroid: μₖ = (1 / |Cₖ|) · Σ x  — klaster markazi</p>
+<p>Inertiya: Σ min‖xᵢ − μₖ‖²  — qiymat kichik bo'lsa, klasterlash yaxshi</p>
+{% endblock %}
+
+{% block steps %}
+<h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – K-Means klasterlash algoritmining iterativ ishlash jarayonini bosqichma-bosqich vizualizatsiya qilish, sentroidlarning konvergensiya dinamikasini kuzatish va talabalarning nazoratsiz o'qitish metodlarini amaliy jihatdan o'zlashtirishiga ko'maklashish.</p>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>Ma'lumotlarni generatsiya qilish va boshqarish – foydalanuvchi tomonidan nuqtalar soni va klaster sonini belgilash hamda tasodifiy ma'lumotlar to'plamini yaratish imkoniyati.</li>
+        <li>Sentroidlarni boshlang'ich joylashtirilishi – algoritmning dastlabki bosqichida markaziy nuqtalarni tasodifiy tarzda o'rnatish.</li>
+        <li>Iterativ klasterlash – har bir qadamda nuqtalarni eng yaqin sentroidga biriktirish va sentroidlarni qayta hisoblash.</li>
+        <li>Konvergensiya monitoringi – algoritmning to'xtash shartiga erishish jarayonini kuzatish va inertiya qiymatini hisoblash.</li>
+        <li>Vizual dinamika – klasterlarning ranglar orqali ajratilishi va sentroidlar harakatining animatsion ko'rinishi.</li>
+    </ol>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <ul class="space-y-1 text-sm text-gray-700">
+        <li>✅ Interaktiv parametr boshqaruvi – K qiymati va nuqtalar sonini slayder orqali dinamik tarzda o'zgartirish.</li>
+        <li>✅ Bosqichma-bosqich vizualizatsiya – "1 qadam" tugmasi orqali algoritmning har bir iteratsiyasini alohida kuzatish imkoniyati.</li>
+        <li>✅ Avtomatik rejim – barcha iteratsiyalarni 500 ms oraliqda ketma-ket bajarish va konvergensiyagacha kuzatish.</li>
+        <li>✅ Inertiya ko'rsatkichi – klasterlash sifatini baholash uchun inertiya qiymatining dinamik hisoblanishi.</li>
+        <li>✅ Tezkor va ishonchli hisob-kitoblar – Evklid masofasi formulasi asosida nuqtalarni klasterlarga biriktirish jarayonini aniq amalga oshirish.</li>
+    </ul>
+</div>
+<div>
+    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>K slayderidan foydalanib, klasterlar soni 2 dan 6 gacha bo'lgan oraliqda belgilanadi; dastlabki tajribada K=3 qiymati tavsiya etiladi.</li>
+        <li>Nuqtalar soni slayderida 10 dan 100 gacha bo'lgan oraliqda ma'lumotlar to'plami hajmi aniqlanadi.</li>
+        <li>"Tasodifiy nuqtalar yaratish" tugmasi bosilgach, ma'lumotlar to'plami avtomatik generatsiya qilinadi va grafikda aks ettiriladi.</li>
+        <li>"1 qadam" tugmasi ketma-ket bosilib, algoritmning har bir iteratsiyasi alohida kuzatiladi; nuqtalar rangi va sentroidlar pozitsiyasidagi o'zgarishlar tahlil qilinadi.</li>
+        <li>"Avtomatik ishga tushirish" tugmasi orqali barcha iteratsiyalar ketma-ket bajarilib, "Konvergensiya bo'ldi!" xabari paydo bo'lguncha jarayon kuzatiladi.</li>
+        <li>K qiymati o'zgartirilgan holda tajriba qayta amalga oshiriladi va klasterlash natijalaridagi farqlar inertiya ko'rsatkichi asosida baholanadi.</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block tool_ui %}
+<div x-data="kmApp()" x-init="init()">
+    <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <div>
+            <label class="text-sm font-semibold text-navy">K (klaster soni): <span x-text="k"></span></label>
+            <input type="range" min="2" max="6" step="1" x-model.number="k" class="w-full">
+        </div>
+        <div>
+            <label class="text-sm font-semibold text-navy">Nuqtalar: <span x-text="np"></span></label>
+            <input type="range" min="10" max="100" step="5" x-model.number="np" class="w-full">
+        </div>
+    </div>
+    <div class="flex flex-wrap gap-3 mb-4">
+        <button @click="generate()" class="px-4 py-2 bg-electric text-white rounded-lg text-sm font-semibold">Tasodifiy nuqtalar</button>
+        <button @click="step()" class="px-4 py-2 bg-emerald text-white rounded-lg text-sm font-semibold">1 qadam</button>
+        <button @click="auto()" class="px-4 py-2 bg-amber-500 text-white rounded-lg text-sm font-semibold">Avtomatik</button>
+        <button @click="reset()" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-semibold">Qayta boshlash</button>
+    </div>
+
+    <div class="flex gap-4 text-sm mb-3">
+        <span>Qadam: <b x-text="iter"></b></span>
+        <span>Inertiya: <b x-text="inertia.toFixed(2)"></b></span>
+        <span :class="converged ? 'text-emerald font-bold' : 'text-gray-500'" x-text="converged ? '✓ Konvergensiya bo\'ldi!' : 'Davom etmoqda...'"></span>
+    </div>
+
+    <div class="h-96"><canvas id="kmChart"></canvas></div>
+</div>
+
+<script>
+function kmApp() {
+    return {
+        k: 3, np: 50,
+        points: [], centers: [], labels: [],
+        iter: 0, inertia: 0, converged: false,
+        chart: null, timer: null,
+        colors: ['#3B82F6','#10B981','#EF4444','#F59E0B','#8B5CF6','#EC4899'],
+        init() {
+            const ctx = document.getElementById('kmChart');
+            this.chart = new Chart(ctx, { type:'scatter', data:{datasets:[]}, options:{ responsive:true, maintainAspectRatio:false, animation:false, scales:{ x:{min:0,max:100}, y:{min:0,max:100} } } });
+            this.generate();
+        },
+        generate() {
+            this.points = [];
+            for (let i=0;i<this.np;i++) this.points.push({ x: Math.random()*100, y: Math.random()*100 });
+            this.centers = [];
+            for (let i=0;i<this.k;i++) this.centers.push({ x: Math.random()*100, y: Math.random()*100 });
+            this.labels = new Array(this.points.length).fill(0);
+            this.iter = 0; this.inertia = 0; this.converged = false;
+            this.render();
+        },
+        step() {
+            if (this.converged) return;
+            // Assign
+            const newLabels = this.points.map(p => {
+                let best = 0, bd = Infinity;
+                this.centers.forEach((c,i) => { const d = (p.x-c.x)**2+(p.y-c.y)**2; if (d < bd) { bd = d; best = i; } });
+                return best;
+            });
+            // Update centers
+            const newCenters = this.centers.map((_,i) => {
+                const pts = this.points.filter((_,j) => newLabels[j]===i);
+                if (!pts.length) return this.centers[i];
+                return { x: pts.reduce((s,p)=>s+p.x,0)/pts.length, y: pts.reduce((s,p)=>s+p.y,0)/pts.length };
+            });
+            // Check convergence
+            let moved = 0;
+            newCenters.forEach((c,i) => { moved += Math.abs(c.x-this.centers[i].x)+Math.abs(c.y-this.centers[i].y); });
+            this.labels = newLabels;
+            this.centers = newCenters;
+            this.iter++;
+            this.inertia = this.points.reduce((s,p,j) => { const c = this.centers[this.labels[j]]; return s + (p.x-c.x)**2+(p.y-c.y)**2; }, 0);
+            if (moved < 0.01) this.converged = true;
+            this.render();
+        },
+        auto() {
+            if (this.timer) { clearInterval(this.timer); this.timer = null; return; }
+            this.timer = setInterval(() => { this.step(); if (this.converged) { clearInterval(this.timer); this.timer = null; } }, 500);
+        },
+        reset() { if (this.timer) { clearInterval(this.timer); this.timer = null; } this.generate(); },
+        render() {
+            const ds = [];
+            for (let i=0;i<this.k;i++) {
+                ds.push({ label:'C'+(i+1), data: this.points.filter((_,j) => this.labels[j]===i), backgroundColor: this.colors[i], pointRadius: 5 });
+            }
+            ds.push({ label:'Markazlar', data: this.centers, backgroundColor:'#000', pointStyle:'crossRot', pointRadius:14, borderWidth:3 });
+            this.chart.data.datasets = ds;
+            this.chart.update();
+        }
+    }
+}
+</script>
+{% endblock %}
+
+{% block result_explanation %}
+<p>• Har xil rangdagi nuqtalar — har xil klasterlar</p>
+<p>• X belgisi — klaster markazi (sentroid)</p>
+<p>• Konvergensiya — markazlar ko'chmaydigan holat, algoritm tugadi</p>
+<p>• K soni katta bo'lsa — kichik klasterlar; kichik bo'lsa — katta klasterlar</p>
+{% endblock %}
+
+{% block quiz %}{% endblock %}
+
+{% block further_reading %}
+<li>M5 — Nazoratsiz o'qitish</li>
+<li>A7 — K-Means++ va Elbow method</li>
+<li>DBSCAN, Hierarchical clustering — boshqa klasterlash algoritmlari</li>
+{% endblock %}

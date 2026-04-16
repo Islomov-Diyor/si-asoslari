@@ -1,0 +1,162 @@
+{% extends 'actions/_tool_base.html' %}
+{% block title %}Confusion Matrix Kalkulyatori{% endblock %}
+{% block crumb %}Confusion Matrix{% endblock %}
+{% block tool_title %}📊 Xatoliklar Matritsasi Kalkulyatori{% endblock %}
+{% block badges %}
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A4 — Mashinali o'qitish</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A6 — Klassifikatsiya algoritmlari</span>
+{% endblock %}
+{% block description %}Klassifikatsiya modelini baholashning barcha asosiy metrikalarini bitta joyda hisoblang va ularning ma'nosini o'rganing.{% endblock %}
+
+{% block info_text %}
+Confusion matrix klassifikatsiya modelining qanchalik to'g'ri ishlashini ko'rsatadi. Faqat "aniqlik" (accuracy) ko'rsatkichi yetarli emas — ayniqsa tibbiyot yoki spam aniqlashda. Ushbu tool barcha muhim metrikalarni avtomatik hisoblab beradi.
+{% endblock %}
+
+{% block formulas %}
+<p><b>TP</b> (True Positive): model musbat dedi, haqiqatan musbat</p>
+<p><b>TN</b> (True Negative): model manfiy dedi, haqiqatan manfiy</p>
+<p><b>FP</b> (False Positive): model musbat dedi, aslida manfiy — "yolg'on signal"</p>
+<p><b>FN</b> (False Negative): model manfiy dedi, aslida musbat — "o'tkazib yuborish"</p>
+<p>Accuracy  = (TP+TN) / (TP+TN+FP+FN)</p>
+<p>Precision = TP / (TP+FP)</p>
+<p>Recall    = TP / (TP+FN)</p>
+<p>F1        = 2 × (Precision × Recall) / (Precision + Recall)</p>
+{% endblock %}
+
+{% block steps %}
+<h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – klassifikatsiya modellarining samaradorligini xatoliklar matritsasi (confusion matrix) asosida kompleks baholash, Accuracy, Precision, Recall va F1-score ko'rsatkichlarini avtomatik hisoblash hamda modelning amaliy qo'llanish sohalaridagi muvofiqligini tahlil qilish.</p>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>Klassifikatsiya natijalarini kiritish – TP, FP, FN, TN qiymatlarini tizimga kiritish va boshqarish imkoniyati.</li>
+        <li>Metrikalarni avtomatik hisoblash – Accuracy, Precision, Recall, F1-score va Specificity ko'rsatkichlarini formulalar asosida hisoblash.</li>
+        <li>Vizual matritsa – xatoliklar matritsasini rangli ko'rinishda grafik tarzda aks ettirish.</li>
+        <li>Interpretatsiya – har bir metrika qiymatini iqtisodiy va ilmiy jihatdan baholash hamda xulosa shakllantirish.</li>
+        <li>Qo'llanish sohasiga qarab tahlil – tibbiyot, moliya va boshqa sohalarda qaysi metrika ustuvorligi haqida tavsiyalar berish.</li>
+    </ol>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <ul class="space-y-1 text-sm text-gray-700">
+        <li>✅ To'rt komponentli kiritish – TP, FP, FN, TN qiymatlarini alohida maydonchalarda kiritish va avtomatik qayta ishlash.</li>
+        <li>✅ Rangli vizualizatsiya – to'g'ri bashoratlar (TP, TN) yashil, noto'g'ri bashoratlar (FP, FN) qizil rang bilan ajratiladi.</li>
+        <li>✅ Besh metrikali tahlil – Accuracy, Precision, Recall, F1-score va Specificity ko'rsatkichlari bir vaqtda hisoblanadi.</li>
+        <li>✅ Progress bar indikatori – har bir metrika qiymati foiz ko'rinishida progress bar orqali vizual tarzda aks ettiriladi.</li>
+        <li>✅ Tezkor va ishonchli hisob-kitoblar – standart klassifikatsiya metrikalari formulalari asosida qiymatlarni aniq va tezkor hisoblash.</li>
+    </ul>
+</div>
+<div>
+    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>TP (True Positive), FP (False Positive), FN (False Negative) va TN (True Negative) qiymatlari mos maydonchalarga kiritiladi.</li>
+        <li>Namuna sifatida spam aniqlash modeli uchun quyidagi qiymatlar kiritilishi mumkin: TP=90, FP=10, FN=10, TN=190.</li>
+        <li>"Hisoblash" tugmasi bosilgach, tizim avtomatik ravishda barcha metrikalarni hisoblab, rangli matritsa ko'rinishida taqdim etadi.</li>
+        <li>Har bir metrika kartochkasidagi formula va foiz qiymati o'qilib, model samaradorligi baholanadi.</li>
+        <li>Progress bar indikatorlari orqali qaysi metrika past ekanliga e'tibor qaratiladi va sabablar tahlil qilinadi.</li>
+        <li>FP va FN qiymatlarini o'zgartirib, ularning Precision va Recall ko'rsatkichlariga ta'siri kuzatiladi hamda qo'llanish sohasiga ko'ra optimal metrika tanlanadi.</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block tool_ui %}
+<div x-data="cmApp()">
+    <div class="grid grid-cols-2 gap-4 max-w-xl mx-auto mb-6">
+        <div>
+            <label class="block text-xs font-semibold text-emerald mb-1">TP — To'g'ri musbat</label>
+            <input type="number" min="0" x-model.number="tp" class="w-full px-4 py-2 border-2 border-emerald/30 rounded-lg bg-emerald/5 focus:outline-none focus:border-emerald">
+        </div>
+        <div>
+            <label class="block text-xs font-semibold text-red-500 mb-1">FP — Yolg'on musbat</label>
+            <input type="number" min="0" x-model.number="fp" class="w-full px-4 py-2 border-2 border-red-300 rounded-lg bg-red-50 focus:outline-none focus:border-red-500">
+        </div>
+        <div>
+            <label class="block text-xs font-semibold text-red-500 mb-1">FN — Yolg'on manfiy</label>
+            <input type="number" min="0" x-model.number="fn" class="w-full px-4 py-2 border-2 border-red-300 rounded-lg bg-red-50 focus:outline-none focus:border-red-500">
+        </div>
+        <div>
+            <label class="block text-xs font-semibold text-emerald mb-1">TN — To'g'ri manfiy</label>
+            <input type="number" min="0" x-model.number="tn" class="w-full px-4 py-2 border-2 border-emerald/30 rounded-lg bg-emerald/5 focus:outline-none focus:border-emerald">
+        </div>
+    </div>
+
+    <div class="flex gap-3 justify-center mb-6">
+        <button @click="compute()" class="px-6 py-2.5 bg-electric text-white rounded-lg font-semibold hover:bg-blue-700 transition">Hisoblash</button>
+        <button @click="loadSample()" class="px-6 py-2.5 bg-amber-100 text-amber-700 rounded-lg font-semibold hover:bg-amber-200 transition">Spam misol</button>
+    </div>
+
+    <div x-show="computed" class="space-y-4">
+        <!-- Visual 2x2 -->
+        <div class="max-w-md mx-auto overflow-x-auto">
+            <div class="grid grid-cols-3 gap-1 text-center text-xs min-w-[280px]">
+                <div></div><div class="font-semibold text-gray-500">Bashorat: Musbat</div><div class="font-semibold text-gray-500">Bashorat: Manfiy</div>
+                <div class="font-semibold text-gray-500 flex items-center justify-end pr-2">Haqiqat: Musbat</div>
+                <div class="bg-emerald/20 border-2 border-emerald rounded-lg p-4 font-bold text-emerald text-xl" x-text="tp"></div>
+                <div class="bg-red-100 border-2 border-red-400 rounded-lg p-4 font-bold text-red-600 text-xl" x-text="fn"></div>
+                <div class="font-semibold text-gray-500 flex items-center justify-end pr-2">Haqiqat: Manfiy</div>
+                <div class="bg-red-100 border-2 border-red-400 rounded-lg p-4 font-bold text-red-600 text-xl" x-text="fp"></div>
+                <div class="bg-emerald/20 border-2 border-emerald rounded-lg p-4 font-bold text-emerald text-xl" x-text="tn"></div>
+            </div>
+        </div>
+
+        <!-- Metrics cards -->
+        <div class="grid md:grid-cols-2 gap-4">
+            <template x-for="m in metrics" :key="m.name">
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-semibold text-navy" x-text="m.name"></span>
+                        <span class="text-xl font-extrabold text-electric" x-text="(m.value*100).toFixed(1)+'%'"></span>
+                    </div>
+                    <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden mb-2"><div class="h-full bg-electric" :style="`width:${m.value*100}%`"></div></div>
+                    <p class="text-xs text-gray-600" x-text="m.desc"></p>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>
+
+<script>
+function cmApp() {
+    return {
+        tp: 0, fp: 0, fn: 0, tn: 0,
+        computed: false, metrics: [],
+        loadSample() { this.tp = 90; this.fp = 10; this.fn = 10; this.tn = 190; this.compute(); },
+        compute() {
+            const total = this.tp + this.tn + this.fp + this.fn;
+            if (!total) return;
+            const acc = (this.tp + this.tn) / total;
+            const prec = (this.tp + this.fp) ? this.tp / (this.tp + this.fp) : 0;
+            const rec = (this.tp + this.fn) ? this.tp / (this.tp + this.fn) : 0;
+            const f1 = (prec + rec) ? 2 * prec * rec / (prec + rec) : 0;
+            const spec = (this.tn + this.fp) ? this.tn / (this.tn + this.fp) : 0;
+            this.metrics = [
+                { name: 'Accuracy', value: acc, desc: 'Umumiy to\'g\'rilik — barcha bashoratlardan qanchasi to\'g\'ri' },
+                { name: 'Precision', value: prec, desc: 'Musbat deganlarning qanchasi haqiqatan musbat' },
+                { name: 'Recall', value: rec, desc: 'Haqiqiy musbatlarning qanchasi topildi' },
+                { name: 'F1-score', value: f1, desc: 'Precision va Recall muvozanati' },
+                { name: 'Specificity', value: spec, desc: 'Haqiqiy manfiylarning qanchasi to\'g\'ri topildi' }
+            ];
+            this.computed = true;
+        }
+    }
+}
+</script>
+{% endblock %}
+
+{% block result_explanation %}
+<p>• Accuracy &gt; 90% — odatda yaxshi model, lekin ma'lumot nomutanosib bo'lsa aldab qo'yishi mumkin</p>
+<p>• Precision past — model ko'p yolg'on signal bermoqda</p>
+<p>• Recall past — model ko'p haqiqiy musbatlarni o'tkazib yubormoqda</p>
+<p>• Tibbiyotda Recall muhimroq (kasalni o'tkazib yubormaslik), spamda Precision muhimroq (oddiy xatni spamga tashlamaslik)</p>
+{% endblock %}
+
+{% block quiz %}{% endblock %}
+
+{% block further_reading %}
+<li>A4 — Model baholash usullari</li>
+<li>A6 — Klassifikatsiya algoritmlari</li>
+<li>ROC-AUC va PR-curve — kengaytirilgan baholash</li>
+{% endblock %}

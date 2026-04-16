@@ -1,0 +1,250 @@
+{% extends 'actions/_tool_base.html' %}
+{% block title %}K-NN Klassifikator Simulatori{% endblock %}
+{% block crumb %}K-NN Klassifikator{% endblock %}
+{% block tool_title %}🔵 K-NN Klassifikator Simulatori{% endblock %}
+{% block badges %}
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A6 — Klassifikatsiya algoritmlari</span>
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M5 — Mashinali o'qitish</span>
+{% endblock %}
+{% block description %}Eng yaqin K ta qo'shniga qarab yangi nuqtani klassifikatsiya qiling va K qiymatining natijaga ta'sirini vizual kuzating.{% endblock %}
+
+{% block info_text %}
+K-Nearest Neighbors (K-NN) — eng sodda, ammo kuchli nazoratli o'qitish algoritmlaridan biri. U yangi nuqtaga eng yaqin bo'lgan K ta qo'shnini topadi va ko'pchilik klassi asosida qaror qabul qiladi. O'qitish bosqichi yo'q — barcha hisoblashlar bashorat vaqtida amalga oshiriladi ("lazy learning").
+{% endblock %}
+
+{% block formulas %}
+<p><b>Evklid masofasi:</b> d(p, q) = √((x₁−x₂)² + (y₁−y₂)²)</p>
+<p><b>K</b> — eng yaqin qo'shnilar soni (odatda toq tanlanadi)</p>
+<p><b>Qaror:</b> class(x) = argmax<sub>c</sub> Σ 𝟙(y<sub>i</sub> = c), i ∈ Top-K</p>
+{% endblock %}
+
+{% block steps %}
+<h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – K eng yaqin qo'shnilar (K-NN) algoritmining klassifikatsiya jarayonini vizual tarzda namoyish etish, K parametrining qaror chegarasiga ta'sirini tahlil qilish hamda nazoratli o'qitish metodlarini amaliy jihatdan o'zlashtirishga ko'maklashish.</p>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>Ma'lumotlar to'plamini boshqarish – namuna ma'lumotlarni yuklash va foydalanuvchi tomonidan yangi nuqtalarni interaktiv tarzda qo'shish imkoniyati.</li>
+        <li>Masofa hisoblash – yangi nuqtadan barcha o'quv nuqtalarigacha bo'lgan Evklid masofalarini avtomatik hisoblash.</li>
+        <li>K ta eng yaqin qo'shni aniqlash – hisoblangan masofalar asosida eng yaqin K ta nuqtani aniqlash va vizual ko'rsatish.</li>
+        <li>Klass bashorati – majority voting usuli asosida yangi nuqtaning klassini avtomatik aniqlash.</li>
+        <li>K parametri ta'sirini tahlil qilish – turli K qiymatlari uchun klassifikatsiya natijalarini solishtirish.</li>
+    </ol>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <ul class="space-y-1 text-sm text-gray-700">
+        <li>✅ Interaktiv grafik – grafik ustiga bosish orqali yangi nuqta qo'shish va darhol klassifikatsiya natijasini ko'rish.</li>
+        <li>✅ K ta qo'shni chiziqlari – yangi nuqtadan K ta eng yaqin qo'shnigacha chiziqlar tortiladi va masofalar ko'rsatiladi.</li>
+        <li>✅ Dinamik K boshqaruvi – K qiymatini slayder orqali o'zgartirish va klassifikatsiya natijasiga ta'sirini real vaqtda kuzatish.</li>
+        <li>✅ Masofa jadvali – K ta eng yaqin qo'shni va ularning aniq masofa qiymatlari jadval ko'rinishida taqdim etiladi.</li>
+        <li>✅ Tezkor va ishonchli hisob-kitoblar – Evklid masofasi formulasi asosida qo'shnilarni aniq va tezkor aniqlash.</li>
+    </ul>
+</div>
+<div>
+    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>K slayderidan foydalanib, qo'shnilar soni 1 dan 15 gacha bo'lgan oraliqda belgilanadi; dastlabki tajribada K=3 qiymati tavsiya etiladi (toq son bo'lishi tenglikni bartaraf etadi).</li>
+        <li>"Namuna 1" yoki "Namuna 2" tugmasi bosilib, ikki klassli ma'lumotlar to'plami grafikda aks ettiriladi.</li>
+        <li>Grafik ustiga istalgan nuqtaga bosilgach, yangi (yashil) nuqta qo'shiladi va algoritm avtomatik ravishda K ta eng yaqin qo'shni aniqlanadi.</li>
+        <li>Yangi nuqtadan K ta qo'shningacha chizilgan chiziqlar va masofa jadvali tahlil qilinadi; qaysi klass ko'pchilikni tashkil etishi aniqlanadi.</li>
+        <li>K qiymati o'zgartirib, klassifikatsiya natijasidagi o'zgarishlar kuzatiladi; kichik K qiymatlari va katta K qiymatlari orasidagi farq baholanadi.</li>
+        <li>Turli joylarga yangi nuqtalar qo'shib, algoritmning chegaraviy hududlardagi ishlash xususiyatlari tahlil qilinadi.</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block tool_ui %}
+<div x-data="knnApp()" x-init="init()">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 items-end">
+        <div class="md:col-span-2">
+            <label class="block text-sm font-semibold text-navy mb-2">K qiymati: <span class="text-electric text-2xl font-extrabold" x-text="k"></span></label>
+            <input type="range" min="1" max="15" x-model.number="k" @input="recompute()" class="w-full accent-electric">
+            <div class="flex justify-between text-xs text-gray-500 mt-1"><span>1</span><span>15</span></div>
+        </div>
+        <button @click="loadSample(1)" class="px-4 py-2.5 bg-electric text-white rounded-lg font-semibold hover:bg-blue-700 transition text-sm">Namuna 1</button>
+        <button @click="loadSample(2)" class="px-4 py-2.5 bg-indigo-500 text-white rounded-lg font-semibold hover:bg-indigo-600 transition text-sm">Namuna 2</button>
+    </div>
+
+    <div class="flex flex-wrap gap-3 mb-4">
+        <button @click="clearAll()" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition text-sm">Tozalash</button>
+        <button @click="clearQuery()" class="px-4 py-2 bg-amber-100 text-amber-700 rounded-lg font-semibold hover:bg-amber-200 transition text-sm">Yangi nuqtani o'chirish</button>
+        <p class="text-xs text-gray-500 self-center ml-auto"><i class="fas fa-mouse-pointer mr-1"></i> Grafikda istalgan joyga bosing</p>
+    </div>
+
+    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-6">
+        <canvas id="knnChart" height="380"></canvas>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+        <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <h4 class="font-semibold text-navy mb-3 text-sm"><i class="fas fa-crosshairs text-electric mr-2"></i>Yangi nuqta</h4>
+            <template x-if="query">
+                <div>
+                    <p class="text-sm text-gray-600 mb-3">Koordinatalar: <span class="font-mono text-navy" x-text="`(${query.x.toFixed(2)}, ${query.y.toFixed(2)})`"></span></p>
+                    <div class="p-4 rounded-lg text-center" :class="predicted === 1 ? 'bg-red-50 border border-red-200' : 'bg-blue-50 border border-blue-200'">
+                        <p class="text-xs text-gray-600 mb-1">Bashorat:</p>
+                        <p class="text-2xl font-extrabold" :class="predicted === 1 ? 'text-red-600' : 'text-electric'">
+                            Yangi nuqta → Klass <span x-text="predicted"></span>
+                        </p>
+                    </div>
+                </div>
+            </template>
+            <p x-show="!query" class="text-sm text-gray-400 italic">Grafikka bosib yangi nuqta qo'shing...</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <h4 class="font-semibold text-navy mb-3 text-sm"><i class="fas fa-ruler text-electric mr-2"></i>K ta eng yaqin qo'shni</h4>
+            <template x-if="neighbors.length">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="text-left text-xs text-gray-500 border-b">
+                            <th class="py-2">#</th><th>Klass</th><th>Masofa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template x-for="(n, i) in neighbors" :key="i">
+                            <tr class="border-b border-gray-50">
+                                <td class="py-2 font-mono" x-text="i+1"></td>
+                                <td>
+                                    <span class="inline-block px-2 py-0.5 rounded-full text-xs font-semibold"
+                                          :class="n.cls === 1 ? 'bg-red-100 text-red-600' : 'bg-blue-100 text-electric'"
+                                          x-text="'Klass ' + n.cls"></span>
+                                </td>
+                                <td class="font-mono text-gray-700" x-text="n.d.toFixed(3)"></td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+            <p x-show="!neighbors.length" class="text-sm text-gray-400 italic">Hali nuqta qo'shilmadi</p>
+        </div>
+    </div>
+</div>
+
+<script>
+function knnApp() {
+    return {
+        k: 3,
+        points: [],
+        query: null,
+        neighbors: [],
+        predicted: null,
+        chart: null,
+
+        init() {
+            const ctx = document.getElementById('knnChart').getContext('2d');
+            this.chart = new Chart(ctx, {
+                type: 'scatter',
+                data: { datasets: [] },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: false,
+                    scales: {
+                        x: { min: 0, max: 10, title: { display: true, text: 'X' } },
+                        y: { min: 0, max: 10, title: { display: true, text: 'Y' } }
+                    },
+                    plugins: { legend: { position: 'top' } },
+                    onClick: (e) => {
+                        const rect = e.native.target.getBoundingClientRect();
+                        const x = this.chart.scales.x.getValueForPixel(e.native.clientX - rect.left);
+                        const y = this.chart.scales.y.getValueForPixel(e.native.clientY - rect.top);
+                        if (x < 0 || x > 10 || y < 0 || y > 10) return;
+                        this.query = { x, y };
+                        this.recompute();
+                    }
+                }
+            });
+            this.loadSample(1);
+        },
+
+        loadSample(which) {
+            if (which === 1) {
+                this.points = [
+                    {x:1.5,y:2,cls:1},{x:2,y:3,cls:1},{x:2.5,y:2.2,cls:1},{x:1.2,y:3.5,cls:1},{x:3,y:3.2,cls:1},{x:1.8,y:1.5,cls:1},{x:2.8,y:2.8,cls:1},
+                    {x:7,y:7.5,cls:2},{x:8,y:7,cls:2},{x:7.5,y:8,cls:2},{x:8.5,y:8.5,cls:2},{x:6.8,y:7.2,cls:2},{x:8.2,y:6.5,cls:2},{x:7.2,y:8.3,cls:2}
+                ];
+            } else {
+                this.points = [
+                    {x:2,y:7,cls:1},{x:3,y:8,cls:1},{x:2.5,y:6.5,cls:1},{x:3.5,y:7.2,cls:1},{x:2.2,y:8.2,cls:1},{x:4,y:7.5,cls:1},{x:3.2,y:6.8,cls:1},
+                    {x:6.5,y:2.5,cls:2},{x:7,y:3,cls:2},{x:7.5,y:2.2,cls:2},{x:8,y:3.5,cls:2},{x:6.8,y:3.8,cls:2},{x:7.8,y:2.8,cls:2},{x:8.2,y:3.2,cls:2}
+                ];
+            }
+            this.query = null;
+            this.recompute();
+        },
+
+        clearAll() { this.points = []; this.query = null; this.recompute(); },
+        clearQuery() { this.query = null; this.recompute(); },
+
+        recompute() {
+            this.neighbors = [];
+            this.predicted = null;
+            if (this.query) {
+                const dists = this.points.map(p => ({
+                    x: p.x, y: p.y, cls: p.cls,
+                    d: Math.hypot(p.x - this.query.x, p.y - this.query.y)
+                })).sort((a, b) => a.d - b.d);
+                this.neighbors = dists.slice(0, Math.min(this.k, dists.length));
+                const counts = {1: 0, 2: 0};
+                this.neighbors.forEach(n => counts[n.cls]++);
+                this.predicted = counts[1] >= counts[2] ? 1 : 2;
+            }
+            this.render();
+        },
+
+        render() {
+            const c1 = this.points.filter(p => p.cls === 1);
+            const c2 = this.points.filter(p => p.cls === 2);
+            const datasets = [
+                { label: 'Klass 1', data: c1, backgroundColor: '#EF4444', pointRadius: 7, pointStyle: 'circle' },
+                { label: 'Klass 2', data: c2, backgroundColor: '#3B82F6', pointRadius: 7, pointStyle: 'rect' }
+            ];
+            if (this.query) {
+                const qColor = this.predicted === 1 ? '#EF4444' : (this.predicted === 2 ? '#3B82F6' : '#10B981');
+                datasets.push({
+                    label: 'Yangi nuqta',
+                    data: [this.query],
+                    backgroundColor: '#10B981',
+                    borderColor: qColor,
+                    borderWidth: 3,
+                    pointRadius: 10,
+                    pointStyle: 'triangle'
+                });
+                this.neighbors.forEach(n => {
+                    datasets.push({
+                        label: '_line', data: [{x: this.query.x, y: this.query.y}, {x: n.x, y: n.y}],
+                        showLine: true, borderColor: 'rgba(16, 185, 129, 0.55)', borderWidth: 2,
+                        borderDash: [5, 4], pointRadius: 0, fill: false
+                    });
+                });
+            }
+            this.chart.data.datasets = datasets;
+            this.chart.options.plugins.legend.labels = {
+                filter: (item) => !String(item.text).startsWith('_')
+            };
+            this.chart.update();
+        }
+    }
+}
+</script>
+{% endblock %}
+
+{% block result_explanation %}
+<p>• Yashil uchburchak — yangi (noma'lum) nuqta. Uning atrofidagi chiziqli chiziqlar K ta eng yaqin qo'shniga tortilgan</p>
+<p>• Agar K ta qo'shnining ko'pchiligi Klass 1 bo'lsa — yangi nuqta ham Klass 1 deb belgilanadi (va aksincha)</p>
+<p>• K juda kichik (masalan 1) bo'lsa — model shovqinlarga sezgir bo'ladi va overfitting yuzaga keladi</p>
+<p>• K juda katta bo'lsa — mayda klasslar yo'qoladi va underfitting yuzaga keladi</p>
+{% endblock %}
+
+{% block quiz %}{% endblock %}
+
+{% block further_reading %}
+<li>A6 — Klassifikatsiya algoritmlari va ularni baholash</li>
+<li>M5 — Mashinali o'qitish: nazoratli va nazoratsiz yondashuvlar</li>
+<li>Masofa metrikalari: Evklid, Manhattan, Minkowski</li>
+{% endblock %}

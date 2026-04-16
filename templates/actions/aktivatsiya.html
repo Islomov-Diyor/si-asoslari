@@ -1,0 +1,148 @@
+{% extends 'actions/_tool_base.html' %}
+{% block title %}Aktivatsiya Funksiyalari{% endblock %}
+{% block crumb %}Aktivatsiya Funksiyalari{% endblock %}
+{% block tool_title %}⚡ Aktivatsiya Funksiyalari Grafigi{% endblock %}
+{% block badges %}
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M7 — Chuqur o'qitish</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A9 — Chuqur o'qitish amaliyoti</span>
+{% endblock %}
+{% block description %}ReLU, Sigmoid, Tanh va boshqa funksiyalarni grafik ko'rinishida solishtiring va qaysi holda qaysini ishlatishni aniqlang.{% endblock %}
+
+{% block info_text %}
+Aktivatsiya funksiyalari neyron tarmoqlarga nolinearlikni kiritadi. Ularsiz neyron tarmoq oddiy chiziqli regressiyadan farq qilmaydi. Har xil funksiyalarning qanday ko'rinishda ekanligini bilish modelni to'g'ri qurishga yordam beradi.
+{% endblock %}
+
+{% block formulas %}
+<p>Sigmoid:   σ(x) = 1 / (1 + e⁻ˣ)  → chiqish: [0, 1]</p>
+<p>Tanh:      tanh(x) = (eˣ − e⁻ˣ) / (eˣ + e⁻ˣ)  → chiqish: [−1, 1]</p>
+<p>ReLU:      f(x) = max(0, x)  → manfiyni nolga tenglashtiradi</p>
+<p>Leaky ReLU: f(x) = max(0.01x, x)  → ReLU ning yaxshilangan versiyasi</p>
+<p>Softmax:   e^xᵢ / Σ e^xⱼ  → chiqishlar yig'indisi 1 ga teng</p>
+{% endblock %}
+
+{% block steps %}
+<h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – sun'iy neyron tarmoqlarda qo'llaniladigan aktivatsiya funksiyalarining matematik xususiyatlarini vizual tarzda taqqoslash, ularning chiqish oralig'i va qo'llanish sohalarini tahlil qilish hamda talabalarning chuqur o'qitish arxitekturalarini to'g'ri loyihalash ko'nikmalarini rivojlantirish.</p>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>Funksiyalarni tanlash va boshqarish – foydalanuvchi tomonidan taqqoslanadigan aktivatsiya funksiyalarini belgilash imkoniyati.</li>
+        <li>Matematik hisoblash – ReLU, Sigmoid, Tanh, Leaky ReLU va Softmax funksiyalarining qiymatlarini avtomatik hisoblash.</li>
+        <li>Vizual taqqoslash – bir nechta funksiyani bitta grafik ustida bir vaqtda ko'rsatish.</li>
+        <li>Xususiyatlarni tahlil qilish – har bir funksiyaning chiqish oralig'i, afzalliklari va kamchiliklarini ilmiy asosda baholash.</li>
+        <li>X oralig'ini boshqarish – kirish qiymatlar oralig'ini dinamik ravishda o'zgartirish va natijaga ta'sirini kuzatish.</li>
+    </ol>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <ul class="space-y-1 text-sm text-gray-700">
+        <li>✅ Ko'p funksiyali taqqoslash – bir vaqtda 5 tagacha aktivatsiya funksiyasini bitta grafik ustida vizualizatsiya qilish.</li>
+        <li>✅ Dinamik parametr boshqaruvi – X oralig'ini slayder orqali interaktiv tarzda o'zgartirish va grafikning real vaqtda yangilanishi.</li>
+        <li>✅ Ilmiy ma'lumot kartochkalari – har bir funksiya uchun formula, qo'llanish sohasi va afzalliklarni tizimli tarzda taqdim etish.</li>
+        <li>✅ Rangli differensiatsiya – funksiyalarni rang bo'yicha ajratib, vizual taqqoslashni osonlashtirish.</li>
+        <li>✅ Tezkor va ishonchli hisob-kitoblar – JavaScript matematik kutubxonasi asosida funksiya qiymatlarini aniq va tezkor hisoblash.</li>
+    </ul>
+</div>
+<div>
+    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>Taqqoslanishi lozim bo'lgan aktivatsiya funksiyalari belgilash (checkbox) orqali tanlanadi; dastlab ReLU va Sigmoid funksiyalarini tanlash tavsiya etiladi.</li>
+        <li>X oralig'i slayderidan foydalanib, kirish qiymatlar diapazoni -10 dan 10 gacha bo'lgan oraliqda belgilanadi.</li>
+        <li>Grafik avtomatik ravishda yangilanadi va tanlangan funksiyalar turli ranglar bilan aks ettiriladi.</li>
+        <li>Har bir funksiya ostidagi ma'lumot kartochkasida formula, chiqish oralig'i va qo'llanish sohasi bilan tanishiladi.</li>
+        <li>Funksiyalar ketma-ket qo'shib va olib tashlanib, ularning grafik ko'rinishidagi farqlari tahlil qilinadi.</li>
+        <li>Olingan natijalar asosida qaysi funksiya qaysi turdagi neyron tarmoq arxitekturasi uchun maqbul ekanligi baholanadi.</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block tool_ui %}
+<div x-data="actApp()" x-init="init()">
+    <div class="flex flex-wrap gap-4 mb-4">
+        <template x-for="f in funcs" :key="f.key">
+            <label class="flex items-center gap-2 text-sm font-medium cursor-pointer">
+                <input type="checkbox" x-model="f.on" @change="render()" class="w-4 h-4">
+                <span :style="`color:${f.color}`" x-text="f.name"></span>
+            </label>
+        </template>
+    </div>
+    <div class="mb-4">
+        <label class="block text-sm font-semibold text-navy mb-2">X oraliq: <span x-text="xr"></span></label>
+        <input type="range" min="2" max="10" step="1" x-model.number="xr" @input="render()" class="w-full">
+    </div>
+    <div class="h-80"><canvas id="actChart"></canvas></div>
+
+    <div class="grid md:grid-cols-2 gap-4 mt-6">
+        <template x-for="f in funcs.filter(x=>x.on)" :key="f.key">
+            <div class="border border-gray-200 rounded-xl p-4">
+                <h4 class="font-bold mb-1" :style="`color:${f.color}`" x-text="f.name"></h4>
+                <p class="text-xs font-mono text-gray-600 mb-2" x-text="f.formula"></p>
+                <p class="text-xs text-gray-700" x-text="f.desc"></p>
+            </div>
+        </template>
+    </div>
+</div>
+
+<script>
+function actApp() {
+    return {
+        xr: 6,
+        chart: null,
+        funcs: [
+            { key:'relu', name:'ReLU', color:'#3B82F6', on:true,
+              fn: x => Math.max(0,x),
+              formula:'f(x) = max(0, x)',
+              desc:'Eng ko\'p ishlatiladigan. Hozirgi chuqur tarmoqlarda standart. Kamchilik: "o\'lik neyron" muammosi.' },
+            { key:'sigmoid', name:'Sigmoid', color:'#10B981', on:true,
+              fn: x => 1/(1+Math.exp(-x)),
+              formula:'σ(x) = 1 / (1 + e⁻ˣ)',
+              desc:'Chiqish 0–1 oralig\'ida, ikkilik klassifikatsiya uchun. Chuqur tarmoqda gradient yo\'qolishi muammosi.' },
+            { key:'tanh', name:'Tanh', color:'#F59E0B', on:false,
+              fn: x => Math.tanh(x),
+              formula:'tanh(x) = (eˣ − e⁻ˣ)/(eˣ + e⁻ˣ)',
+              desc:'Chiqish −1 dan 1 gacha, nolga markazlangan. Sigmoiddan yaxshiroq, lekin baribir gradient yo\'qolishi bor.' },
+            { key:'leaky', name:'Leaky ReLU', color:'#EF4444', on:false,
+              fn: x => x > 0 ? x : 0.01*x,
+              formula:'f(x) = max(0.01x, x)',
+              desc:'Manfiy qismda kichik qiyalik beradi, ReLU ning "o\'lik neyron" muammosini hal qiladi.' }
+        ],
+        init() {
+            const ctx = document.getElementById('actChart');
+            this.chart = new Chart(ctx, { type:'line', data:{ labels:[], datasets:[] }, options:{ responsive:true, maintainAspectRatio:false, animation:false, elements:{point:{radius:0}}, scales:{ x:{ type:'linear' } } } });
+            this.render();
+        },
+        render() {
+            const xs = [];
+            const n = 100;
+            for (let i=0;i<=n;i++) xs.push(+(-this.xr + 2*this.xr*i/n).toFixed(3));
+            this.chart.data.datasets = this.funcs.filter(f=>f.on).map(f => ({
+                label: f.name,
+                data: xs.map(x => ({ x, y: f.fn(x) })),
+                borderColor: f.color,
+                backgroundColor: f.color+'20',
+                borderWidth: 2, tension: 0.2, pointRadius: 0
+            }));
+            this.chart.update();
+        }
+    }
+}
+</script>
+{% endblock %}
+
+{% block result_explanation %}
+<p>• Sigmoid va Tanh: chuqur tarmoqlarda gradient yo'qolishi muammosi bor</p>
+<p>• ReLU: hozir eng ko'p ishlatiladigan, lekin "o'lik neyron" muammosi bor</p>
+<p>• Leaky ReLU: ReLU ning yaxshilangan versiyasi, deyarli har doim ishlaydi</p>
+<p>• Chiqish qatlami uchun: ikkilik — Sigmoid, ko'p klass — Softmax, regressiya — chiziqli</p>
+{% endblock %}
+
+{% block quiz %}{% endblock %}
+
+{% block further_reading %}
+<li>M7 — Chuqur o'qitish asoslari</li>
+<li>A9 — Keras/TensorFlow bilan neyron tarmoq qurish</li>
+<li>Gradient yo'qolishi muammosi va batch normalization</li>
+{% endblock %}

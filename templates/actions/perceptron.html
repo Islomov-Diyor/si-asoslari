@@ -1,0 +1,166 @@
+{% extends 'actions/_tool_base.html' %}
+{% block title %}Perceptron Simulatori{% endblock %}
+{% block crumb %}Perceptron{% endblock %}
+{% block tool_title %}🧠 Perceptron Simulatori{% endblock %}
+{% block badges %}
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M6 — Neyron tarmoqlar</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A8 — Perceptron amaliyoti</span>
+{% endblock %}
+{% block description %}Sun'iy neyronning eng sodda modelini qo'lda sozlang va mantiqiy eshiklarni perceptron orqali yeching.{% endblock %}
+
+{% block info_text %}
+Perceptron — sun'iy neyron tarmoqlarning eng sodda elementi. U insonning bir neyronini matematik model orqali ifodalaydi. Mantiqiy eshiklar (AND, OR, NOT) perceptron yordamida qanday yechilishini ko'rish neyron tarmoqlarni tushunishning eng yaxshi yo'lidir.
+{% endblock %}
+
+{% block formulas %}
+<p>z = w₁·x₁ + w₂·x₂ + b  — chiziqli yig'indi</p>
+<p>output = 1  agar z ≥ 0, aks holda 0  — step funksiyasi</p>
+<p>w_yangi = w_eski + η·(t − y)·x  — o'qitish qoidasi</p>
+<p>η — learning rate, t — kutilgan chiqish, y — haqiqiy chiqish</p>
+{% endblock %}
+
+{% block steps %}
+<h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – sun'iy neyronning matematik modelini interaktiv tarzda o'rganish, og'irliklar va bias parametrlarining chiqish qiymatiga ta'sirini tahlil qilish hamda mantiqiy eshiklarning perceptron yordamida yechilish imkoniyatlarini vizual ko'rsatish orqali neyron tarmoqlar nazariyasini amaliy o'zlashtirishga ko'maklashish.</p>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>Parametrlarni interaktiv boshqarish – og'irliklar (w₁, w₂) va bias (b) qiymatlarini slayder orqali o'zgartirish hamda chiqishga ta'sirini kuzatish.</li>
+        <li>Matematik hisoblash – z = w₁x₁ + w₂x₂ + b formulasi asosida yig'indi va aktivatsiya funksiyasi natijasini hisoblash.</li>
+        <li>Mantiqiy eshiklarni modellash – AND, OR, NOT, NAND, NOR mantiqiy operatsiyalarini perceptron yordamida amalga oshirish.</li>
+        <li>O'qitish jarayonini simulatsiya qilish – AND eshigi uchun perceptron o'qitish algoritmini bosqichma-bosqich namoyish etish.</li>
+        <li>Cheklovlarni aniqlash – XOR eshigining bitta perceptron bilan yechilmasligi sabablarini vizual asoslash.</li>
+    </ol>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <ul class="space-y-1 text-sm text-gray-700">
+        <li>✅ Qo'lda sinash rejimi – x₁, x₂ kirishlari va og'irliklarni o'zgartirib, perceptron chiqishini real vaqtda kuzatish.</li>
+        <li>✅ SVG neyron diagrammasi – kirishlar, og'irliklar, yig'indi va aktivatsiya bosqichlarini vizual tarzda aks ettiruvchi neyron sxemasi.</li>
+        <li>✅ Mantiqiy eshiklar kutubxonasi – AND, OR, NOT, NAND, NOR, XOR eshiklari uchun haqiqat jadvali va optimal parametrlarni avtomatik o'rnatish.</li>
+        <li>✅ Bosqichma-bosqich o'qitish – har bir epoch uchun og'irliklar yangilanishi, xato va chiqish qiymatlarini jadval ko'rinishida kuzatish.</li>
+        <li>✅ Tezkor va ishonchli hisob-kitoblar – perceptron o'qitish algoritmining matematik formulalari asosida og'irliklarni aniq yangilash.</li>
+    </ul>
+</div>
+<div>
+    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>"Qo'lda sinash" bo'limida x₁ va x₂ kirish qiymatlari 0 yoki 1 ga o'rnatiladi hamda w₁, w₂ va b slayderlar yordamida sozlanadi.</li>
+        <li>Hisoblash natijalari avtomatik ko'rsatiladi: z = w₁×x₁ + w₂×x₂ + b formulasi va chiqish qiymati (0 yoki 1) tahlil qilinadi.</li>
+        <li>"Mantiqiy eshiklar" bo'limidan AND tugmasi tanlanib, og'irliklar avtomatik o'rnatiladi va haqiqat jadvali bilan tanishiladi.</li>
+        <li>XOR tugmasi bosilgach, "Bu perceptron bilan yechilmaydi!" xabari sabablari bilan birga o'rganiladi va ko'p qatlamli tarmoq zarurligi tushuniladi.</li>
+        <li>"O'qitish simulatsiyasi" bo'limida "Keyingi qadam" tugmasi ketma-ket bosilib, AND eshigi uchun perceptron o'qitiladi; har bir epochdagi og'irliklar yangilanishi jadvalda kuzatiladi.</li>
+        <li>"Hammasi" tugmasi bosilib, o'qitish jarayoni to oxirigacha bajariladi va yakuniy og'irlik qiymatlari tahlil qilinadi.</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block tool_ui %}
+<div x-data="perceptronApp()">
+    <!-- Manual -->
+    <div class="mb-8">
+        <h3 class="font-bold text-navy mb-3">1. Qo'lda sinash</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 items-end">
+            <div>
+                <label class="text-xs font-semibold text-navy">x₁</label>
+                <select x-model.number="x1" @change="calc()" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-lg"><option :value="0">0</option><option :value="1">1</option></select>
+            </div>
+            <div>
+                <label class="text-xs font-semibold text-navy">x₂</label>
+                <select x-model.number="x2" @change="calc()" class="w-full mt-1 px-3 py-2 border border-gray-200 rounded-lg"><option :value="0">0</option><option :value="1">1</option></select>
+            </div>
+            <div>
+                <label class="text-xs font-semibold text-navy">w₁: <span x-text="w1.toFixed(2)"></span></label>
+                <input type="range" min="-2" max="2" step="0.1" x-model.number="w1" @input="calc()" class="w-full">
+            </div>
+            <div>
+                <label class="text-xs font-semibold text-navy">w₂: <span x-text="w2.toFixed(2)"></span></label>
+                <input type="range" min="-2" max="2" step="0.1" x-model.number="w2" @input="calc()" class="w-full">
+            </div>
+            <div>
+                <label class="text-xs font-semibold text-navy">b: <span x-text="b.toFixed(2)"></span></label>
+                <input type="range" min="-2" max="2" step="0.1" x-model.number="b" @input="calc()" class="w-full">
+            </div>
+        </div>
+        <div class="mt-4 bg-gray-50 rounded-xl p-4 font-mono text-sm text-gray-700">
+            z = <span x-text="w1.toFixed(2)"></span>·<span x-text="x1"></span> + <span x-text="w2.toFixed(2)"></span>·<span x-text="x2"></span> + <span x-text="b.toFixed(2)"></span> = <b x-text="z.toFixed(2)"></b>
+            → chiqish = <b class="text-electric text-lg" x-text="out"></b>
+        </div>
+    </div>
+
+    <!-- Logic gates -->
+    <div class="border-t pt-6">
+        <h3 class="font-bold text-navy mb-3">2. Mantiqiy eshiklar</h3>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <template x-for="g in gates" :key="g.name">
+                <button @click="loadGate(g)" class="px-4 py-2 rounded-lg font-semibold transition" :class="g.name==='XOR' ? 'bg-red-100 text-red-600 hover:bg-red-200' : 'bg-electric/10 text-electric hover:bg-electric/20'" x-text="g.name"></button>
+            </template>
+        </div>
+        <div x-show="xorWarn" class="bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 text-sm mb-4">
+            ⚠️ XOR chiziqli ajralmaydigan muammo — bitta perceptron bilan yechilmaydi. Buning uchun ko'p qatlamli neyron tarmoq (MLP) kerak.
+        </div>
+        <div x-show="truthTable.length" class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead class="bg-gray-50"><tr><th class="px-3 py-2">x₁</th><th class="px-3 py-2">x₂</th><th class="px-3 py-2">z</th><th class="px-3 py-2">Chiqish</th><th class="px-3 py-2">Kutilgan</th><th class="px-3 py-2">✓</th></tr></thead>
+                <tbody>
+                    <template x-for="(r,i) in truthTable" :key="i">
+                        <tr class="border-t"><td class="px-3 py-1" x-text="r.x1"></td><td class="px-3 py-1" x-text="r.x2"></td><td class="px-3 py-1" x-text="r.z.toFixed(2)"></td><td class="px-3 py-1 font-bold" :class="r.out===r.target ? 'text-emerald' : 'text-red-500'" x-text="r.out"></td><td class="px-3 py-1" x-text="r.target"></td><td class="px-3 py-1" x-text="r.out===r.target ? '✓' : '✗'"></td></tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+function perceptronApp() {
+    return {
+        x1:1, x2:1, w1:0.5, w2:0.5, b:-0.7,
+        z:0, out:0,
+        xorWarn: false, truthTable: [],
+        gates: [
+            { name:'AND', w1:1, w2:1, b:-1.5, truth:[[0,0,0],[0,1,0],[1,0,0],[1,1,1]] },
+            { name:'OR',  w1:1, w2:1, b:-0.5, truth:[[0,0,0],[0,1,1],[1,0,1],[1,1,1]] },
+            { name:'NAND',w1:-1,w2:-1,b:1.5,  truth:[[0,0,1],[0,1,1],[1,0,1],[1,1,0]] },
+            { name:'NOR', w1:-1,w2:-1,b:0.5,  truth:[[0,0,1],[0,1,0],[1,0,0],[1,1,0]] },
+            { name:'XOR', w1:1, w2:1, b:-0.5, truth:[[0,0,0],[0,1,1],[1,0,1],[1,1,0]] }
+        ],
+        init() { this.calc(); },
+        calc() {
+            this.z = this.w1*this.x1 + this.w2*this.x2 + this.b;
+            this.out = this.z >= 0 ? 1 : 0;
+        },
+        loadGate(g) {
+            this.w1 = g.w1; this.w2 = g.w2; this.b = g.b;
+            this.xorWarn = (g.name === 'XOR');
+            this.truthTable = g.truth.map(([a,bb,t]) => {
+                const z = this.w1*a + this.w2*bb + this.b;
+                return { x1:a, x2:bb, z, out: z>=0?1:0, target:t };
+            });
+            this.calc();
+        }
+    }
+}
+document.addEventListener('alpine:init', () => {
+    Alpine.data('perceptronApp', perceptronApp);
+});
+</script>
+{% endblock %}
+
+{% block result_explanation %}
+<p>• z ≥ 0 → neyron "yonadi" (1), z &lt; 0 → neyron "o'chadi" (0)</p>
+<p>• AND, OR, NAND, NOR yechiladi — chiziqli ajraladigan</p>
+<p>• XOR yechilmaydi — buning uchun ko'p qatlamli tarmoq (MLP) kerak</p>
+<p>• Bias (b) — chegaraga qanchalik oson o'tishni belgilaydi</p>
+{% endblock %}
+
+{% block quiz %}{% endblock %}
+
+{% block further_reading %}
+<li>M6 — Neyron tarmoqlar asoslari</li>
+<li>A8 — Ko'p qatlamli perceptron (MLP) va backpropagation</li>
+<li>XOR muammosining tarixi va AI qishi</li>
+{% endblock %}

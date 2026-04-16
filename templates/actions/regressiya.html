@@ -1,0 +1,155 @@
+{% extends 'actions/_tool_base.html' %}
+{% block title %}Chiziqli Regressiya Vizualizatori{% endblock %}
+{% block crumb %}Chiziqli Regressiya{% endblock %}
+{% block tool_title %}📈 Chiziqli Regressiya Vizualizatori{% endblock %}
+{% block badges %}
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M5 — Mashinali o'qitish</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A5 — Regressiya</span>
+{% endblock %}
+{% block description %}Grafikka nuqtalar qo'shing va eng kichik kvadratlar usulida qurilgan chiziqni real vaqtda ko'ring.{% endblock %}
+
+{% block info_text %}
+Chiziqli regressiya — bashoratlash masalalarining asosidir. Masalan, o'quvchining o'qigan vaqtiga qarab bahosini bashoratlash. Bu vizualizator orqali siz nuqtalarni o'zingiz qo'shib, regressiya chizig'ining qanday qurilishini real vaqtda ko'rishingiz mumkin.
+{% endblock %}
+
+{% block formulas %}
+<p>y = a·x + b  — model</p>
+<p>a = (n·Σxy − Σx·Σy) / (n·Σx² − (Σx)²)</p>
+<p>b = (Σy − a·Σx) / n</p>
+<p>MSE = (1/n)·Σ(y − ŷ)²</p>
+<p>R² = 1 − Σ(y − ŷ)² / Σ(y − ȳ)²</p>
+{% endblock %}
+
+{% block steps %}
+<h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – eng kichik kvadratlar usuli asosida chiziqli regressiya modelini interaktiv tarzda qurish, model parametrlari (qiyalik va kesish nuqtasi) hamda sifat ko'rsatkichlari (MSE, RMSE, R²) ni real vaqtda hisoblash va bashoratlash jarayonini vizualizatsiya qilish.</p>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>Ma'lumotlarni interaktiv kiritish – foydalanuvchi tomonidan grafik ustiga bosish orqali ma'lumot nuqtalarini qo'shish imkoniyati.</li>
+        <li>Regressiya parametrlarini hisoblash – qiyalik (a) va kesish nuqtasi (b) ni eng kichik kvadratlar usuli asosida avtomatik aniqlash.</li>
+        <li>Model sifatini baholash – MSE, RMSE va R² ko'rsatkichlarini hisoblash va interpretatsiya qilish.</li>
+        <li>Vizual regressiya chizig'i – ma'lumot nuqtalari qo'shilishi bilan regressiya chizig'ining real vaqtda yangilanishi.</li>
+        <li>Namuna ma'lumotlar tahlili – oldindan belgilangan ma'lumotlar to'plami asosida modelni sinash va natijalarni baholash.</li>
+    </ol>
+</div>
+<div class="mb-4">
+    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <ul class="space-y-1 text-sm text-gray-700">
+        <li>✅ Interaktiv nuqta qo'shish – grafik ustiga bosish orqali ma'lumot nuqtalarini dinamik tarzda qo'shish va o'chirish.</li>
+        <li>✅ Real vaqtda yangilanish – har yangi nuqta qo'shilganda regressiya chizig'i va barcha metrikalar avtomatik qayta hisoblanadi.</li>
+        <li>✅ Namuna ma'lumotlar – "Uy narxi" va "O'quvchi bahosi" to'plamlari orqali modelni tayyor ma'lumotlarda sinash imkoniyati.</li>
+        <li>✅ Xatolar jadvali – har bir nuqta uchun haqiqiy qiymat, bashorat qiymati va xato miqdori jadval ko'rinishida taqdim etiladi.</li>
+        <li>✅ Tezkor va ishonchli hisob-kitoblar – eng kichik kvadratlar usulining analitik formulalari asosida model parametrlarini aniq hisoblash.</li>
+    </ul>
+</div>
+<div>
+    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
+        <li>"Nuqta qo'shish rejimi" tanlanib, grafik ustiga kamida 4-5 ta nuqta qo'shiladi; nuqtalar ma'lum bir chiziqli tendensiyaga mos joylashtirilishi tavsiya etiladi.</li>
+        <li>Nuqtalar qo'shilishi bilan regressiya chizig'ining avtomatik qurilishi va y = ax + b formulasidagi a hamda b qiymatlarining o'zgarishi kuzatiladi.</li>
+        <li>Metrikalar panelida MSE, RMSE va R² qiymatlari tahlil qilinadi; R² qiymati 1 ga yaqinligi modelnining sifat darajasini ifodalaydi.</li>
+        <li>"Namuna: O'quvchi bahosi" tugmasi bosilgach, tayyor ma'lumotlar to'plami yuklanadi va model parametrlari baholanadi.</li>
+        <li>Xatolar jadvalida har bir nuqta uchun bashorat qiymati va haqiqiy qiymat orasidagi farq tahlil qilinadi.</li>
+        <li>Nuqtalar o'chirib qayta qo'shiladi va R² qiymatining o'zgarishi kuzatiladi hamda chiziqli regressiyaning qo'llanish chegaralari baholanadi.</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block tool_ui %}
+<div x-data="regApp()" x-init="init()">
+    <div class="flex flex-wrap gap-3 mb-4">
+        <button @click="loadSample('house')" class="px-4 py-2 bg-amber-100 text-amber-700 rounded-lg text-sm font-semibold">Namuna: Uy narxi</button>
+        <button @click="loadSample('student')" class="px-4 py-2 bg-amber-100 text-amber-700 rounded-lg text-sm font-semibold">Namuna: O'quvchi bahosi</button>
+        <button @click="clear()" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-semibold">Tozalash</button>
+    </div>
+    <p class="text-sm text-gray-600 mb-3">💡 Grafikka bosib o'z nuqtangizni qo'shishingiz mumkin.</p>
+    <div class="h-80"><canvas id="regChart"></canvas></div>
+
+    <div x-show="points.length >= 2" class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-blue-50 rounded-xl p-4">
+            <p class="text-xs text-gray-600">Model</p>
+            <p class="font-mono text-sm font-bold text-electric" x-text="`y = ${a.toFixed(3)}·x + ${b.toFixed(3)}`"></p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4">
+            <p class="text-xs text-gray-600">MSE</p>
+            <p class="text-lg font-bold text-navy" x-text="mse.toFixed(3)"></p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4">
+            <p class="text-xs text-gray-600">RMSE</p>
+            <p class="text-lg font-bold text-navy" x-text="Math.sqrt(mse).toFixed(3)"></p>
+        </div>
+        <div class="bg-emerald/10 rounded-xl p-4">
+            <p class="text-xs text-gray-600">R²</p>
+            <p class="text-lg font-bold text-emerald" x-text="r2.toFixed(3)"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+function regApp() {
+    return {
+        points: [], a: 0, b: 0, mse: 0, r2: 0, chart: null,
+        init() {
+            const ctx = document.getElementById('regChart');
+            const self = this;
+            this.chart = new Chart(ctx, { type:'scatter', data: { datasets: [
+                { type:'scatter', label:'Nuqtalar', data:[], backgroundColor:'#3B82F6', pointRadius:6 },
+                { type:'line', label:'Regressiya', data:[], borderColor:'#EF4444', borderWidth:2, pointRadius:0, fill:false }
+            ]}, options: { responsive:true, maintainAspectRatio:false, animation:false, scales:{ x:{ type:'linear', min:0, max:10 }, y:{ min:0, max:10 } },
+                onClick(e) {
+                    const rect = e.native.target.getBoundingClientRect();
+                    const xScale = self.chart.scales.x, yScale = self.chart.scales.y;
+                    const x = xScale.getValueForPixel(e.native.clientX - rect.left);
+                    const y = yScale.getValueForPixel(e.native.clientY - rect.top);
+                    if (x>=0 && x<=10 && y>=0 && y<=10) { self.points.push({x:+x.toFixed(2), y:+y.toFixed(2)}); self.fit(); }
+                }
+            } });
+        },
+        fit() {
+            const n = this.points.length;
+            if (n < 2) { this.chart.data.datasets[0].data = this.points; this.chart.data.datasets[1].data = []; this.chart.update(); return; }
+            const sx = this.points.reduce((s,p)=>s+p.x,0);
+            const sy = this.points.reduce((s,p)=>s+p.y,0);
+            const sxy = this.points.reduce((s,p)=>s+p.x*p.y,0);
+            const sxx = this.points.reduce((s,p)=>s+p.x*p.x,0);
+            const denom = n*sxx - sx*sx;
+            this.a = denom ? (n*sxy - sx*sy)/denom : 0;
+            this.b = (sy - this.a*sx)/n;
+            const ym = sy/n;
+            let ssr=0, sst=0;
+            this.points.forEach(p => { const yh = this.a*p.x+this.b; ssr += (p.y-yh)**2; sst += (p.y-ym)**2; });
+            this.mse = ssr/n;
+            this.r2 = sst ? 1 - ssr/sst : 0;
+            this.chart.data.datasets[0].data = this.points;
+            this.chart.data.datasets[1].data = [{x:0,y:this.b},{x:10,y:this.a*10+this.b}];
+            this.chart.update();
+        },
+        loadSample(type) {
+            if (type==='house') this.points = [{x:1,y:1.5},{x:2,y:2.3},{x:3,y:3.1},{x:4,y:4.2},{x:5,y:4.9},{x:6,y:6.1},{x:7,y:6.8},{x:8,y:8}];
+            else this.points = [{x:1,y:2},{x:2,y:3},{x:3,y:3.5},{x:4,y:5},{x:5,y:5.5},{x:6,y:6.8},{x:7,y:7.2},{x:8,y:8.5}];
+            this.fit();
+        },
+        clear() { this.points = []; this.fit(); }
+    }
+}
+</script>
+{% endblock %}
+
+{% block result_explanation %}
+<p>• R² = 1.0 — model barcha nuqtalarni to'liq tushuntirdi (ideal holat)</p>
+<p>• R² = 0.8–1.0 — yaxshi model</p>
+<p>• R² &lt; 0.5 — model yomon, ma'lumotlar chiziqli bog'liq emas</p>
+<p>• MSE qanchalik kichik bo'lsa — bashorat shunchalik aniq</p>
+{% endblock %}
+
+{% block quiz %}{% endblock %}
+
+{% block further_reading %}
+<li>M5 — Regressiya modellar</li>
+<li>A5 — Polinomial regressiya va ortiqcha moslashish (overfitting)</li>
+<li>MT6 — Mustaqil ta'lim uchun: Ridge va Lasso regressiya</li>
+{% endblock %}
