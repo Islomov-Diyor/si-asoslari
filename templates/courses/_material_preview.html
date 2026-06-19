@@ -1,0 +1,41 @@
+{% if material.video_url %}
+<div class="material-preview-empty">
+    <div class="material-preview-play">
+        <i class="fas fa-play text-xl text-electric ml-1"></i>
+    </div>
+</div>
+{% elif material.file %}
+    {% if material.is_pdf %}
+        {% if material.preview_image %}
+        <div class="material-preview-frame">
+            <img src="{{ material.preview_image.url }}" alt="{{ material.title }}" class="material-preview-image material-preview-page">
+        </div>
+        {% else %}
+        <div class="material-preview-empty">
+            <div class="material-preview-document">
+                <i class="fas fa-file-pdf text-2xl text-electric"></i>
+                <span>PDF</span>
+            </div>
+        </div>
+        {% endif %}
+    {% elif material.is_image %}
+    <div class="material-preview-frame">
+        <img src="{{ material.file.url }}" alt="{{ material.title }}" class="material-preview-image">
+    </div>
+    {% else %}
+    <div class="material-preview-empty">
+        <div class="material-preview-document">
+            <i class="fas fa-file-lines text-2xl text-electric"></i>
+            {% if material.file_extension %}
+            <span>{{ material.file_extension|upper }}</span>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+{% else %}
+<div class="material-preview-empty">
+    <div class="material-preview-document">
+        <i class="fas fa-file text-2xl text-electric"></i>
+    </div>
+</div>
+{% endif %}

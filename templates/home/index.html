@@ -210,18 +210,8 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
             {% for material in recent_materials %}
             <div class="group bg-white rounded-2xl overflow-hidden border border-gray-100 card-glow scroll-animate">
-                <div class="h-48 bg-gradient-to-br from-electric/8 via-blue-50 to-indigo-50 flex items-center justify-center relative overflow-hidden">
-                    <!-- Animated background orb -->
-                    <div class="absolute w-32 h-32 bg-electric/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-                    {% if material.video_url %}
-                    <div class="relative z-10 w-16 h-16 bg-white/80 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-play text-xl text-electric ml-1"></i>
-                    </div>
-                    {% else %}
-                    <div class="relative z-10 w-16 h-16 bg-white/80 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-file-pdf text-xl text-electric"></i>
-                    </div>
-                    {% endif %}
+                <div class="h-48 bg-gradient-to-br from-electric/8 via-blue-50 to-indigo-50 relative overflow-hidden">
+                    {% include 'courses/_material_preview.html' with material=material %}
                     <span class="absolute top-4 right-4 px-3 py-1 bg-emerald text-white text-xs font-semibold rounded-full shadow-sm">Aktiv</span>
                 </div>
                 <div class="p-6">
