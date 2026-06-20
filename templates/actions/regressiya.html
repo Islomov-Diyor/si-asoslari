@@ -24,14 +24,14 @@ Chiziqli regressiya — bashoratlash masalalarining asosidir. Masalan, o'quvchin
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
     <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
-    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – eng kichik kvadratlar usuli asosida chiziqli regressiya modelini interaktiv tarzda qurish, model parametrlari (qiyalik va kesish nuqtasi) hamda sifat ko'rsatkichlari (MSE, RMSE, R²) ni real vaqtda hisoblash va bashoratlash jarayonini vizualizatsiya qilish.</p>
+    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – eng kichik kvadratlar usuli asosida chiziqli regressiya modelini interaktiv tarzda qurish, model parametrlari (qiyalik va kesish nuqtasi) hamda sifat ko'rsatkichlarini real vaqtda hisoblash va bashoratlash jarayonini vizualizatsiya qilish.</p>
 </div>
 <div class="mb-4">
     <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Ma'lumotlarni interaktiv kiritish – foydalanuvchi tomonidan grafik ustiga bosish orqali ma'lumot nuqtalarini qo'shish imkoniyati.</li>
         <li>Regressiya parametrlarini hisoblash – qiyalik (a) va kesish nuqtasi (b) ni eng kichik kvadratlar usuli asosida avtomatik aniqlash.</li>
-        <li>Model sifatini baholash – MSE, RMSE va R² ko'rsatkichlarini hisoblash va interpretatsiya qilish.</li>
+        <li>Model sifatini baholash – o'rtacha kvadratik xato, ildiz ostidagi o'rtacha kvadratik xato va R² ko'rsatkichlarini hisoblash hamda izohlash.</li>
         <li>Vizual regressiya chizig'i – ma'lumot nuqtalari qo'shilishi bilan regressiya chizig'ining real vaqtda yangilanishi.</li>
         <li>Namuna ma'lumotlar tahlili – oldindan belgilangan ma'lumotlar to'plami asosida modelni sinash va natijalarni baholash.</li>
     </ol>
@@ -51,7 +51,7 @@ Chiziqli regressiya — bashoratlash masalalarining asosidir. Masalan, o'quvchin
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>"Nuqta qo'shish rejimi" tanlanib, grafik ustiga kamida 4-5 ta nuqta qo'shiladi; nuqtalar ma'lum bir chiziqli tendensiyaga mos joylashtirilishi tavsiya etiladi.</li>
         <li>Nuqtalar qo'shilishi bilan regressiya chizig'ining avtomatik qurilishi va y = ax + b formulasidagi a hamda b qiymatlarining o'zgarishi kuzatiladi.</li>
-        <li>Metrikalar panelida MSE, RMSE va R² qiymatlari tahlil qilinadi; R² qiymati 1 ga yaqinligi modelnining sifat darajasini ifodalaydi.</li>
+        <li>Metrikalar panelida o'rtacha kvadratik xato, ildiz ostidagi xato va R² qiymatlari tahlil qilinadi; R² qiymati 1 ga yaqinligi modelnining sifat darajasini ifodalaydi.</li>
         <li>"Namuna: O'quvchi bahosi" tugmasi bosilgach, tayyor ma'lumotlar to'plami yuklanadi va model parametrlari baholanadi.</li>
         <li>Xatolar jadvalida har bir nuqta uchun bashorat qiymati va haqiqiy qiymat orasidagi farq tahlil qilinadi.</li>
         <li>Nuqtalar o'chirib qayta qo'shiladi va R² qiymatining o'zgarishi kuzatiladi hamda chiziqli regressiyaning qo'llanish chegaralari baholanadi.</li>
@@ -75,11 +75,11 @@ Chiziqli regressiya — bashoratlash masalalarining asosidir. Masalan, o'quvchin
             <p class="font-mono text-sm font-bold text-electric" x-text="`y = ${a.toFixed(3)}·x + ${b.toFixed(3)}`"></p>
         </div>
         <div class="bg-gray-50 rounded-xl p-4">
-            <p class="text-xs text-gray-600">MSE</p>
+            <p class="text-xs text-gray-600">O'rtacha kvadratik xato</p>
             <p class="text-lg font-bold text-navy" x-text="mse.toFixed(3)"></p>
         </div>
         <div class="bg-gray-50 rounded-xl p-4">
-            <p class="text-xs text-gray-600">RMSE</p>
+            <p class="text-xs text-gray-600">Ildiz ostidagi xato</p>
             <p class="text-lg font-bold text-navy" x-text="Math.sqrt(mse).toFixed(3)"></p>
         </div>
         <div class="bg-emerald/10 rounded-xl p-4">
@@ -143,14 +143,14 @@ function regApp() {
 <p>• R² = 1.0 — model barcha nuqtalarni to'liq tushuntirdi (ideal holat)</p>
 <p>• R² = 0.8–1.0 — yaxshi model</p>
 <p>• R² &lt; 0.5 — model yomon, ma'lumotlar chiziqli bog'liq emas</p>
-<p>• MSE qanchalik kichik bo'lsa — bashorat shunchalik aniq</p>
+<p>• O'rtacha kvadratik xato qanchalik kichik bo'lsa — bashorat shunchalik aniq</p>
 {% endblock %}
 
 {% block quiz %}{% endblock %}
 
 {% block further_reading %}
 <li>M5 — Regressiya modellar</li>
-<li>A5 — Polinomial regressiya va ortiqcha moslashish (overfitting)</li>
+<li>A5 — Polinomial regressiya va ortiqcha moslashish</li>
 <li>MT6 — Mustaqil ta'lim uchun: Ridge va Lasso regressiya</li>
 {% endblock %}
 

@@ -14,9 +14,9 @@ Perceptron — sun'iy neyron tarmoqlarning eng sodda elementi. U insonning bir n
 
 {% block formulas %}
 <p>z = w₁·x₁ + w₂·x₂ + b  — chiziqli yig'indi</p>
-<p>output = 1  agar z ≥ 0, aks holda 0  — step funksiyasi</p>
+<p>chiqish = 1  agar z ≥ 0, aks holda 0  — pog'onali funksiya</p>
 <p>w_yangi = w_eski + η·(t − y)·x  — o'qitish qoidasi</p>
-<p>η — learning rate, t — kutilgan chiqish, y — haqiqiy chiqish</p>
+<p>η — o'qish tezligi, t — kutilgan chiqish, y — haqiqiy chiqish</p>
 {% endblock %}
 
 {% block steps %}
@@ -41,7 +41,7 @@ Perceptron — sun'iy neyron tarmoqlarning eng sodda elementi. U insonning bir n
         <li>Qo'lda sinash rejimi – x₁, x₂ kirishlari va og'irliklarni o'zgartirib, perceptron chiqishini real vaqtda kuzatish.</li>
         <li>SVG neyron diagrammasi – kirishlar, og'irliklar, yig'indi va aktivatsiya bosqichlarini vizual tarzda aks ettiruvchi neyron sxemasi.</li>
         <li>Mantiqiy eshiklar kutubxonasi – AND, OR, NOT, NAND, NOR, XOR eshiklari uchun haqiqat jadvali va optimal parametrlarni avtomatik o'rnatish.</li>
-        <li>Bosqichma-bosqich o'qitish – har bir epoch uchun og'irliklar yangilanishi, xato va chiqish qiymatlarini jadval ko'rinishida kuzatish.</li>
+        <li>Bosqichma-bosqich o'qitish – har bir davr uchun og'irliklar yangilanishi, xato va chiqish qiymatlarini jadval ko'rinishida kuzatish.</li>
         <li>Tezkor va ishonchli hisob-kitoblar – perceptron o'qitish algoritmining matematik formulalari asosida og'irliklarni aniq yangilash.</li>
     </ul>
 </div>
@@ -52,7 +52,7 @@ Perceptron — sun'iy neyron tarmoqlarning eng sodda elementi. U insonning bir n
         <li>Hisoblash natijalari avtomatik ko'rsatiladi: z = w₁×x₁ + w₂×x₂ + b formulasi va chiqish qiymati (0 yoki 1) tahlil qilinadi.</li>
         <li>"Mantiqiy eshiklar" bo'limidan AND tugmasi tanlanib, og'irliklar avtomatik o'rnatiladi va haqiqat jadvali bilan tanishiladi.</li>
         <li>XOR tugmasi bosilgach, "Bu perceptron bilan yechilmaydi!" xabari sabablari bilan birga o'rganiladi va ko'p qatlamli tarmoq zarurligi tushuniladi.</li>
-        <li>"O'qitish simulatsiyasi" bo'limida "Keyingi qadam" tugmasi ketma-ket bosilib, AND eshigi uchun perceptron o'qitiladi; har bir epochdagi og'irliklar yangilanishi jadvalda kuzatiladi.</li>
+        <li>"O'qitish simulatsiyasi" bo'limida "Keyingi qadam" tugmasi ketma-ket bosilib, AND eshigi uchun perceptron o'qitiladi; har bir davrdagi og'irliklar yangilanishi jadvalda kuzatiladi.</li>
         <li>"Hammasi" tugmasi bosilib, o'qitish jarayoni to oxirigacha bajariladi va yakuniy og'irlik qiymatlari tahlil qilinadi.</li>
     </ol>
 </div>
@@ -161,7 +161,7 @@ document.addEventListener('alpine:init', () => {
 
 {% block further_reading %}
 <li>M6 — Neyron tarmoqlar asoslari</li>
-<li>A8 — Ko'p qatlamli perceptron (MLP) va backpropagation</li>
-<li>XOR muammosining tarixi va AI qishi</li>
+<li>A8 — Ko'p qatlamli perceptron (MLP) va xatoni orqaga tarqatish usuli</li>
+<li>XOR muammosining tarixi va sun'iy intellekt qishi</li>
 {% endblock %}
 

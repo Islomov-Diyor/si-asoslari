@@ -1,6 +1,6 @@
 ﻿{% extends 'actions/_tool_base.html' %}
-{% block title %}Gradient Descent Vizualizatori{% endblock %}
-{% block crumb %}Gradient Descent{% endblock %}
+{% block title %}Gradiyent Pastlash Vizualizatori{% endblock %}
+{% block crumb %}Gradiyent Pastlash{% endblock %}
 {% block tool_title %}Gradiyent Pastlash Vizualizatori{% endblock %}
 {% block badges %}
 <span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">M5 — Mashinali o'qitish</span>
@@ -13,17 +13,17 @@ Gradiyent pastlash — mashinaviy o'qitishdagi eng muhim algoritmlardan biri. U 
 {% endblock %}
 
 {% block formulas %}
-<p>f(x) = x²  — xato funksiyasi (<i>loss</i>)</p>
+<p>f(x) = x²  — xato funksiyasi</p>
 <p>∇f(x) = 2x  — gradiyent</p>
 <p>x_yangi = x_eski − α × ∇f(x)  — yangilanish formulasi</p>
-<p>α (alpha) — o'qish tezligi (learning rate)</p>
+<p>α (alpha) — o'qish tezligi</p>
 {% endblock %}
 
 {% block steps %}
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
     <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
-    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – gradiyent pastlash algoritmining ishlash mexanizmini vizual tarzda namoyish etish, o'qish tezligi (learning rate) va iteratsiya sonining optimallashtirish jarayoniga ta'sirini tahlil qilish hamda talabalarning mashinaviy o'qitish algoritmlarini chuqur o'zlashtirishiga ko'maklashish.</p>
+    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – gradiyent pastlash algoritmining ishlash mexanizmini vizual tarzda namoyish etish, o'qish tezligi va iteratsiya sonining optimallashtirish jarayoniga ta'sirini tahlil qilish hamda talabalarning mashinaviy o'qitish algoritmlarini chuqur o'zlashtirishiga ko'maklashish.</p>
 </div>
 <div class="mb-4">
     <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
@@ -40,7 +40,7 @@ Gradiyent pastlash — mashinaviy o'qitishdagi eng muhim algoritmlardan biri. U 
     <ul class="space-y-1 text-sm text-gray-700">
         <li>Parametrlarni avtomatik qayta ishlash – kiritilgan boshlang'ich qiymatlar asosida gradiyent pastlash algoritmini avtomatik ishga tushirish.</li>
         <li>Intuitiv vizual interfeys – parabolik funksiya ustida harakatlanuvchi nuqta orqali algoritmni ko'rgazmali namoyish etish.</li>
-        <li>O'qish tezligini tahlil qilish – kichik va katta learning rate qiymatlarining konvergensiya tezligiga ta'sirini solishtirish.</li>
+        <li>O'qish tezligini tahlil qilish – kichik va katta o'qish tezligi qiymatlarining yaqinlashish tezligiga ta'sirini solishtirish.</li>
         <li>Iteratsion jadval – har bir qadam uchun x, f(x) va gradiyent qiymatlarini tartibli jadvalda ko'rsatish.</li>
         <li>Tezkor va ishonchli hisob-kitoblar – matematik formulalar asosida gradiyent qiymatlarini aniq va tezkor hisoblash.</li>
     </ul>
@@ -66,7 +66,7 @@ Gradiyent pastlash — mashinaviy o'qitishdagi eng muhim algoritmlardan biri. U 
             <input type="range" min="-10" max="10" step="0.5" x-model.number="x0" class="w-full">
         </div>
         <div>
-            <label class="block text-sm font-semibold text-navy mb-1">Learning rate α: <span x-text="lr"></span></label>
+            <label class="block text-sm font-semibold text-navy mb-1">O'qish tezligi α: <span x-text="lr"></span></label>
             <input type="range" min="0.01" max="1.0" step="0.01" x-model.number="lr" class="w-full">
         </div>
         <div>
@@ -140,8 +140,8 @@ function gdApp() {
 
 {% block result_explanation %}
 <p>• Minimum nuqta x = 0 ga yaqin bo'lsa — algoritm to'g'ri ishladi</p>
-<p>• Agar nuqta sakrab yursa (zigzag) — learning rate juda katta, kamaytiring</p>
-<p>• Agar juda sekin tushsa — learning rate juda kichik, oshiring</p>
+<p>• Agar nuqta sakrab yursa (zigzag) — o'qish tezligi juda katta, kamaytiring</p>
+<p>• Agar juda sekin tushsa — o'qish tezligi juda kichik, oshiring</p>
 <p>• α = 1.0 da parabolada beqarorlik boshlanadi — sinab ko'ring</p>
 {% endblock %}
 
@@ -149,7 +149,7 @@ function gdApp() {
 
 {% block further_reading %}
 <li>M5 — Mashinaviy o'qitish asoslari</li>
-<li>A4 — Gradient descent variantlari (SGD, Adam, RMSProp)</li>
-<li>Convex va non-convex funksiyalar</li>
+<li>A4 — Gradiyent pastlash variantlari (SGD, Adam, RMSProp)</li>
+<li>Qavariq va noqavariq funksiyalar</li>
 {% endblock %}
 

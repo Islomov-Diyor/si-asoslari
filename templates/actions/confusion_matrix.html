@@ -1,6 +1,6 @@
 ﻿{% extends 'actions/_tool_base.html' %}
-{% block title %}Confusion Matrix Kalkulyatori{% endblock %}
-{% block crumb %}Confusion Matrix{% endblock %}
+{% block title %}Xatoliklar Matritsasi Kalkulyatori{% endblock %}
+{% block crumb %}Xatoliklar Matritsasi{% endblock %}
 {% block tool_title %}Xatoliklar Matritsasi Kalkulyatori{% endblock %}
 {% block badges %}
 <span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A4 — Mashinali o'qitish</span>
@@ -9,7 +9,7 @@
 {% block description %}Klassifikatsiya modelini baholashning barcha asosiy metrikalarini bitta joyda hisoblang va ularning ma'nosini o'rganing.{% endblock %}
 
 {% block info_text %}
-Confusion matrix klassifikatsiya modelining qanchalik to'g'ri ishlashini ko'rsatadi. Faqat "aniqlik" (accuracy) ko'rsatkichi yetarli emas — ayniqsa tibbiyot yoki spam aniqlashda. Ushbu tool barcha muhim metrikalarni avtomatik hisoblab beradi.
+Xatoliklar matritsasi klassifikatsiya modelining qanchalik to'g'ri ishlashini ko'rsatadi. Faqat "aniqlik" ko'rsatkichi yetarli emas — ayniqsa tibbiyot yoki spam aniqlashda. Ushbu vosita barcha muhim metrikalarni avtomatik hisoblab beradi.
 {% endblock %}
 
 {% block formulas %}
@@ -17,23 +17,23 @@ Confusion matrix klassifikatsiya modelining qanchalik to'g'ri ishlashini ko'rsat
 <p><b>TN</b> (True Negative): model manfiy dedi, haqiqatan manfiy</p>
 <p><b>FP</b> (False Positive): model musbat dedi, aslida manfiy — "yolg'on signal"</p>
 <p><b>FN</b> (False Negative): model manfiy dedi, aslida musbat — "o'tkazib yuborish"</p>
-<p>Accuracy  = (TP+TN) / (TP+TN+FP+FN)</p>
-<p>Precision = TP / (TP+FP)</p>
-<p>Recall    = TP / (TP+FN)</p>
-<p>F1        = 2 × (Precision × Recall) / (Precision + Recall)</p>
+<p>Aniqlik = (TP+TN) / (TP+TN+FP+FN)</p>
+<p>Musbat bashorat aniqligi = TP / (TP+FP)</p>
+<p>Qamrab olish = TP / (TP+FN)</p>
+<p>F1 = 2 × (musbat bashorat aniqligi × qamrab olish) / (musbat bashorat aniqligi + qamrab olish)</p>
 {% endblock %}
 
 {% block steps %}
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
     <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
-    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – klassifikatsiya modellarining samaradorligini xatoliklar matritsasi (confusion matrix) asosida kompleks baholash, Accuracy, Precision, Recall va F1-score ko'rsatkichlarini avtomatik hisoblash hamda modelning amaliy qo'llanish sohalaridagi muvofiqligini tahlil qilish.</p>
+    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – klassifikatsiya modellarining samaradorligini xatoliklar matritsasi asosida kompleks baholash, aniqlik, musbat bashorat aniqligi, qamrab olish va F1 ko'rsatkichlarini avtomatik hisoblash hamda modelning amaliy qo'llanish sohalaridagi muvofiqligini tahlil qilish.</p>
 </div>
 <div class="mb-4">
     <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Klassifikatsiya natijalarini kiritish – TP, FP, FN, TN qiymatlarini tizimga kiritish va boshqarish imkoniyati.</li>
-        <li>Metrikalarni avtomatik hisoblash – Accuracy, Precision, Recall, F1-score va Specificity ko'rsatkichlarini formulalar asosida hisoblash.</li>
+        <li>Metrikalarni avtomatik hisoblash – aniqlik, musbat bashorat aniqligi, qamrab olish, F1 va manfiy holatlarni to'g'ri ajratish ko'rsatkichlarini formulalar asosida hisoblash.</li>
         <li>Vizual matritsa – xatoliklar matritsasini rangli ko'rinishda grafik tarzda aks ettirish.</li>
         <li>Interpretatsiya – har bir metrika qiymatini iqtisodiy va ilmiy jihatdan baholash hamda xulosa shakllantirish.</li>
         <li>Qo'llanish sohasiga qarab tahlil – tibbiyot, moliya va boshqa sohalarda qaysi metrika ustuvorligi haqida tavsiyalar berish.</li>
@@ -44,7 +44,7 @@ Confusion matrix klassifikatsiya modelining qanchalik to'g'ri ishlashini ko'rsat
     <ul class="space-y-1 text-sm text-gray-700">
         <li>To'rt komponentli kiritish – TP, FP, FN, TN qiymatlarini alohida maydonchalarda kiritish va avtomatik qayta ishlash.</li>
         <li>Rangli vizualizatsiya – to'g'ri bashoratlar (TP, TN) yashil, noto'g'ri bashoratlar (FP, FN) qizil rang bilan ajratiladi.</li>
-        <li>Besh metrikali tahlil – Accuracy, Precision, Recall, F1-score va Specificity ko'rsatkichlari bir vaqtda hisoblanadi.</li>
+        <li>Besh metrikali tahlil – aniqlik, musbat bashorat aniqligi, qamrab olish, F1 va manfiy holatlarni to'g'ri ajratish ko'rsatkichlari bir vaqtda hisoblanadi.</li>
         <li>Progress bar indikatori – har bir metrika qiymati foiz ko'rinishida progress bar orqali vizual tarzda aks ettiriladi.</li>
         <li>Tezkor va ishonchli hisob-kitoblar – standart klassifikatsiya metrikalari formulalari asosida qiymatlarni aniq va tezkor hisoblash.</li>
     </ul>
@@ -57,7 +57,7 @@ Confusion matrix klassifikatsiya modelining qanchalik to'g'ri ishlashini ko'rsat
         <li>"Hisoblash" tugmasi bosilgach, tizim avtomatik ravishda barcha metrikalarni hisoblab, rangli matritsa ko'rinishida taqdim etadi.</li>
         <li>Har bir metrika kartochkasidagi formula va foiz qiymati o'qilib, model samaradorligi baholanadi.</li>
         <li>Progress bar indikatorlari orqali qaysi metrika past ekanliga e'tibor qaratiladi va sabablar tahlil qilinadi.</li>
-        <li>FP va FN qiymatlarini o'zgartirib, ularning Precision va Recall ko'rsatkichlariga ta'siri kuzatiladi hamda qo'llanish sohasiga ko'ra optimal metrika tanlanadi.</li>
+        <li>FP va FN qiymatlarini o'zgartirib, ularning musbat bashorat aniqligi va qamrab olish ko'rsatkichlariga ta'siri kuzatiladi hamda qo'llanish sohasiga ko'ra optimal metrika tanlanadi.</li>
     </ol>
 </div>
 {% endblock %}
@@ -133,11 +133,11 @@ function cmApp() {
             const f1 = (prec + rec) ? 2 * prec * rec / (prec + rec) : 0;
             const spec = (this.tn + this.fp) ? this.tn / (this.tn + this.fp) : 0;
             this.metrics = [
-                { name: 'Accuracy', value: acc, desc: 'Umumiy to\'g\'rilik — barcha bashoratlardan qanchasi to\'g\'ri' },
-                { name: 'Precision', value: prec, desc: 'Musbat deganlarning qanchasi haqiqatan musbat' },
-                { name: 'Recall', value: rec, desc: 'Haqiqiy musbatlarning qanchasi topildi' },
-                { name: 'F1-score', value: f1, desc: 'Precision va Recall muvozanati' },
-                { name: 'Specificity', value: spec, desc: 'Haqiqiy manfiylarning qanchasi to\'g\'ri topildi' }
+                { name: 'Aniqlik', value: acc, desc: 'Umumiy to\'g\'rilik — barcha bashoratlardan qanchasi to\'g\'ri' },
+                { name: 'Musbat bashorat aniqligi', value: prec, desc: 'Musbat deganlarning qanchasi haqiqatan musbat' },
+                { name: 'Qamrab olish', value: rec, desc: 'Haqiqiy musbatlarning qanchasi topildi' },
+                { name: 'F1 ko\'rsatkichi', value: f1, desc: 'Musbat bashorat aniqligi va qamrab olish muvozanati' },
+                { name: 'Manfiy holat aniqligi', value: spec, desc: 'Haqiqiy manfiylarning qanchasi to\'g\'ri topildi' }
             ];
             this.computed = true;
         }
@@ -147,10 +147,10 @@ function cmApp() {
 {% endblock %}
 
 {% block result_explanation %}
-<p>• Accuracy &gt; 90% — odatda yaxshi model, lekin ma'lumot nomutanosib bo'lsa aldab qo'yishi mumkin</p>
-<p>• Precision past — model ko'p yolg'on signal bermoqda</p>
-<p>• Recall past — model ko'p haqiqiy musbatlarni o'tkazib yubormoqda</p>
-<p>• Tibbiyotda Recall muhimroq (kasalni o'tkazib yubormaslik), spamda Precision muhimroq (oddiy xatni spamga tashlamaslik)</p>
+<p>• Aniqlik &gt; 90% — odatda yaxshi model, lekin ma'lumot nomutanosib bo'lsa aldab qo'yishi mumkin</p>
+<p>• Musbat bashorat aniqligi past — model ko'p yolg'on signal bermoqda</p>
+<p>• Qamrab olish past — model ko'p haqiqiy musbatlarni o'tkazib yubormoqda</p>
+<p>• Tibbiyotda qamrab olish muhimroq (kasalni o'tkazib yubormaslik), spamda musbat bashorat aniqligi muhimroq (oddiy xatni spamga tashlamaslik)</p>
 {% endblock %}
 
 {% block quiz %}{% endblock %}

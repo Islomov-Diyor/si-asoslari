@@ -49,7 +49,7 @@ Aktivatsiya funksiyalari neyron tarmoqlarga nolinearlikni kiritadi. Ularsiz neyr
 <div>
     <p class="font-semibold text-navy mb-2">Foydalanish tartibi:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
-        <li>Taqqoslanishi lozim bo'lgan aktivatsiya funksiyalari belgilash (checkbox) orqali tanlanadi; dastlab ReLU va Sigmoid funksiyalarini tanlash tavsiya etiladi.</li>
+        <li>Taqqoslanishi lozim bo'lgan aktivatsiya funksiyalari belgilash katakchasi orqali tanlanadi; dastlab ReLU va Sigmoid funksiyalarini tanlash tavsiya etiladi.</li>
         <li>X oralig'i slayderidan foydalanib, kirish qiymatlar diapazoni -10 dan 10 gacha bo'lgan oraliqda belgilanadi.</li>
         <li>Grafik avtomatik ravishda yangilanadi va tanlangan funksiyalar turli ranglar bilan aks ettiriladi.</li>
         <li>Har bir funksiya ostidagi ma'lumot kartochkasida formula, chiqish oralig'i va qo'llanish sohasi bilan tanishiladi.</li>
@@ -103,7 +103,7 @@ function actApp() {
             { key:'tanh', name:'Tanh', color:'#F59E0B', on:false,
               fn: x => Math.tanh(x),
               formula:'tanh(x) = (eˣ − e⁻ˣ)/(eˣ + e⁻ˣ)',
-              desc:'Chiqish −1 dan 1 gacha, nolga markazlangan. Sigmoiddan yaxshiroq, lekin baribir gradient yo\'qolishi bor.' },
+              desc:'Chiqish −1 dan 1 gacha, nolga markazlangan. Sigmoiddan yaxshiroq, lekin baribir gradiyent yo\'qolishi bor.' },
             { key:'leaky', name:'Leaky ReLU', color:'#EF4444', on:false,
               fn: x => x > 0 ? x : 0.01*x,
               formula:'f(x) = max(0.01x, x)',
@@ -133,7 +133,7 @@ function actApp() {
 {% endblock %}
 
 {% block result_explanation %}
-<p>• Sigmoid va Tanh: chuqur tarmoqlarda gradient yo'qolishi muammosi bor</p>
+<p>• Sigmoid va Tanh: chuqur tarmoqlarda gradiyent yo'qolishi muammosi bor</p>
 <p>• ReLU: hozir eng ko'p ishlatiladigan, lekin "o'lik neyron" muammosi bor</p>
 <p>• Leaky ReLU: ReLU ning yaxshilangan versiyasi, deyarli har doim ishlaydi</p>
 <p>• Chiqish qatlami uchun: ikkilik — Sigmoid, ko'p klass — Softmax, regressiya — chiziqli</p>
@@ -144,6 +144,6 @@ function actApp() {
 {% block further_reading %}
 <li>M7 — Chuqur o'qitish asoslari</li>
 <li>A9 — Keras/TensorFlow bilan neyron tarmoq qurish</li>
-<li>Gradient yo'qolishi muammosi va batch normalization</li>
+<li>Gradiyent yo'qolishi muammosi va paketli normallashtirish</li>
 {% endblock %}
 

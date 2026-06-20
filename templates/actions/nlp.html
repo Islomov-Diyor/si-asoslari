@@ -1,19 +1,19 @@
 ﻿{% extends 'actions/_tool_base.html' %}
-{% block title %}NLP Matn Tahlilchisi{% endblock %}
-{% block crumb %}NLP Matn Tahlilchisi{% endblock %}
-{% block tool_title %}NLP Matn Tahlilchisi{% endblock %}
+{% block title %}Tabiiy Til Matn Tahlilchisi{% endblock %}
+{% block crumb %}Tabiiy Til Matn Tahlilchisi{% endblock %}
+{% block tool_title %}Tabiiy Til Matn Tahlilchisi{% endblock %}
 {% block badges %}
 <span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">M8 — Tabiiy tilga qayta ishlov berish</span>
-<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A11 — NLP amaliyoti</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A11 — Tabiiy tilni qayta ishlash amaliyoti</span>
 {% endblock %}
-{% block description %}Matnni tokenlarga bo'ling, eng ko'p uchraydigan so'zlarni aniqlang va his-tuyg'u yo'nalishini o'lchang — NLP asoslarini amaliyotda ko'ring.{% endblock %}
+{% block description %}Matnni leksik birliklarga bo'ling, eng ko'p uchraydigan so'zlarni aniqlang va his-tuyg'u yo'nalishini o'lchang — tabiiy tilni qayta ishlash asoslarini amaliyotda ko'ring.{% endblock %}
 
 {% block info_text %}
-NLP (Natural Language Processing) — kompyuterga tabiiy tilni tushunishni o'rgatadigan sun'iy intellekt yo'nalishi. Tokenizatsiya, stop-words olib tashlash, chastota tahlili va sentiment aniqlash — bu barcha zamonaviy chatbotlar, qidiruv tizimlari va tarjima dasturlarining asosini tashkil etadi.
+Tabiiy tilni qayta ishlash — kompyuterga tabiiy tilni tushunishni o'rgatadigan sun'iy intellekt yo'nalishi. Tokenizatsiya, yordamchi so'zlarni olib tashlash, chastota tahlili va hissiy yo'nalishni aniqlash — bu barcha zamonaviy chatbotlar, qidiruv tizimlari va tarjima dasturlarining asosini tashkil etadi.
 {% endblock %}
 
 {% block formulas %}
-<p><b>Tokenizatsiya:</b> Matn → [token₁, token₂, ..., tokenₙ]</p>
+<p><b>Tokenizatsiya:</b> Matn → [birlik₁, birlik₂, ..., birlikₙ]</p>
 <p><b>Chastota:</b> f(w) = count(w) / N, bu yerda N — jami tokenlar soni</p>
 <p><b>Stop words:</b> Ma'no bermaydigan tez-tez ishlatiladigan so'zlar (va, yoki, bu...)</p>
 <p><b>Sentiment score:</b> Σ(polarity<sub>i</sub>) — ijobiy/salbiy so'zlar farqi</p>
@@ -23,14 +23,14 @@ NLP (Natural Language Processing) — kompyuterga tabiiy tilni tushunishni o'rga
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
     <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
-    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – tabiiy tilni qayta ishlash (NLP) ning asosiy bosqichlarini — tokenizatsiya, so'z chastotasi tahlili, TF hisoblash va sentiment tahlilini — interaktiv tarzda amalga oshirish, matnning lingvistik xususiyatlarini statistik ko'rsatkichlar orqali aniqlash hamda NLP metodlarini amaliy o'zlashtirishga ko'maklashish.</p>
+    <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – tabiiy tilni qayta ishlashning asosiy bosqichlarini — tokenizatsiya, so'z chastotasi tahlili, atama chastotasini hisoblash va hissiy yo'nalish tahlilini — interaktiv tarzda amalga oshirish, matnning lingvistik xususiyatlarini statistik ko'rsatkichlar orqali aniqlash hamda tabiiy tilni qayta ishlash metodlarini amaliy o'zlashtirishga ko'maklashish.</p>
 </div>
 <div class="mb-4">
     <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Matnni kiritish va boshqarish – foydalanuvchi tomonidan erkin matn kiritish yoki namuna matnlardan foydalanish imkoniyati.</li>
-        <li>Tokenizatsiya – matnni alohida token (so'z va belgi) larga ajratish va stop wordlarni filtrlash.</li>
-        <li>Chastota tahlili – eng ko'p uchraydigan 10 ta so'zni aniqlash va TF qiymatlarini hisoblash.</li>
+        <li>Tokenizatsiya – matnni alohida leksik birliklarga ajratish va yordamchi so'zlarni filtrlash.</li>
+        <li>Chastota tahlili – eng ko'p uchraydigan 10 ta so'zni aniqlash va atama chastotasi qiymatlarini hisoblash.</li>
         <li>Sentiment tahlili – leksikon asosida matnning his-tuyg'u yo'nalishini (ijobiy, salbiy, neytral) aniqlash.</li>
         <li>N-gram tahlili – matnda bigram va trigram strukturalarini aniqlash va kontekstual ma'noni baholash.</li>
         <li>Vizualizatsiya – so'z chastotasi ma'lumotlarini gorizontal ustunli grafik orqali aks ettirish.</li>
@@ -39,7 +39,7 @@ NLP (Natural Language Processing) — kompyuterga tabiiy tilni tushunishni o'rga
 <div class="mb-4">
     <p class="font-semibold text-navy mb-2">Uning imkoniyatlari:</p>
     <ul class="space-y-1 text-sm text-gray-700">
-        <li>Ko'p bosqichli tahlil – tokenizatsiya, chastota, TF, sentiment va N-gram tahlillari bir platformada amalga oshiriladi.</li>
+        <li>Ko'p bosqichli tahlil – tokenizatsiya, chastota, atama chastotasi, hissiy yo'nalish va N-gram tahlillari bir platformada amalga oshiriladi.</li>
         <li>Stop word filtri – funktsional so'zlarni avtomatik filtrlash va muhim leksik birliklarni ajratib ko'rsatish.</li>
         <li>Vizual chastota grafigi – top 10 so'z chastotasi gorizontal ustunli grafik orqali vizualizatsiya qilinadi.</li>
         <li>Sentiment indikatori – ijobiy va salbiy so'zlar matnda belgilab ko'rsatiladi va umumiy yo'nalish aniqlanadi.</li>
@@ -51,9 +51,9 @@ NLP (Natural Language Processing) — kompyuterga tabiiy tilni tushunishni o'rga
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Matn kiritish maydoniga tahlil qilinishi lozim bo'lgan matn yoziladi; kamida 3-4 jumla kiritish tavsiya etiladi.</li>
         <li>Yoki "Namuna: Texnologiya" yoxud "Namuna: Ta'lim" tugmasi bosilib, tayyor matn yuklanadi.</li>
-        <li>"Tahlil qilish" tugmasi bosilgach, tizim avtomatik ravishda barcha NLP bosqichlarini bajaradi va natijalar ko'rsatiladi.</li>
+        <li>"Tahlil qilish" tugmasi bosilgach, tizim avtomatik ravishda tabiiy tilni qayta ishlash bosqichlarini bajaradi va natijalar ko'rsatiladi.</li>
         <li>To'rtta statistik kartochkada (jami so'zlar, unikal so'zlar, jumlalar soni, o'rtacha so'z uzunligi) asosiy ko'rsatkichlar o'rganiladi.</li>
-        <li>Tokenizatsiya bo'limida stop wordlar (kulrang) va kontent so'zlar (ko'k) ajratilgan holda tahlil qilinadi; so'z chastotasi grafigida eng dominantleksemalar aniqlanadi.</li>
+        <li>Tokenizatsiya bo'limida yordamchi so'zlar (kulrang) va mazmunli so'zlar (ko'k) ajratilgan holda tahlil qilinadi; so'z chastotasi grafigida eng faol leksemalar aniqlanadi.</li>
         <li>Sentiment tahlili bo'limida ijobiy va salbiy so'zlar belgilab ko'rsatiladi, umumiy his-tuyg'u yo'nalishi baholanadi va N-gram bo'limida bigram hamda trigramlar kontekstual jihatdan o'rganiladi.</li>
     </ol>
 </div>
@@ -98,7 +98,7 @@ NLP (Natural Language Processing) — kompyuterga tabiiy tilni tushunishni o'rga
         <!-- Tokens -->
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
             <h4 class="font-semibold text-navy mb-3 text-sm"><i class="fas fa-cubes text-electric mr-2"></i>Tokenizatsiya
-                <span class="text-xs font-normal text-gray-500 ml-2">(kul rang — stop words, ko'k — muhim so'zlar)</span>
+                <span class="text-xs font-normal text-gray-500 ml-2">(kul rang — yordamchi so'zlar, ko'k — muhim so'zlar)</span>
             </h4>
             <div class="flex flex-wrap gap-2">
                 <template x-for="(t, i) in tokens" :key="i">
@@ -117,12 +117,12 @@ NLP (Natural Language Processing) — kompyuterga tabiiy tilni tushunishni o'rga
 
         <!-- Sentiment -->
         <div class="bg-white border border-gray-200 rounded-xl p-5">
-            <h4 class="font-semibold text-navy mb-3 text-sm"><i class="fas fa-face-smile text-electric mr-2"></i>Sentiment tahlili</h4>
+            <h4 class="font-semibold text-navy mb-3 text-sm"><i class="fas fa-face-smile text-electric mr-2"></i>Hissiy yo'nalish tahlili</h4>
             <div class="flex items-center gap-4 mb-3">
                 <span class="text-5xl" x-text="sentiment.emoji"></span>
                 <div class="flex-1">
                     <p class="text-xl font-bold" :class="sentiment.color" x-text="sentiment.label"></p>
-                    <p class="text-xs text-gray-500">Ball: <span class="font-mono" x-text="sentiment.score"></span></p>
+                    <p class="text-xs text-gray-500">Ko'rsatkich: <span class="font-mono" x-text="sentiment.score"></span></p>
                 </div>
             </div>
             <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
@@ -244,16 +244,16 @@ function nlpApp() {
 
 {% block result_explanation %}
 <p>• <b>Tokenizatsiya</b> — matnni eng kichik ma'noli birliklarga (so'zlar) ajratish jarayoni</p>
-<p>• <b>Stop words</b> ("va", "bu", "the") olib tashlanadi, chunki ular matn mazmuniga ta'sir qilmaydi</p>
+<p>• <b>Yordamchi so'zlar</b> ("va", "bu", "the") olib tashlanadi, chunki ular matn mazmuniga kuchli ta'sir qilmaydi</p>
 <p>• <b>Chastota tahlili</b> mavzuni aniqlashga yordam beradi — eng ko'p uchraydigan so'zlar asosiy mavzuni ko'rsatadi</p>
-<p>• <b>Sentiment</b> ijobiy va salbiy kalit so'zlar farqiga asoslanadi — bu sodda "lug'atli" yondashuv</p>
+<p>• <b>Hissiy yo'nalish</b> ijobiy va salbiy kalit so'zlar farqiga asoslanadi — bu sodda "lug'atli" yondashuv</p>
 {% endblock %}
 
 {% block quiz %}{% endblock %}
 
 {% block further_reading %}
 <li>M8 — Tabiiy tilga qayta ishlov berish asoslari</li>
-<li>A11 — NLP amaliyoti: tokenizatsiya, stemming, lemmatizatsiya</li>
-<li>Bag-of-Words, TF-IDF va Word Embeddings modellari</li>
+<li>A11 — Tabiiy tilni qayta ishlash amaliyoti: tokenizatsiya, o'zakka keltirish, lug'aviy shaklga keltirish</li>
+<li>So'zlar to'plami, TF-IDF va so'z vektorlari modellari</li>
 {% endblock %}
 

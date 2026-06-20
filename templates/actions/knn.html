@@ -9,7 +9,7 @@
 {% block description %}Eng yaqin K ta qo'shniga qarab yangi nuqtani klassifikatsiya qiling va K qiymatining natijaga ta'sirini vizual kuzating.{% endblock %}
 
 {% block info_text %}
-K-Nearest Neighbors (K-NN) — eng sodda, ammo kuchli nazoratli o'qitish algoritmlaridan biri. U yangi nuqtaga eng yaqin bo'lgan K ta qo'shnini topadi va ko'pchilik klassi asosida qaror qabul qiladi. O'qitish bosqichi yo'q — barcha hisoblashlar bashorat vaqtida amalga oshiriladi ("lazy learning").
+K eng yaqin qo'shnilar (K-NN) — eng sodda, ammo kuchli nazoratli o'qitish algoritmlaridan biri. U yangi nuqtaga eng yaqin bo'lgan K ta qo'shnini topadi va ko'pchilik klassi asosida qaror qabul qiladi. O'qitish bosqichi yo'q — barcha hisoblashlar bashorat vaqtida amalga oshiriladi.
 {% endblock %}
 
 {% block formulas %}
@@ -237,8 +237,8 @@ function knnApp() {
 {% block result_explanation %}
 <p>• Yashil uchburchak — yangi (noma'lum) nuqta. Uning atrofidagi chiziqli chiziqlar K ta eng yaqin qo'shniga tortilgan</p>
 <p>• Agar K ta qo'shnining ko'pchiligi Klass 1 bo'lsa — yangi nuqta ham Klass 1 deb belgilanadi (va aksincha)</p>
-<p>• K juda kichik (masalan 1) bo'lsa — model shovqinlarga sezgir bo'ladi va overfitting yuzaga keladi</p>
-<p>• K juda katta bo'lsa — mayda klasslar yo'qoladi va underfitting yuzaga keladi</p>
+<p>• K juda kichik (masalan 1) bo'lsa — model shovqinlarga sezgir bo'ladi va ortiqcha moslashish yuzaga keladi</p>
+<p>• K juda katta bo'lsa — mayda klasslar yo'qoladi va yetarlicha moslashmaslik yuzaga keladi</p>
 {% endblock %}
 
 {% block quiz %}{% endblock %}
