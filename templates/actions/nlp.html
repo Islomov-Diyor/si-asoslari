@@ -1,10 +1,10 @@
-{% extends 'actions/_tool_base.html' %}
+﻿{% extends 'actions/_tool_base.html' %}
 {% block title %}NLP Matn Tahlilchisi{% endblock %}
 {% block crumb %}NLP Matn Tahlilchisi{% endblock %}
-{% block tool_title %}📝 NLP Matn Tahlilchisi{% endblock %}
+{% block tool_title %}NLP Matn Tahlilchisi{% endblock %}
 {% block badges %}
-<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M8 — Tabiiy tilga qayta ishlov berish</span>
-<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A11 — NLP amaliyoti</span>
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">M8 — Tabiiy tilga qayta ishlov berish</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A11 — NLP amaliyoti</span>
 {% endblock %}
 {% block description %}Matnni tokenlarga bo'ling, eng ko'p uchraydigan so'zlarni aniqlang va his-tuyg'u yo'nalishini o'lchang — NLP asoslarini amaliyotda ko'ring.{% endblock %}
 
@@ -22,11 +22,11 @@ NLP (Natural Language Processing) — kompyuterga tabiiy tilni tushunishni o'rga
 {% block steps %}
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
     <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – tabiiy tilni qayta ishlash (NLP) ning asosiy bosqichlarini — tokenizatsiya, so'z chastotasi tahlili, TF hisoblash va sentiment tahlilini — interaktiv tarzda amalga oshirish, matnning lingvistik xususiyatlarini statistik ko'rsatkichlar orqali aniqlash hamda NLP metodlarini amaliy o'zlashtirishga ko'maklashish.</p>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Matnni kiritish va boshqarish – foydalanuvchi tomonidan erkin matn kiritish yoki namuna matnlardan foydalanish imkoniyati.</li>
         <li>Tokenizatsiya – matnni alohida token (so'z va belgi) larga ajratish va stop wordlarni filtrlash.</li>
@@ -37,17 +37,17 @@ NLP (Natural Language Processing) — kompyuterga tabiiy tilni tushunishni o'rga
     </ol>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <p class="font-semibold text-navy mb-2">Uning imkoniyatlari:</p>
     <ul class="space-y-1 text-sm text-gray-700">
-        <li>✅ Ko'p bosqichli tahlil – tokenizatsiya, chastota, TF, sentiment va N-gram tahlillari bir platformada amalga oshiriladi.</li>
-        <li>✅ Stop word filtri – funktsional so'zlarni avtomatik filtrlash va muhim leksik birliklarni ajratib ko'rsatish.</li>
-        <li>✅ Vizual chastota grafigi – top 10 so'z chastotasi gorizontal ustunli grafik orqali vizualizatsiya qilinadi.</li>
-        <li>✅ Sentiment indikatori – ijobiy va salbiy so'zlar matnda belgilab ko'rsatiladi va umumiy yo'nalish aniqlanadi.</li>
-        <li>✅ Tezkor va ishonchli hisob-kitoblar – JavaScript asosida matnni real vaqtda qayta ishlash va statistik ko'rsatkichlarni tezkor hisoblash.</li>
+        <li>Ko'p bosqichli tahlil – tokenizatsiya, chastota, TF, sentiment va N-gram tahlillari bir platformada amalga oshiriladi.</li>
+        <li>Stop word filtri – funktsional so'zlarni avtomatik filtrlash va muhim leksik birliklarni ajratib ko'rsatish.</li>
+        <li>Vizual chastota grafigi – top 10 so'z chastotasi gorizontal ustunli grafik orqali vizualizatsiya qilinadi.</li>
+        <li>Sentiment indikatori – ijobiy va salbiy so'zlar matnda belgilab ko'rsatiladi va umumiy yo'nalish aniqlanadi.</li>
+        <li>Tezkor va ishonchli hisob-kitoblar – JavaScript asosida matnni real vaqtda qayta ishlash va statistik ko'rsatkichlarni tezkor hisoblash.</li>
     </ul>
 </div>
 <div>
-    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <p class="font-semibold text-navy mb-2">Foydalanish tartibi:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Matn kiritish maydoniga tahlil qilinishi lozim bo'lgan matn yoziladi; kamida 3-4 jumla kiritish tavsiya etiladi.</li>
         <li>Yoki "Namuna: Texnologiya" yoxud "Namuna: Ta'lim" tugmasi bosilib, tayyor matn yuklanadi.</li>
@@ -194,13 +194,13 @@ function nlpApp() {
             const score = pos - neg;
             let label, emoji, color, barColor, pct;
             if (score > 0) {
-                label = 'Ijobiy'; emoji = '😊'; color = 'text-emerald'; barColor = 'bg-emerald';
+                label = 'Ijobiy'; emoji = ''; color = 'text-emerald'; barColor = 'bg-emerald';
                 pct = Math.min(50 + score * 15, 100);
             } else if (score < 0) {
-                label = 'Salbiy'; emoji = '😔'; color = 'text-red-500'; barColor = 'bg-red-500';
+                label = 'Salbiy'; emoji = ''; color = 'text-red-500'; barColor = 'bg-red-500';
                 pct = Math.max(50 + score * 15, 0);
             } else {
-                label = 'Neytral'; emoji = '😐'; color = 'text-gray-600'; barColor = 'bg-gray-400';
+                label = 'Neytral'; emoji = ''; color = 'text-gray-600'; barColor = 'bg-gray-400';
                 pct = 50;
             }
             this.sentiment = { label, emoji, color, barColor, pct, score: `+${pos} / −${neg}` };
@@ -256,3 +256,4 @@ function nlpApp() {
 <li>A11 — NLP amaliyoti: tokenizatsiya, stemming, lemmatizatsiya</li>
 <li>Bag-of-Words, TF-IDF va Word Embeddings modellari</li>
 {% endblock %}
+

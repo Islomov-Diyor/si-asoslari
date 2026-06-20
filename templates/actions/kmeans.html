@@ -1,10 +1,10 @@
-{% extends 'actions/_tool_base.html' %}
+﻿{% extends 'actions/_tool_base.html' %}
 {% block title %}K-Means Klasterlash Simulatori{% endblock %}
 {% block crumb %}K-Means{% endblock %}
-{% block tool_title %}🔵 K-Means Klasterlash Simulatori{% endblock %}
+{% block tool_title %}K-Means Klasterlash Simulatori{% endblock %}
 {% block badges %}
-<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M5 — Mashinali o'qitish</span>
-<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A7 — K-Means amaliyoti</span>
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">M5 — Mashinali o'qitish</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A7 — K-Means amaliyoti</span>
 {% endblock %}
 {% block description %}Nazoratsiz klasterlash algoritmining har bir iteratsiyasini animatsiya orqali kuzating va ichki mantiqini tushuning.{% endblock %}
 
@@ -21,11 +21,11 @@ K-Means — nazoratsiz o'qitishning eng mashhur algoritmi. U ma'lumotlarni avtom
 {% block steps %}
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
     <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – K-Means klasterlash algoritmining iterativ ishlash jarayonini bosqichma-bosqich vizualizatsiya qilish, sentroidlarning konvergensiya dinamikasini kuzatish va talabalarning nazoratsiz o'qitish metodlarini amaliy jihatdan o'zlashtirishiga ko'maklashish.</p>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Ma'lumotlarni generatsiya qilish va boshqarish – foydalanuvchi tomonidan nuqtalar soni va klaster sonini belgilash hamda tasodifiy ma'lumotlar to'plamini yaratish imkoniyati.</li>
         <li>Sentroidlarni boshlang'ich joylashtirilishi – algoritmning dastlabki bosqichida markaziy nuqtalarni tasodifiy tarzda o'rnatish.</li>
@@ -35,17 +35,17 @@ K-Means — nazoratsiz o'qitishning eng mashhur algoritmi. U ma'lumotlarni avtom
     </ol>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <p class="font-semibold text-navy mb-2">Uning imkoniyatlari:</p>
     <ul class="space-y-1 text-sm text-gray-700">
-        <li>✅ Interaktiv parametr boshqaruvi – K qiymati va nuqtalar sonini slayder orqali dinamik tarzda o'zgartirish.</li>
-        <li>✅ Bosqichma-bosqich vizualizatsiya – "1 qadam" tugmasi orqali algoritmning har bir iteratsiyasini alohida kuzatish imkoniyati.</li>
-        <li>✅ Avtomatik rejim – barcha iteratsiyalarni 500 ms oraliqda ketma-ket bajarish va konvergensiyagacha kuzatish.</li>
-        <li>✅ Inertiya ko'rsatkichi – klasterlash sifatini baholash uchun inertiya qiymatining dinamik hisoblanishi.</li>
-        <li>✅ Tezkor va ishonchli hisob-kitoblar – Evklid masofasi formulasi asosida nuqtalarni klasterlarga biriktirish jarayonini aniq amalga oshirish.</li>
+        <li>Interaktiv parametr boshqaruvi – K qiymati va nuqtalar sonini slayder orqali dinamik tarzda o'zgartirish.</li>
+        <li>Bosqichma-bosqich vizualizatsiya – "1 qadam" tugmasi orqali algoritmning har bir iteratsiyasini alohida kuzatish imkoniyati.</li>
+        <li>Avtomatik rejim – barcha iteratsiyalarni 500 ms oraliqda ketma-ket bajarish va konvergensiyagacha kuzatish.</li>
+        <li>Inertiya ko'rsatkichi – klasterlash sifatini baholash uchun inertiya qiymatining dinamik hisoblanishi.</li>
+        <li>Tezkor va ishonchli hisob-kitoblar – Evklid masofasi formulasi asosida nuqtalarni klasterlarga biriktirish jarayonini aniq amalga oshirish.</li>
     </ul>
 </div>
 <div>
-    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <p class="font-semibold text-navy mb-2">Foydalanish tartibi:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>K slayderidan foydalanib, klasterlar soni 2 dan 6 gacha bo'lgan oraliqda belgilanadi; dastlabki tajribada K=3 qiymati tavsiya etiladi.</li>
         <li>Nuqtalar soni slayderida 10 dan 100 gacha bo'lgan oraliqda ma'lumotlar to'plami hajmi aniqlanadi.</li>
@@ -164,3 +164,4 @@ function kmApp() {
 <li>A7 — K-Means++ va Elbow method</li>
 <li>DBSCAN, Hierarchical clustering — boshqa klasterlash algoritmlari</li>
 {% endblock %}
+

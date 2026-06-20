@@ -1,10 +1,10 @@
-{% extends 'actions/_tool_base.html' %}
+﻿{% extends 'actions/_tool_base.html' %}
 {% block title %}Aktivatsiya Funksiyalari{% endblock %}
 {% block crumb %}Aktivatsiya Funksiyalari{% endblock %}
-{% block tool_title %}⚡ Aktivatsiya Funksiyalari Grafigi{% endblock %}
+{% block tool_title %}Aktivatsiya Funksiyalari Grafigi{% endblock %}
 {% block badges %}
-<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M7 — Chuqur o'qitish</span>
-<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A9 — Chuqur o'qitish amaliyoti</span>
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">M7 — Chuqur o'qitish</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A9 — Chuqur o'qitish amaliyoti</span>
 {% endblock %}
 {% block description %}ReLU, Sigmoid, Tanh va boshqa funksiyalarni grafik ko'rinishida solishtiring va qaysi holda qaysini ishlatishni aniqlang.{% endblock %}
 
@@ -23,11 +23,11 @@ Aktivatsiya funksiyalari neyron tarmoqlarga nolinearlikni kiritadi. Ularsiz neyr
 {% block steps %}
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
     <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – sun'iy neyron tarmoqlarda qo'llaniladigan aktivatsiya funksiyalarining matematik xususiyatlarini vizual tarzda taqqoslash, ularning chiqish oralig'i va qo'llanish sohalarini tahlil qilish hamda talabalarning chuqur o'qitish arxitekturalarini to'g'ri loyihalash ko'nikmalarini rivojlantirish.</p>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Funksiyalarni tanlash va boshqarish – foydalanuvchi tomonidan taqqoslanadigan aktivatsiya funksiyalarini belgilash imkoniyati.</li>
         <li>Matematik hisoblash – ReLU, Sigmoid, Tanh, Leaky ReLU va Softmax funksiyalarining qiymatlarini avtomatik hisoblash.</li>
@@ -37,17 +37,17 @@ Aktivatsiya funksiyalari neyron tarmoqlarga nolinearlikni kiritadi. Ularsiz neyr
     </ol>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <p class="font-semibold text-navy mb-2">Uning imkoniyatlari:</p>
     <ul class="space-y-1 text-sm text-gray-700">
-        <li>✅ Ko'p funksiyali taqqoslash – bir vaqtda 5 tagacha aktivatsiya funksiyasini bitta grafik ustida vizualizatsiya qilish.</li>
-        <li>✅ Dinamik parametr boshqaruvi – X oralig'ini slayder orqali interaktiv tarzda o'zgartirish va grafikning real vaqtda yangilanishi.</li>
-        <li>✅ Ilmiy ma'lumot kartochkalari – har bir funksiya uchun formula, qo'llanish sohasi va afzalliklarni tizimli tarzda taqdim etish.</li>
-        <li>✅ Rangli differensiatsiya – funksiyalarni rang bo'yicha ajratib, vizual taqqoslashni osonlashtirish.</li>
-        <li>✅ Tezkor va ishonchli hisob-kitoblar – JavaScript matematik kutubxonasi asosida funksiya qiymatlarini aniq va tezkor hisoblash.</li>
+        <li>Ko'p funksiyali taqqoslash – bir vaqtda 5 tagacha aktivatsiya funksiyasini bitta grafik ustida vizualizatsiya qilish.</li>
+        <li>Dinamik parametr boshqaruvi – X oralig'ini slayder orqali interaktiv tarzda o'zgartirish va grafikning real vaqtda yangilanishi.</li>
+        <li>Ilmiy ma'lumot kartochkalari – har bir funksiya uchun formula, qo'llanish sohasi va afzalliklarni tizimli tarzda taqdim etish.</li>
+        <li>Rangli differensiatsiya – funksiyalarni rang bo'yicha ajratib, vizual taqqoslashni osonlashtirish.</li>
+        <li>Tezkor va ishonchli hisob-kitoblar – JavaScript matematik kutubxonasi asosida funksiya qiymatlarini aniq va tezkor hisoblash.</li>
     </ul>
 </div>
 <div>
-    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <p class="font-semibold text-navy mb-2">Foydalanish tartibi:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Taqqoslanishi lozim bo'lgan aktivatsiya funksiyalari belgilash (checkbox) orqali tanlanadi; dastlab ReLU va Sigmoid funksiyalarini tanlash tavsiya etiladi.</li>
         <li>X oralig'i slayderidan foydalanib, kirish qiymatlar diapazoni -10 dan 10 gacha bo'lgan oraliqda belgilanadi.</li>
@@ -146,3 +146,4 @@ function actApp() {
 <li>A9 — Keras/TensorFlow bilan neyron tarmoq qurish</li>
 <li>Gradient yo'qolishi muammosi va batch normalization</li>
 {% endblock %}
+

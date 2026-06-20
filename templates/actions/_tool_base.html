@@ -1,44 +1,110 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+<section class="tool-lab-page">
+    <div class="tool-lab-hero">
+        <div class="tool-lab-hero-grid"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 lg:py-12 relative">
+            <nav class="tool-breadcrumb">
+                <a href="{% url 'home:index' %}">Bosh sahifa</a>
+                <span>&rsaquo;</span>
+                <a href="{% url 'actions:index' %}">Interaktiv xizmatlar</a>
+                <span>&rsaquo;</span>
+                <span>{% block crumb %}{% endblock %}</span>
+            </nav>
 
-    <!-- Breadcrumb -->
-    <nav class="text-sm text-gray-500 mb-4 flex items-center gap-2 flex-wrap">
-        <a href="{% url 'home:index' %}" class="hover:text-electric">Bosh sahifa</a>
-        <span>›</span>
-        <a href="{% url 'actions:index' %}" class="hover:text-electric">Interaktiv xizmatlar</a>
-        <span>›</span>
-        <span class="text-navy font-medium">{% block crumb %}{% endblock %}</span>
-    </nav>
-
-    <!-- Back button top -->
-    <a href="{% url 'actions:index' %}" class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-electric mb-6">
-        <i class="fas fa-arrow-left"></i> Barcha xizmatlarga qaytish
-    </a>
-
-    <!-- A) Header -->
-    <h1 class="text-2xl md:text-4xl font-extrabold text-navy mb-3 leading-snug">{% block tool_title %}{% endblock %}</h1>
-    <p class="text-gray-600 text-lg mb-8">{% block description %}{% endblock %}</p>
-
-    <!-- C) Formulas collapsible -->
-    <div x-data="{ open: false }" class="bg-gray-50 border border-gray-200 rounded-xl mb-6 overflow-hidden">
-        <button @click="open = !open" class="w-full flex items-center justify-between px-5 py-4 text-left font-semibold text-navy hover:bg-gray-100 transition">
-            <span><i class="fas fa-square-root-variable mr-2 text-electric"></i> Formulalar va tushunchalar</span>
-            <i class="fas fa-chevron-down transition-transform" :class="open && 'rotate-180'"></i>
-        </button>
-        <div x-show="open" x-transition class="px-5 pb-5 font-mono text-sm text-gray-700 space-y-2">
-            {% block formulas %}{% endblock %}
+            <div class="max-w-5xl">
+                <a href="{% url 'actions:index' %}" class="tool-back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Barcha xizmatlarga qaytish
+                </a>
+                <div class="tool-hero-label">
+                    <span class="tool-hero-dot"></span>
+                    Interaktiv ilmiy modul
+                </div>
+                <h1 class="tool-lab-title">{% block tool_title %}{% endblock %}</h1>
+                <p class="tool-lab-desc">{% block description %}{% endblock %}</p>
+                <div class="tool-badge-row">
+                    {% block badges %}{% endblock %}
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- E) Tool UI -->
-    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8 mb-8">
-        {% block tool_ui %}{% endblock %}
-    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 lg:py-12">
+        <div class="tool-overview">
+            <div class="tool-overview-icon">
+                <i class="fas fa-microscope"></i>
+            </div>
+            <div>
+                <p class="tool-section-kicker">Ilmiy asos</p>
+                <p class="tool-overview-text">{% block info_text %}{% endblock %}</p>
+            </div>
+        </div>
 
-    <a href="{% url 'actions:index' %}" class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-electric">
-        <i class="fas fa-arrow-left"></i> Barcha xizmatlarga qaytish
-    </a>
+        <div class="grid lg:grid-cols-[360px_1fr] gap-7 items-start mt-7">
+            <aside class="tool-sidebar">
+                <details class="tool-accordion" open>
+                    <summary>
+                        <span><i class="fas fa-square-root-variable"></i> Formulalar va tushunchalar</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="tool-formula-list">
+                        {% block formulas %}{% endblock %}
+                    </div>
+                </details>
+
+                <details class="tool-accordion" open>
+                    <summary>
+                        <span><i class="fas fa-chart-simple"></i> Natija interpretatsiyasi</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="tool-note-list">
+                        {% block result_explanation %}{% endblock %}
+                    </div>
+                </details>
+
+                <details class="tool-accordion">
+                    <summary>
+                        <span><i class="fas fa-book-open-reader"></i> Keyingi o'rganish</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <ul class="tool-reading-list">
+                        {% block further_reading %}{% endblock %}
+                    </ul>
+                </details>
+            </aside>
+
+            <div class="space-y-7">
+                <div class="tool-ui-panel">
+                    <div class="tool-panel-head">
+                        <div>
+                            <p class="tool-section-kicker">Tajriba muhiti</p>
+                            <h2>Interaktiv simulyator</h2>
+                        </div>
+                        <span class="tool-panel-chip"><i class="fas fa-circle-play"></i> Live</span>
+                    </div>
+                    <div class="tool-ui-body">
+                        {% block tool_ui %}{% endblock %}
+                    </div>
+                </div>
+
+                <details class="tool-method-panel" open>
+                    <summary>
+                        <span><i class="fas fa-clipboard-list"></i> Metodik tavsif va foydalanish tartibi</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="tool-method-content">
+                        {% block steps %}{% endblock %}
+                    </div>
+                </details>
+
+                <a href="{% url 'actions:index' %}" class="tool-bottom-back">
+                    <i class="fas fa-arrow-left"></i>
+                    Barcha xizmatlarga qaytish
+                </a>
+            </div>
+        </div>
+    </div>
 </section>
 
 <script>

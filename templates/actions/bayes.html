@@ -1,10 +1,10 @@
-{% extends 'actions/_tool_base.html' %}
+﻿{% extends 'actions/_tool_base.html' %}
 {% block title %}Bayes Kalkulyatori{% endblock %}
 {% block crumb %}Bayes Kalkulyatori{% endblock %}
 {% block tool_title %}<span class="inline-flex items-center gap-3"><span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-700 shadow-md shadow-violet-300"><i class="fas fa-percent text-white text-base"></i></span>Bayes Teoremasi Kalkulyatori</span>{% endblock %}
 {% block badges %}
-<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M4 — Bilimlar bazasi</span>
-<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A3 — Ekspert tizimlari</span>
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">M4 — Bilimlar bazasi</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A3 — Ekspert tizimlari</span>
 {% endblock %}
 {% block description %}Yangi dalil asosida ehtimollikni yangilang va Bayes teoremasining kutilmagan natijalarini o'zingiz ko'ring.{% endblock %}
 
@@ -23,11 +23,11 @@ Bayes teoremasi yangi dalillar asosida ehtimollikni yangilashga imkon beradi. Ti
 {% block steps %}
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
     <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – Bayes teoremasi asosida ehtimolliklarni yangilash jarayonini interaktiv tarzda o'rganish, prior va posterior ehtimolliklarning nisbatini vizualizatsiya qilish hamda real hayotiy misollarda kontrintuitiv natijalarni ilmiy asosda tushuntirish orqali ehtimollik nazariyasini amaliy o'zlashtirishga ko'maklashish.</p>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Ehtimollik parametrlarini kiritish – P(A), P(B|A) va P(B) qiymatlarini tizimga kiritish va boshqarish imkoniyati.</li>
         <li>Posterior ehtimollikni hisoblash – P(A|B) = P(B|A) × P(A) / P(B) formulasi asosida natijani avtomatik aniqlash.</li>
@@ -37,17 +37,17 @@ Bayes teoremasi yangi dalillar asosida ehtimollikni yangilashga imkon beradi. Ti
     </ol>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <p class="font-semibold text-navy mb-2">Uning imkoniyatlari:</p>
     <ul class="space-y-1 text-sm text-gray-700">
-        <li>✅ Uch parametrli kiritish – P(A), P(B|A) va P(B) qiymatlarini alohida maydonchalarda kiritish va avtomatik qayta ishlash.</li>
-        <li>✅ Formula tafsiloti – P(A|B) hisoblash jarayonini bosqichma-bosqich formula ko'rinishida aks ettirish.</li>
-        <li>✅ Tibbiy stsenariy modeli – kasallik tarqalishi, test aniqligi va noto'g'ri ijobiy natija parametrlarini tahrirlash imkoniyati.</li>
-        <li>✅ Spam klassifikator demosi – kiritilgan matn asosida Naive Bayes algoritmini bosqichma-bosqich namoyish etish.</li>
-        <li>✅ Tezkor va ishonchli hisob-kitoblar – Bayes teoremasi formulasi asosida posterior ehtimollikni aniq va tezkor hisoblash.</li>
+        <li>Uch parametrli kiritish – P(A), P(B|A) va P(B) qiymatlarini alohida maydonchalarda kiritish va avtomatik qayta ishlash.</li>
+        <li>Formula tafsiloti – P(A|B) hisoblash jarayonini bosqichma-bosqich formula ko'rinishida aks ettirish.</li>
+        <li>Tibbiy stsenariy modeli – kasallik tarqalishi, test aniqligi va noto'g'ri ijobiy natija parametrlarini tahrirlash imkoniyati.</li>
+        <li>Spam klassifikator demosi – kiritilgan matn asosida Naive Bayes algoritmini bosqichma-bosqich namoyish etish.</li>
+        <li>Tezkor va ishonchli hisob-kitoblar – Bayes teoremasi formulasi asosida posterior ehtimollikni aniq va tezkor hisoblash.</li>
     </ul>
 </div>
 <div>
-    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <p class="font-semibold text-navy mb-2">Foydalanish tartibi:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>P(A) maydoniga gipoteza ehtimolligi kiritiladi (masalan: 0.01 — kasallik 1% tarqalgan).</li>
         <li>P(B|A) maydoniga dalilning gipoteza ostidagi ehtimolligi kiritiladi (masalan: 0.99 — test 99% aniq).</li>
@@ -141,3 +141,4 @@ function bayesApp() {
 <li>A3 — Ekspert tizimlarida Bayes tarmoqlari</li>
 <li>Naive Bayes klassifikatori — spam filtrlar uchun</li>
 {% endblock %}
+

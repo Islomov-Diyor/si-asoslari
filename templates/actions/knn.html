@@ -1,10 +1,10 @@
-{% extends 'actions/_tool_base.html' %}
+﻿{% extends 'actions/_tool_base.html' %}
 {% block title %}K-NN Klassifikator Simulatori{% endblock %}
 {% block crumb %}K-NN Klassifikator{% endblock %}
-{% block tool_title %}🔵 K-NN Klassifikator Simulatori{% endblock %}
+{% block tool_title %}K-NN Klassifikator Simulatori{% endblock %}
 {% block badges %}
-<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A6 — Klassifikatsiya algoritmlari</span>
-<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M5 — Mashinali o'qitish</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A6 — Klassifikatsiya algoritmlari</span>
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">M5 — Mashinali o'qitish</span>
 {% endblock %}
 {% block description %}Eng yaqin K ta qo'shniga qarab yangi nuqtani klassifikatsiya qiling va K qiymatining natijaga ta'sirini vizual kuzating.{% endblock %}
 
@@ -21,11 +21,11 @@ K-Nearest Neighbors (K-NN) — eng sodda, ammo kuchli nazoratli o'qitish algorit
 {% block steps %}
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
     <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – K eng yaqin qo'shnilar (K-NN) algoritmining klassifikatsiya jarayonini vizual tarzda namoyish etish, K parametrining qaror chegarasiga ta'sirini tahlil qilish hamda nazoratli o'qitish metodlarini amaliy jihatdan o'zlashtirishga ko'maklashish.</p>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Ma'lumotlar to'plamini boshqarish – namuna ma'lumotlarni yuklash va foydalanuvchi tomonidan yangi nuqtalarni interaktiv tarzda qo'shish imkoniyati.</li>
         <li>Masofa hisoblash – yangi nuqtadan barcha o'quv nuqtalarigacha bo'lgan Evklid masofalarini avtomatik hisoblash.</li>
@@ -35,17 +35,17 @@ K-Nearest Neighbors (K-NN) — eng sodda, ammo kuchli nazoratli o'qitish algorit
     </ol>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <p class="font-semibold text-navy mb-2">Uning imkoniyatlari:</p>
     <ul class="space-y-1 text-sm text-gray-700">
-        <li>✅ Interaktiv grafik – grafik ustiga bosish orqali yangi nuqta qo'shish va darhol klassifikatsiya natijasini ko'rish.</li>
-        <li>✅ K ta qo'shni chiziqlari – yangi nuqtadan K ta eng yaqin qo'shnigacha chiziqlar tortiladi va masofalar ko'rsatiladi.</li>
-        <li>✅ Dinamik K boshqaruvi – K qiymatini slayder orqali o'zgartirish va klassifikatsiya natijasiga ta'sirini real vaqtda kuzatish.</li>
-        <li>✅ Masofa jadvali – K ta eng yaqin qo'shni va ularning aniq masofa qiymatlari jadval ko'rinishida taqdim etiladi.</li>
-        <li>✅ Tezkor va ishonchli hisob-kitoblar – Evklid masofasi formulasi asosida qo'shnilarni aniq va tezkor aniqlash.</li>
+        <li>Interaktiv grafik – grafik ustiga bosish orqali yangi nuqta qo'shish va darhol klassifikatsiya natijasini ko'rish.</li>
+        <li>K ta qo'shni chiziqlari – yangi nuqtadan K ta eng yaqin qo'shnigacha chiziqlar tortiladi va masofalar ko'rsatiladi.</li>
+        <li>Dinamik K boshqaruvi – K qiymatini slayder orqali o'zgartirish va klassifikatsiya natijasiga ta'sirini real vaqtda kuzatish.</li>
+        <li>Masofa jadvali – K ta eng yaqin qo'shni va ularning aniq masofa qiymatlari jadval ko'rinishida taqdim etiladi.</li>
+        <li>Tezkor va ishonchli hisob-kitoblar – Evklid masofasi formulasi asosida qo'shnilarni aniq va tezkor aniqlash.</li>
     </ul>
 </div>
 <div>
-    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <p class="font-semibold text-navy mb-2">Foydalanish tartibi:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>K slayderidan foydalanib, qo'shnilar soni 1 dan 15 gacha bo'lgan oraliqda belgilanadi; dastlabki tajribada K=3 qiymati tavsiya etiladi (toq son bo'lishi tenglikni bartaraf etadi).</li>
         <li>"Namuna 1" yoki "Namuna 2" tugmasi bosilib, ikki klassli ma'lumotlar to'plami grafikda aks ettiriladi.</li>
@@ -248,3 +248,4 @@ function knnApp() {
 <li>M5 — Mashinali o'qitish: nazoratli va nazoratsiz yondashuvlar</li>
 <li>Masofa metrikalari: Evklid, Manhattan, Minkowski</li>
 {% endblock %}
+

@@ -1,10 +1,10 @@
-{% extends 'actions/_tool_base.html' %}
+﻿{% extends 'actions/_tool_base.html' %}
 {% block title %}Chiziqli Regressiya Vizualizatori{% endblock %}
 {% block crumb %}Chiziqli Regressiya{% endblock %}
-{% block tool_title %}📈 Chiziqli Regressiya Vizualizatori{% endblock %}
+{% block tool_title %}Chiziqli Regressiya Vizualizatori{% endblock %}
 {% block badges %}
-<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M5 — Mashinali o'qitish</span>
-<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A5 — Regressiya</span>
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">M5 — Mashinali o'qitish</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A5 — Regressiya</span>
 {% endblock %}
 {% block description %}Grafikka nuqtalar qo'shing va eng kichik kvadratlar usulida qurilgan chiziqni real vaqtda ko'ring.{% endblock %}
 
@@ -23,11 +23,11 @@ Chiziqli regressiya — bashoratlash masalalarining asosidir. Masalan, o'quvchin
 {% block steps %}
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
     <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – eng kichik kvadratlar usuli asosida chiziqli regressiya modelini interaktiv tarzda qurish, model parametrlari (qiyalik va kesish nuqtasi) hamda sifat ko'rsatkichlari (MSE, RMSE, R²) ni real vaqtda hisoblash va bashoratlash jarayonini vizualizatsiya qilish.</p>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Ma'lumotlarni interaktiv kiritish – foydalanuvchi tomonidan grafik ustiga bosish orqali ma'lumot nuqtalarini qo'shish imkoniyati.</li>
         <li>Regressiya parametrlarini hisoblash – qiyalik (a) va kesish nuqtasi (b) ni eng kichik kvadratlar usuli asosida avtomatik aniqlash.</li>
@@ -37,17 +37,17 @@ Chiziqli regressiya — bashoratlash masalalarining asosidir. Masalan, o'quvchin
     </ol>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <p class="font-semibold text-navy mb-2">Uning imkoniyatlari:</p>
     <ul class="space-y-1 text-sm text-gray-700">
-        <li>✅ Interaktiv nuqta qo'shish – grafik ustiga bosish orqali ma'lumot nuqtalarini dinamik tarzda qo'shish va o'chirish.</li>
-        <li>✅ Real vaqtda yangilanish – har yangi nuqta qo'shilganda regressiya chizig'i va barcha metrikalar avtomatik qayta hisoblanadi.</li>
-        <li>✅ Namuna ma'lumotlar – "Uy narxi" va "O'quvchi bahosi" to'plamlari orqali modelni tayyor ma'lumotlarda sinash imkoniyati.</li>
-        <li>✅ Xatolar jadvali – har bir nuqta uchun haqiqiy qiymat, bashorat qiymati va xato miqdori jadval ko'rinishida taqdim etiladi.</li>
-        <li>✅ Tezkor va ishonchli hisob-kitoblar – eng kichik kvadratlar usulining analitik formulalari asosida model parametrlarini aniq hisoblash.</li>
+        <li>Interaktiv nuqta qo'shish – grafik ustiga bosish orqali ma'lumot nuqtalarini dinamik tarzda qo'shish va o'chirish.</li>
+        <li>Real vaqtda yangilanish – har yangi nuqta qo'shilganda regressiya chizig'i va barcha metrikalar avtomatik qayta hisoblanadi.</li>
+        <li>Namuna ma'lumotlar – "Uy narxi" va "O'quvchi bahosi" to'plamlari orqali modelni tayyor ma'lumotlarda sinash imkoniyati.</li>
+        <li>Xatolar jadvali – har bir nuqta uchun haqiqiy qiymat, bashorat qiymati va xato miqdori jadval ko'rinishida taqdim etiladi.</li>
+        <li>Tezkor va ishonchli hisob-kitoblar – eng kichik kvadratlar usulining analitik formulalari asosida model parametrlarini aniq hisoblash.</li>
     </ul>
 </div>
 <div>
-    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <p class="font-semibold text-navy mb-2">Foydalanish tartibi:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>"Nuqta qo'shish rejimi" tanlanib, grafik ustiga kamida 4-5 ta nuqta qo'shiladi; nuqtalar ma'lum bir chiziqli tendensiyaga mos joylashtirilishi tavsiya etiladi.</li>
         <li>Nuqtalar qo'shilishi bilan regressiya chizig'ining avtomatik qurilishi va y = ax + b formulasidagi a hamda b qiymatlarining o'zgarishi kuzatiladi.</li>
@@ -66,7 +66,7 @@ Chiziqli regressiya — bashoratlash masalalarining asosidir. Masalan, o'quvchin
         <button @click="loadSample('student')" class="px-4 py-2 bg-amber-100 text-amber-700 rounded-lg text-sm font-semibold">Namuna: O'quvchi bahosi</button>
         <button @click="clear()" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-semibold">Tozalash</button>
     </div>
-    <p class="text-sm text-gray-600 mb-3">💡 Grafikka bosib o'z nuqtangizni qo'shishingiz mumkin.</p>
+    <p class="text-sm text-gray-600 mb-3">Grafikka bosib o'z nuqtangizni qo'shishingiz mumkin.</p>
     <div class="h-80"><canvas id="regChart"></canvas></div>
 
     <div x-show="points.length >= 2" class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -153,3 +153,4 @@ function regApp() {
 <li>A5 — Polinomial regressiya va ortiqcha moslashish (overfitting)</li>
 <li>MT6 — Mustaqil ta'lim uchun: Ridge va Lasso regressiya</li>
 {% endblock %}
+

@@ -1,10 +1,10 @@
-{% extends 'actions/_tool_base.html' %}
+﻿{% extends 'actions/_tool_base.html' %}
 {% block title %}Perceptron Simulatori{% endblock %}
 {% block crumb %}Perceptron{% endblock %}
-{% block tool_title %}🧠 Perceptron Simulatori{% endblock %}
+{% block tool_title %}Perceptron Simulatori{% endblock %}
 {% block badges %}
-<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M6 — Neyron tarmoqlar</span>
-<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A8 — Perceptron amaliyoti</span>
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">M6 — Neyron tarmoqlar</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A8 — Perceptron amaliyoti</span>
 {% endblock %}
 {% block description %}Sun'iy neyronning eng sodda modelini qo'lda sozlang va mantiqiy eshiklarni perceptron orqali yeching.{% endblock %}
 
@@ -22,11 +22,11 @@ Perceptron — sun'iy neyron tarmoqlarning eng sodda elementi. U insonning bir n
 {% block steps %}
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
     <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – sun'iy neyronning matematik modelini interaktiv tarzda o'rganish, og'irliklar va bias parametrlarining chiqish qiymatiga ta'sirini tahlil qilish hamda mantiqiy eshiklarning perceptron yordamida yechilish imkoniyatlarini vizual ko'rsatish orqali neyron tarmoqlar nazariyasini amaliy o'zlashtirishga ko'maklashish.</p>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Parametrlarni interaktiv boshqarish – og'irliklar (w₁, w₂) va bias (b) qiymatlarini slayder orqali o'zgartirish hamda chiqishga ta'sirini kuzatish.</li>
         <li>Matematik hisoblash – z = w₁x₁ + w₂x₂ + b formulasi asosida yig'indi va aktivatsiya funksiyasi natijasini hisoblash.</li>
@@ -36,17 +36,17 @@ Perceptron — sun'iy neyron tarmoqlarning eng sodda elementi. U insonning bir n
     </ol>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <p class="font-semibold text-navy mb-2">Uning imkoniyatlari:</p>
     <ul class="space-y-1 text-sm text-gray-700">
-        <li>✅ Qo'lda sinash rejimi – x₁, x₂ kirishlari va og'irliklarni o'zgartirib, perceptron chiqishini real vaqtda kuzatish.</li>
-        <li>✅ SVG neyron diagrammasi – kirishlar, og'irliklar, yig'indi va aktivatsiya bosqichlarini vizual tarzda aks ettiruvchi neyron sxemasi.</li>
-        <li>✅ Mantiqiy eshiklar kutubxonasi – AND, OR, NOT, NAND, NOR, XOR eshiklari uchun haqiqat jadvali va optimal parametrlarni avtomatik o'rnatish.</li>
-        <li>✅ Bosqichma-bosqich o'qitish – har bir epoch uchun og'irliklar yangilanishi, xato va chiqish qiymatlarini jadval ko'rinishida kuzatish.</li>
-        <li>✅ Tezkor va ishonchli hisob-kitoblar – perceptron o'qitish algoritmining matematik formulalari asosida og'irliklarni aniq yangilash.</li>
+        <li>Qo'lda sinash rejimi – x₁, x₂ kirishlari va og'irliklarni o'zgartirib, perceptron chiqishini real vaqtda kuzatish.</li>
+        <li>SVG neyron diagrammasi – kirishlar, og'irliklar, yig'indi va aktivatsiya bosqichlarini vizual tarzda aks ettiruvchi neyron sxemasi.</li>
+        <li>Mantiqiy eshiklar kutubxonasi – AND, OR, NOT, NAND, NOR, XOR eshiklari uchun haqiqat jadvali va optimal parametrlarni avtomatik o'rnatish.</li>
+        <li>Bosqichma-bosqich o'qitish – har bir epoch uchun og'irliklar yangilanishi, xato va chiqish qiymatlarini jadval ko'rinishida kuzatish.</li>
+        <li>Tezkor va ishonchli hisob-kitoblar – perceptron o'qitish algoritmining matematik formulalari asosida og'irliklarni aniq yangilash.</li>
     </ul>
 </div>
 <div>
-    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <p class="font-semibold text-navy mb-2">Foydalanish tartibi:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>"Qo'lda sinash" bo'limida x₁ va x₂ kirish qiymatlari 0 yoki 1 ga o'rnatiladi hamda w₁, w₂ va b slayderlar yordamida sozlanadi.</li>
         <li>Hisoblash natijalari avtomatik ko'rsatiladi: z = w₁×x₁ + w₂×x₂ + b formulasi va chiqish qiymati (0 yoki 1) tahlil qilinadi.</li>
@@ -100,7 +100,7 @@ Perceptron — sun'iy neyron tarmoqlarning eng sodda elementi. U insonning bir n
             </template>
         </div>
         <div x-show="xorWarn" class="bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 text-sm mb-4">
-            ⚠️ XOR chiziqli ajralmaydigan muammo — bitta perceptron bilan yechilmaydi. Buning uchun ko'p qatlamli neyron tarmoq (MLP) kerak.
+            XOR chiziqli ajralmaydigan muammo — bitta perceptron bilan yechilmaydi. Buning uchun ko'p qatlamli neyron tarmoq (MLP) kerak.
         </div>
         <div x-show="truthTable.length" class="overflow-x-auto">
             <table class="w-full text-sm">
@@ -164,3 +164,4 @@ document.addEventListener('alpine:init', () => {
 <li>A8 — Ko'p qatlamli perceptron (MLP) va backpropagation</li>
 <li>XOR muammosining tarixi va AI qishi</li>
 {% endblock %}
+

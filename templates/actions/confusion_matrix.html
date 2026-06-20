@@ -1,10 +1,10 @@
-{% extends 'actions/_tool_base.html' %}
+﻿{% extends 'actions/_tool_base.html' %}
 {% block title %}Confusion Matrix Kalkulyatori{% endblock %}
 {% block crumb %}Confusion Matrix{% endblock %}
-{% block tool_title %}📊 Xatoliklar Matritsasi Kalkulyatori{% endblock %}
+{% block tool_title %}Xatoliklar Matritsasi Kalkulyatori{% endblock %}
 {% block badges %}
-<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A4 — Mashinali o'qitish</span>
-<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A6 — Klassifikatsiya algoritmlari</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A4 — Mashinali o'qitish</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A6 — Klassifikatsiya algoritmlari</span>
 {% endblock %}
 {% block description %}Klassifikatsiya modelini baholashning barcha asosiy metrikalarini bitta joyda hisoblang va ularning ma'nosini o'rganing.{% endblock %}
 
@@ -26,11 +26,11 @@ Confusion matrix klassifikatsiya modelining qanchalik to'g'ri ishlashini ko'rsat
 {% block steps %}
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
     <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – klassifikatsiya modellarining samaradorligini xatoliklar matritsasi (confusion matrix) asosida kompleks baholash, Accuracy, Precision, Recall va F1-score ko'rsatkichlarini avtomatik hisoblash hamda modelning amaliy qo'llanish sohalaridagi muvofiqligini tahlil qilish.</p>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Klassifikatsiya natijalarini kiritish – TP, FP, FN, TN qiymatlarini tizimga kiritish va boshqarish imkoniyati.</li>
         <li>Metrikalarni avtomatik hisoblash – Accuracy, Precision, Recall, F1-score va Specificity ko'rsatkichlarini formulalar asosida hisoblash.</li>
@@ -40,17 +40,17 @@ Confusion matrix klassifikatsiya modelining qanchalik to'g'ri ishlashini ko'rsat
     </ol>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <p class="font-semibold text-navy mb-2">Uning imkoniyatlari:</p>
     <ul class="space-y-1 text-sm text-gray-700">
-        <li>✅ To'rt komponentli kiritish – TP, FP, FN, TN qiymatlarini alohida maydonchalarda kiritish va avtomatik qayta ishlash.</li>
-        <li>✅ Rangli vizualizatsiya – to'g'ri bashoratlar (TP, TN) yashil, noto'g'ri bashoratlar (FP, FN) qizil rang bilan ajratiladi.</li>
-        <li>✅ Besh metrikali tahlil – Accuracy, Precision, Recall, F1-score va Specificity ko'rsatkichlari bir vaqtda hisoblanadi.</li>
-        <li>✅ Progress bar indikatori – har bir metrika qiymati foiz ko'rinishida progress bar orqali vizual tarzda aks ettiriladi.</li>
-        <li>✅ Tezkor va ishonchli hisob-kitoblar – standart klassifikatsiya metrikalari formulalari asosida qiymatlarni aniq va tezkor hisoblash.</li>
+        <li>To'rt komponentli kiritish – TP, FP, FN, TN qiymatlarini alohida maydonchalarda kiritish va avtomatik qayta ishlash.</li>
+        <li>Rangli vizualizatsiya – to'g'ri bashoratlar (TP, TN) yashil, noto'g'ri bashoratlar (FP, FN) qizil rang bilan ajratiladi.</li>
+        <li>Besh metrikali tahlil – Accuracy, Precision, Recall, F1-score va Specificity ko'rsatkichlari bir vaqtda hisoblanadi.</li>
+        <li>Progress bar indikatori – har bir metrika qiymati foiz ko'rinishida progress bar orqali vizual tarzda aks ettiriladi.</li>
+        <li>Tezkor va ishonchli hisob-kitoblar – standart klassifikatsiya metrikalari formulalari asosida qiymatlarni aniq va tezkor hisoblash.</li>
     </ul>
 </div>
 <div>
-    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <p class="font-semibold text-navy mb-2">Foydalanish tartibi:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>TP (True Positive), FP (False Positive), FN (False Negative) va TN (True Negative) qiymatlari mos maydonchalarga kiritiladi.</li>
         <li>Namuna sifatida spam aniqlash modeli uchun quyidagi qiymatlar kiritilishi mumkin: TP=90, FP=10, FN=10, TN=190.</li>
@@ -160,3 +160,4 @@ function cmApp() {
 <li>A6 — Klassifikatsiya algoritmlari</li>
 <li>ROC-AUC va PR-curve — kengaytirilgan baholash</li>
 {% endblock %}
+

@@ -1,10 +1,10 @@
-{% extends 'actions/_tool_base.html' %}
+﻿{% extends 'actions/_tool_base.html' %}
 {% block title %}Gradient Descent Vizualizatori{% endblock %}
 {% block crumb %}Gradient Descent{% endblock %}
-{% block tool_title %}🔻 Gradiyent Pastlash Vizualizatori{% endblock %}
+{% block tool_title %}Gradiyent Pastlash Vizualizatori{% endblock %}
 {% block badges %}
-<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">📚 M5 — Mashinali o'qitish</span>
-<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">🧪 A4 — Amaliyot</span>
+<span class="bg-blue-100 text-electric text-xs font-semibold px-3 py-1 rounded-full">M5 — Mashinali o'qitish</span>
+<span class="bg-green-100 text-emerald text-xs font-semibold px-3 py-1 rounded-full">A4 — Amaliyot</span>
 {% endblock %}
 {% block description %}Algoritmning har bir qadamda parabolada qanday pastga tushishini real vaqtda kuzating.{% endblock %}
 
@@ -22,11 +22,11 @@ Gradiyent pastlash — mashinaviy o'qitishdagi eng muhim algoritmlardan biri. U 
 {% block steps %}
 <h3 class="font-semibold text-navy mb-4"><i class="fas fa-list-check mr-2 text-emerald"></i> Qanday foydalanish kerak?</h3>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Avtomatlashtirilgan tizimning maqsadi</p>
+    <p class="font-semibold text-navy mb-2">Avtomatlashtirilgan tizimning maqsadi</p>
     <p class="text-sm text-gray-700 leading-relaxed">Ushbu avtomatlashtirilgan tizimning asosiy maqsadi – gradiyent pastlash algoritmining ishlash mexanizmini vizual tarzda namoyish etish, o'qish tezligi (learning rate) va iteratsiya sonining optimallashtirish jarayoniga ta'sirini tahlil qilish hamda talabalarning mashinaviy o'qitish algoritmlarini chuqur o'zlashtirishiga ko'maklashish.</p>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning vazifalari:</p>
+    <p class="font-semibold text-navy mb-2">Uning vazifalari:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Boshlang'ich parametrlarni kiritish va boshqarish – foydalanuvchi tomonidan boshlang'ich nuqta, o'qish tezligi va iteratsiya sonini tizimga kiritish imkoniyati.</li>
         <li>Gradiyent hisoblash – har bir iteratsiyada f(x) = x² funksiyasining hosilasini avtomatik hisoblash.</li>
@@ -36,17 +36,17 @@ Gradiyent pastlash — mashinaviy o'qitishdagi eng muhim algoritmlardan biri. U 
     </ol>
 </div>
 <div class="mb-4">
-    <p class="font-semibold text-navy mb-2">📌 Uning imkoniyatlari:</p>
+    <p class="font-semibold text-navy mb-2">Uning imkoniyatlari:</p>
     <ul class="space-y-1 text-sm text-gray-700">
-        <li>✅ Parametrlarni avtomatik qayta ishlash – kiritilgan boshlang'ich qiymatlar asosida gradiyent pastlash algoritmini avtomatik ishga tushirish.</li>
-        <li>✅ Intuitiv vizual interfeys – parabolik funksiya ustida harakatlanuvchi nuqta orqali algoritmni ko'rgazmali namoyish etish.</li>
-        <li>✅ O'qish tezligini tahlil qilish – kichik va katta learning rate qiymatlarining konvergensiya tezligiga ta'sirini solishtirish.</li>
-        <li>✅ Iteratsion jadval – har bir qadam uchun x, f(x) va gradiyent qiymatlarini tartibli jadvalda ko'rsatish.</li>
-        <li>✅ Tezkor va ishonchli hisob-kitoblar – matematik formulalar asosida gradiyent qiymatlarini aniq va tezkor hisoblash.</li>
+        <li>Parametrlarni avtomatik qayta ishlash – kiritilgan boshlang'ich qiymatlar asosida gradiyent pastlash algoritmini avtomatik ishga tushirish.</li>
+        <li>Intuitiv vizual interfeys – parabolik funksiya ustida harakatlanuvchi nuqta orqali algoritmni ko'rgazmali namoyish etish.</li>
+        <li>O'qish tezligini tahlil qilish – kichik va katta learning rate qiymatlarining konvergensiya tezligiga ta'sirini solishtirish.</li>
+        <li>Iteratsion jadval – har bir qadam uchun x, f(x) va gradiyent qiymatlarini tartibli jadvalda ko'rsatish.</li>
+        <li>Tezkor va ishonchli hisob-kitoblar – matematik formulalar asosida gradiyent qiymatlarini aniq va tezkor hisoblash.</li>
     </ul>
 </div>
 <div>
-    <p class="font-semibold text-navy mb-2">📌 Foydalanish tartibi:</p>
+    <p class="font-semibold text-navy mb-2">Foydalanish tartibi:</p>
     <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 leading-relaxed">
         <li>Boshlang'ich nuqta (x₀) qiymati slayder yordamida -10 dan 10 gacha bo'lgan oraliqdan tanlanadi.</li>
         <li>O'qish tezligi (α) parametri 0.01 dan 1.0 gacha bo'lgan oraliqda belgilanadi; dastlabki sinovda 0.1 qiymati tavsiya etiladi.</li>
@@ -152,3 +152,4 @@ function gdApp() {
 <li>A4 — Gradient descent variantlari (SGD, Adam, RMSProp)</li>
 <li>Convex va non-convex funksiyalar</li>
 {% endblock %}
+
