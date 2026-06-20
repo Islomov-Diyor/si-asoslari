@@ -245,7 +245,7 @@ main { animation: fadeIn 0.5s ease; }
 /* Material file previews */
 .material-preview-frame {
     position: absolute;
-    inset: 14px;
+    inset: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -273,8 +273,9 @@ main { animation: fadeIn 0.5s ease; }
 }
 
 .material-preview-page {
-    object-fit: contain;
-    padding: 6px;
+    object-fit: cover;
+    object-position: top center;
+    padding: 0;
     background: #ffffff;
 }
 
