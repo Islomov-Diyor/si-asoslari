@@ -3,10 +3,10 @@
 {% block title %}Natija — {{ quiz.title }}{% endblock %}
 
 {% block content %}
-<section class="py-20">
+<section class="page-section quiz-result-page py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
         <!-- Score Card -->
-        <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12 text-center mb-10">
+        <div class="glass-panel score-card bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12 text-center mb-10">
             <div class="w-32 h-32 mx-auto mb-6 relative">
                 <svg class="w-32 h-32 -rotate-90" viewBox="0 0 120 120">
                     <circle cx="60" cy="60" r="54" fill="none" stroke="#E5E7EB" stroke-width="8"/>
@@ -31,7 +31,7 @@
         <h2 class="text-xl font-bold text-navy mb-6">Batafsil natijalar</h2>
         <div class="space-y-4">
             {% for r in results %}
-            <div class="bg-white rounded-2xl border {% if r.is_correct %}border-emerald/30{% else %}border-red-200{% endif %} p-6">
+            <div class="result-row bg-white rounded-2xl border {% if r.is_correct %}border-emerald/30{% else %}border-red-200{% endif %} p-6">
                 <div class="flex items-start gap-3">
                     <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 {% if r.is_correct %}bg-emerald/10 text-emerald{% else %}bg-red-100 text-red-500{% endif %}">
                         <i class="fas {% if r.is_correct %}fa-check{% else %}fa-times{% endif %}"></i>

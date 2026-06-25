@@ -3,19 +3,19 @@
 {% block title %}Bog'lanish — SI Asoslari{% endblock %}
 
 {% block content %}
-<section class="bg-gradient-to-br from-navy via-blue-900 to-navy py-20">
+<section class="page-hero bg-gradient-to-br from-navy via-blue-900 to-navy py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
         <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Bog'lanish</h1>
         <p class="text-blue-200 text-lg">Savollaringiz bormi? Biz bilan bog'laning</p>
     </div>
 </section>
 
-<section class="py-16">
+<section class="page-section contact-page py-16">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
         <div class="grid md:grid-cols-5 gap-8 -mt-16 relative z-10">
             <!-- Contact Form -->
             <div class="md:col-span-3">
-                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+                <div class="glass-panel contact-form-panel bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
                     <h2 class="text-xl font-bold text-navy mb-6">Xabar yuborish</h2>
                     <form method="post">
                         {% csrf_token %}
@@ -42,7 +42,7 @@
 
             <!-- Contact Info -->
             <div class="md:col-span-2 space-y-4">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <div class="contact-info-card tilt-card bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center">
                             <i class="fas fa-phone text-electric text-xl"></i>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <div class="contact-info-card tilt-card bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center">
                             <i class="fas fa-envelope text-electric text-xl"></i>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <div class="contact-info-card tilt-card bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center">
                             <i class="fab fa-telegram text-electric text-xl"></i>
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <div class="contact-info-card tilt-card bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 bg-electric/10 rounded-xl flex items-center justify-center">
                             <i class="fas fa-map-marker-alt text-electric text-xl"></i>

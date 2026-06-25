@@ -3,17 +3,17 @@
 {% block title %}{% if current_category %}{{ current_category.name }}{% else %}Barcha materiallar{% endif %} — SI Asoslari{% endblock %}
 
 {% block content %}
-<section class="bg-gradient-to-br from-navy via-blue-900 to-navy py-20">
+<section class="page-hero bg-gradient-to-br from-navy via-blue-900 to-navy py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
         <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">{% if current_category %}{{ current_category.name }}{% else %}Barcha materiallar{% endif %}</h1>
         <p class="text-blue-200 text-lg">O'quv materiallari va resurslar</p>
     </div>
 </section>
 
-<section class="py-16">
+<section class="page-section courses-catalog py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <!-- Category Filter -->
-        <div class="flex flex-wrap gap-2 mb-10 -mt-10 relative z-10">
+        <div class="filter-dock flex flex-wrap gap-2 mb-10 -mt-10 relative z-10">
             <a href="{% url 'courses:list' %}" class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 {% if not current_category %}bg-electric text-white shadow-lg shadow-electric/25{% else %}bg-white text-gray-600 hover:bg-electric/5 border border-gray-200{% endif %}">
                 Barchasi
             </a>
@@ -27,7 +27,7 @@
         <!-- Materials Grid -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for material in materials %}
-            <div class="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 scroll-animate">
+            <div class="material-card tilt-card group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 scroll-animate">
                 <div class="h-44 bg-gradient-to-br from-electric/10 to-blue-50 relative overflow-hidden">
                     {% include 'courses/_material_preview.html' with material=material %}
                     <span class="absolute top-4 right-4 px-3 py-1 {% if material.is_active %}bg-emerald text-white{% else %}bg-yellow-500 text-white{% endif %} text-xs font-semibold rounded-full">

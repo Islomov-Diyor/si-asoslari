@@ -22,6 +22,13 @@
     <div class="material-preview-frame">
         <img src="{{ material.file.url }}" alt="{{ material.title }}" class="material-preview-image">
     </div>
+    {% elif material.file_extension == 'ppt' or material.file_extension == 'pptx' %}
+    <div class="material-preview-empty">
+        <div class="material-preview-document">
+            <i class="fas fa-file-powerpoint text-2xl text-orange-500"></i>
+            <span>{{ material.file_extension|upper }}</span>
+        </div>
+    </div>
     {% else %}
     <div class="material-preview-empty">
         <div class="material-preview-document">

@@ -3,7 +3,7 @@
 {% block title %}{{ material.title }} — SI Asoslari{% endblock %}
 
 {% block content %}
-<section class="bg-gradient-to-br from-navy via-blue-900 to-navy py-16">
+<section class="page-hero page-hero-detail bg-gradient-to-br from-navy via-blue-900 to-navy py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <nav class="text-sm text-blue-300 mb-4">
             <a href="{% url 'courses:list' %}" class="hover:text-white transition">Materiallar</a>
@@ -16,12 +16,12 @@
     </div>
 </section>
 
-<section class="py-16">
+<section class="page-section material-detail-page py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="grid lg:grid-cols-3 gap-8">
             <!-- Main Content -->
             <div class="lg:col-span-2">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="glass-panel material-reader bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                     {% if material.video_url %}
                     <div class="aspect-video">
                         <iframe src="{{ material.video_url }}" class="w-full h-full" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
@@ -65,7 +65,7 @@
 
             <!-- Sidebar -->
             <div>
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-24">
+                <div class="glass-panel related-panel bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-24">
                     <h3 class="text-lg font-bold text-navy mb-4">O'xshash materiallar</h3>
                     <div class="space-y-4">
                         {% for item in related %}

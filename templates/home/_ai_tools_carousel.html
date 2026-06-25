@@ -1,0 +1,33 @@
+<section class="ai-showcase" aria-label="Mashhur sun'iy intellekt platformalari">
+    <div class="ai-showcase-glow ai-showcase-glow-one"></div>
+    <div class="ai-showcase-glow ai-showcase-glow-two"></div>
+
+    <div class="ai-marquee scroll-animate">
+        <div class="ai-marquee-track">
+            {% for copy in "12" %}
+            <div class="ai-marquee-group" {% if not forloop.first %}aria-hidden="true"{% endif %}>
+                {% for tool in ai_tools %}
+                <a class="ai-tool-card"
+                   href="{{ tool.url }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="--brand-accent: {{ tool.accent }};"
+                   {% if not forloop.parentloop.first %}tabindex="-1"{% endif %}
+                   aria-label="{{ tool.name }} rasmiy saytini yangi oynada ochish">
+                    <span class="ai-tool-logo-wrap">
+                        <span class="ai-tool-logo-fallback" aria-hidden="true">{{ tool.initials }}</span>
+                        <img class="ai-tool-logo"
+                             src="https://www.google.com/s2/favicons?domain={{ tool.domain }}&sz=128"
+                             alt="{{ tool.name }} logotipi"
+                             width="64"
+                             height="64"
+                             loading="lazy">
+                    </span>
+                    <strong>{{ tool.name }}</strong>
+                </a>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

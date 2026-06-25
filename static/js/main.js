@@ -115,3 +115,166 @@ document.querySelectorAll('.nav-link').forEach((link) => {
         link.classList.add('nav-active');
     }
 });
+
+// ============================================================
+// RESEARCH UI — POINTER LIGHT, SCROLL PROGRESS, AND 3D CARDS
+// ============================================================
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+window.addEventListener('scroll', () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    document.documentElement.style.setProperty('--scroll-progress', progress.toFixed(2));
+}, { passive: true });
+
+if (!reducedMotion && window.matchMedia('(pointer: fine)').matches) {
+    window.addEventListener('pointermove', (event) => {
+        document.documentElement.style.setProperty('--pointer-x', `${event.clientX}px`);
+        document.documentElement.style.setProperty('--pointer-y', `${event.clientY}px`);
+    }, { passive: true });
+
+    document.querySelectorAll('.tilt-card').forEach((card) => {
+        card.addEventListener('pointermove', (event) => {
+            const rect = card.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width;
+            const y = (event.clientY - rect.top) / rect.height;
+            const rotateY = (x - 0.5) * 8;
+            const rotateX = (0.5 - y) * 7;
+
+            card.style.setProperty('--tilt-x', `${rotateX.toFixed(2)}deg`);
+            card.style.setProperty('--tilt-y', `${rotateY.toFixed(2)}deg`);
+            card.style.setProperty('--card-x', `${(x * 100).toFixed(1)}%`);
+            card.style.setProperty('--card-y', `${(y * 100).toFixed(1)}%`);
+        });
+
+        card.addEventListener('pointerleave', () => {
+            card.style.setProperty('--tilt-x', '0deg');
+            card.style.setProperty('--tilt-y', '0deg');
+            card.style.setProperty('--card-x', '50%');
+            card.style.setProperty('--card-y', '20%');
+        });
+    });
+}
+
+// ============================================================
+// LIVE HERO — ANIMATED NEURAL NETWORK
+// ============================================================
+const neuralCanvas = document.getElementById('heroNeuralCanvas');
+
+if (neuralCanvas) {
+    const context = neuralCanvas.getContext('2d');
+    const hero = neuralCanvas.closest('.home-hero');
+    const nodes = [];
+    const pointer = { x: 0, y: 0, active: false };
+    let width = 0;
+    let height = 0;
+    let animationFrame = null;
+
+    const nodeCount = () => Math.max(28, Math.min(72, Math.floor(width / 24)));
+
+    const createNodes = () => {
+        nodes.length = 0;
+        for (let index = 0; index < nodeCount(); index++) {
+            nodes.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.18,
+                vy: (Math.random() - 0.5) * 0.18,
+                radius: Math.random() * 1.6 + 0.7,
+                phase: Math.random() * Math.PI * 2,
+            });
+        }
+    };
+
+    const resizeNeuralCanvas = () => {
+        const rect = hero.getBoundingClientRect();
+        const scale = Math.min(window.devicePixelRatio || 1, 1.75);
+        width = Math.max(1, rect.width);
+        height = Math.max(1, rect.height);
+        neuralCanvas.width = Math.floor(width * scale);
+        neuralCanvas.height = Math.floor(height * scale);
+        neuralCanvas.style.width = `${width}px`;
+        neuralCanvas.style.height = `${height}px`;
+        context.setTransform(scale, 0, 0, scale, 0, 0);
+        createNodes();
+    };
+
+    const drawNeuralScene = (time) => {
+        context.clearRect(0, 0, width, height);
+
+        nodes.forEach((node) => {
+            node.x += node.vx;
+            node.y += node.vy;
+            if (node.x < -10) node.x = width + 10;
+            if (node.x > width + 10) node.x = -10;
+            if (node.y < -10) node.y = height + 10;
+            if (node.y > height + 10) node.y = -10;
+        });
+
+        for (let first = 0; first < nodes.length; first++) {
+            const a = nodes[first];
+            for (let second = first + 1; second < nodes.length; second++) {
+                const b = nodes[second];
+                const distance = Math.hypot(a.x - b.x, a.y - b.y);
+                if (distance < 135) {
+                    const alpha = (1 - distance / 135) * 0.28;
+                    const gradient = context.createLinearGradient(a.x, a.y, b.x, b.y);
+                    gradient.addColorStop(0, `rgba(96, 165, 250, ${alpha})`);
+                    gradient.addColorStop(1, `rgba(103, 232, 249, ${alpha * 0.8})`);
+                    context.strokeStyle = gradient;
+                    context.lineWidth = 0.7;
+                    context.beginPath();
+                    context.moveTo(a.x, a.y);
+                    context.lineTo(b.x, b.y);
+                    context.stroke();
+                }
+            }
+
+            if (pointer.active) {
+                const pointerDistance = Math.hypot(a.x - pointer.x, a.y - pointer.y);
+                if (pointerDistance < 190) {
+                    context.strokeStyle = `rgba(167, 139, 250, ${(1 - pointerDistance / 190) * 0.34})`;
+                    context.beginPath();
+                    context.moveTo(a.x, a.y);
+                    context.lineTo(pointer.x, pointer.y);
+                    context.stroke();
+                }
+            }
+        }
+
+        nodes.forEach((node) => {
+            const pulse = 0.65 + Math.sin(time * 0.0015 + node.phase) * 0.35;
+            context.fillStyle = `rgba(165, 243, 252, ${0.40 + pulse * 0.42})`;
+            context.shadowColor = '#22d3ee';
+            context.shadowBlur = 8 * pulse;
+            context.beginPath();
+            context.arc(node.x, node.y, node.radius + pulse * 0.45, 0, Math.PI * 2);
+            context.fill();
+        });
+        context.shadowBlur = 0;
+
+        animationFrame = requestAnimationFrame(drawNeuralScene);
+    };
+
+    hero.addEventListener('pointermove', (event) => {
+        const rect = hero.getBoundingClientRect();
+        pointer.x = event.clientX - rect.left;
+        pointer.y = event.clientY - rect.top;
+        pointer.active = true;
+    }, { passive: true });
+
+    hero.addEventListener('pointerleave', () => {
+        pointer.active = false;
+    });
+
+    const resizeObserver = new ResizeObserver(resizeNeuralCanvas);
+    resizeObserver.observe(hero);
+    resizeNeuralCanvas();
+
+    if (!reducedMotion) {
+        animationFrame = requestAnimationFrame(drawNeuralScene);
+    } else {
+        drawNeuralScene(0);
+        if (animationFrame) cancelAnimationFrame(animationFrame);
+    }
+}
